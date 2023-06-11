@@ -1,0 +1,18 @@
+﻿了控件样式
+dwStyle:指定控件的风格
+LBS_EXTENDEDSEL:支持多重选择，在点击列表项时按住Shift键或Ctrl键即可选择多个项
+LBS_HASSTRINGS:指定f含有字符串的自绘式列表框
+LBS_MULTICOLUMN:指定一个水平滚动的多列列表框
+LBS_MULTIPLESEL:支持多重选择。
+LBS_NOINTEGRALHEIGHT:列表框的尺寸由应用程序而不是Windows指定。通常，Windows指定尺寸 会使列癫的某些部分隐藏起来
+LBS_NOREDRAW:当选择发生变化时防止列表框被更新，可发送消息改变该风格
+LBS_NOTIFY:只要用户单击列表框项目(LBN_SELCHANGE),双击f 项目(LBN_DBLCLK)或取消选 择(LBN_SELCANCEL),就会使列表框向父窗口发送通知代码。
+LBS_OWNERDRAWFIXED:指定自绘式列表框，即由父窗口负责绘制列表框的内容，列表项有相同的高度
+LBS_OWNERDRAWVARIABLE:指定自绘式列表框，并且列表项有不同的高度
+LBS_SORT:使插入列表框中的项按升序排列
+LBS_STANDARD:相当于指定了WS_BORDER|WS_VSCROLL|LBS_SORT
+LBS_USETABSTOPS:使列表框在显示列表项时识另小并扩展制表符(’\t'),默认制表宽度是32个对话框单 位
+LBS_WANTKEYBOARDINPUT:允许列表框的父窗口接收WM_VKEYTOITEM 和WM_CHARTOITEM 消息, 以响应键盘输入
+LBS_DISABLENOSCROLL:使列表框在不需要滚动时显示一个禁止的垂直滚动条
+dwStyle可以是以上所列风格的组合。与其他控件一样，除了这些风格一般还要为列表框控件设置 WS_CHILD、WS_VISIBLE、WS_TABSTOPs WS_BORDERX WS_VSCROLL等风格。
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,9 @@
+﻿什么会不断产生WM PAINT消息?
+如果应用程序在窗口过程中用如下方法处理WM_PAI NT消息，那么将导致不停的发送消息!
+case WM PAINT:
+return 0;
+如果当前窗口用户区的某一部分变为无效，贝"Windows会将fWM_ PAI NT消息放到消 息队列中，如果不调用BeginPaint和EndPaint函数处理，(同时，也不调用ValidateRect函 数),该无效区域不会变为有效，于是Windows将会发送另f WM_PAINT消息，并且会一 直发送下去。默认消息处理函数DefWindowProc处理WM_PAINT消息的代码就是： case WM PAINT: hdc=BeginPaint( hwndz&ps);
+EndPaint( hwnd, &ps);
+return 0;
+这段代码并不进行任何绘图操作,只是简单地将ps指定的无效矩形区域变为有效
+本视频版权归黄强所有、侵权必究

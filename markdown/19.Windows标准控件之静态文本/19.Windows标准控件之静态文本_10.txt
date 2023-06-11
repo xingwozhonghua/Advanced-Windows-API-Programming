@@ -1,0 +1,6 @@
+﻿态文本控件显示位图，图标等
+〃加载位图
+HBITMAP hBmp = LoadBitmap(GetModuleHandle(NULL)/ MAKEINTRESOURCE(IDB BITMAPI));
+〃向控件发送STM_SETIMAGE¥肖息设置图片
+LRESULT ret = SendMessage(hStatic, STM SETIMAGE, (WPARAM)IMAGE BITMAB (LPARAM)hBmp);
+本视频版权归黄强所有、侵权必究

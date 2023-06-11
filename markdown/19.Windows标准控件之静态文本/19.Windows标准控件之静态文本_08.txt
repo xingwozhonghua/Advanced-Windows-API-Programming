@@ -1,0 +1,10 @@
+﻿etWindowText 函数
+Windows API宏，在Winllser.h中根据是否已定义Unicode被分别定义为SetWindowTextW和 SetWindowTextA,这两个函数攻变指定窗口的法题栏的文赤司容。
+BOOL WINAPI SetWindowText（
+_ln_ HWND hWndz 〃窗口或控件的句柄
+_ln_opt_ LPCWSTR IpString）;//窗口或控件的新文本
+返回值
+如果函数成功，返回值为非零；
+如果函数失败，返回值为零。若想获得更多错误信息，请调用GetLastError函数。
+如果目标窗口由当前进程拥有，贝USetWindowText将导致WM_SETTEXT消息发送^指定的窗口或控件。如剧$件是使用 WS_CAPTION样式创建的列表框控件，但是，SetWindowTe妊设整件的文本，而不是列表框条目。要在另f 进程中设置控件 的文本，请直接发送WM_SETTEXT消息，而不是调用SetWindowText。
+本视频版权归黄强所有、侵权必究

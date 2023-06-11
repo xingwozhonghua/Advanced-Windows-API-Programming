@@ -1,0 +1,12 @@
+﻿我们可以向列表框框控件发送LB_XXX消息来设置文本等操作
+LB_ADDSTRING	向列表框添力I字符串。
+LB_DELETESTRING	删除列表框中的字符串.
+LB_DIR	将名称添加到列表框显示的列表中。
+LB_FINDSTRING	在列表框中查找以指定字符串开头的笫f字符串.
+LB_FINDSTRINGEXACT	查找与指定字符串完全匹配的第—列表框字符串，也索不区分大＜J泻.
+LB_GETANCHORINDEX	获聪苗点项目的索引-即从中开始多项选择的项目。
+LB.GETCARETINDEX	检索具有多选列表框中焦点矩形的项目的索引.该项目可能会或可能不会被选中。
+LB_GETC0UNT	获取列表框中的项目数.
+LB_GETCURSEL	在单选列表框中获取当前选定项目的索引（如果有的话）。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb775146(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

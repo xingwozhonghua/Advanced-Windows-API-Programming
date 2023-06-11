@@ -1,0 +1,44 @@
+﻿Wind。ws程序中字符集
+在Visual Studio 2015中，支持Unicode字符集(默认使用的是UTF-16),与多字节字符 集(MBCS: Multi-Byte Character Set)。
+testEU^
+? X
+SBS(C):活动(Debug)
+▼平台(P):活动(Win32)
+aBSSIS3(O)...
+，皿E性
+VC+,目录
+1＞ C/C++
+t＞链接器
+＞浏览信息 A政时牛
+A代码分析
+v常规
+目皈平台 目新平台版本 谕《目录 中间目录 目tiRS：再 目猝件矿辰名 清晒要 g 的扩辰名 成日由件 平台工密 后用富增星生成
+v I页口默认(6
+Windows
+&1
+$(SolutionDir)$(Configuration)\
+$(Configuration)\
+$(ProjectName)
+.exe
+*.cdf;*.cache;*.obj;*.ilk;*.ipdb;*.iobj;*.resources：*.tlb;*.tli：*.tlh;*.tni
+S(lntDir)$(MSBuildPrqjectName).log
+Visual Studio 2015 (v140)
+否
+Mrc的使用
+应用程序(.exe)
+使用惊准Windows库
+便用Unicode字符氐
+配
+片笑
+侏设置
+公共语古运行时支持
+.NET目标框?本 全程序优化
+Windows应用商店般用支特
+使用Unicode g 实
+便用多字节字符失
+＜从父圾或项目状认瞄继承＞
+E
+宇符集
+通知氛译器使用指定的*5集；帮助场决本t也化间题.
+璐定	耽肖
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,180 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows控件之列表视图控件（上）
+本视频版权归黄强所有、侵权必究
+indows控件之列表视图控件
+列表视图控件是一个显示项目集合的窗口，提供了4种排列和显示项目的方法，比 简单的列表框更灵活。它是类名是WC_LISTVIEW。
+皇 一X
+图标视图	小图标视图	列表显示
+LVS ICON	LVS SMALLICON	LVS LIST
+报告
+LVS REPORT
+本视频版权归黄强所有、侵权必究
+，控件样式
+dwStyle:指定控件的风格
+LVS_ICON:为每个item显示大图标，用户可以将项目拖到任何位置。 LVS_SMALLICON:为每个item显示小图标，用户可以将项目拖到任何位置。 LVS_LIST:显示一列带有小图标的item,无法将其拖动到任意位置
+LVS_REPORT:报表风格，此风格第一列总是左对齐，不能使用LVCFMNT_RIGHT改变。
+LVS_ALIGNLEFT,指定条款左对齐且是"图标视图”或"小图标视图〃。 LVS_ALIGNMASK,决定控件当前靠齐方式。
+LVS ALIGNTOP,指定条款顶端对齐且是"图标视图”或"小图标视图〃。
+s s s s s S LVLVLVLVWLV
+AUTOARRANGE,图标自动保持小图标和图标视图。
+EDITLABELS, Item的文本可以编辑。父窗口处理通知消息：LVN_ENDLABELEDITO NOCOLUMNHEADER,在report视图不显示列头，默认是显示列买的。 NOLABELWRAP,在icon视图中，Item的文本在单行显示。Icon视图下可能多行。
+NOSCROLL,屏蔽滚动条，所有item必须在客户区内。该风格与list和report视图不兼容。 NOSORTHEADER,列头没有按钮功能。在report视图中，比如排序。
+本视频版权归黄强所有、侵权必究
+了控件样式
+LVS_OWNERDATA,指定f 虚拟的ListView,由用户自己管理Item数据。
+LVS_OWN ERDRAWFIXED z 允许自绘。
+LVS_SHAREIMAGELISTSZ控件销毁时不删除关联的imagelist控件。该风格可以使多个listctrl
+使用同样的imagelisto
+LVS_SHOWSELALWAYS,使listctrl控件一直处于选中状态，即使该控件没有焦点 LVS_SINGLESEL,只有一个item可以被选择，默认是多选的。
+LVS_SORTASCENDINGZ item索引基于item的文本升序排列。
+LVS_SORTDESCENDINGZ item索引基于item的文本降序排列。
+LVSJYPEMASK,决定当前窗口风格(是否屏蔽设置的视图类别如：LVSJCON) o可以确定当前视图的窗 口风格。
+LVSJYPESTYLEMASK,决定窗口风格，控制item对齐方式和头显示以及其它行为。
+备注：由于LVSJJST和LVS_REPORT风格的视图根据索引以相同的方式排列显示，索引这两个类别的视图的排序 结果能立即体胡给用户。关手LVSJCON和LVS_SMA山CON这两个视图不使用索引决定icons的位置，所以它 们排序结果不能体现给用户。
+你可以使用LVS_TYPEMASK风格从获得当前列表的视图类别。
+你可以使用LVS_ALIGNMASK风格获得视图列表当前靠齐方式。
+你可以使用LVS_TYPESTYLEMASK风格获得对齐方式(LVS_ALIGNTOP、LVS_ALIGNLEFT)和头显示和行为 (LVS_NOCOLUMNHEADERs LVS_NOSORTHEADER)的的风格。
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hListView = CreateWindow(WC_LISTVIEW,
+L”列表视图”，
+WS_CHILD | WS_VISIBLE | LVSJCON,
+30,30,
+200, 200,
+hWnd,
+(HMENU)111, ((LPCREATESTRUCT)IParam)->hlnstance,
+NULL);
+}break;
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+可以向控件发送LVM_XXX消息来设置控件。
+LVM_SETIMAGELIST	将图像列表分轮列表视图控件.您可以显式发送此消息或使用ListView_SetlmageList宏。
+LVMJNSERTITEM	在列去睡控件中插入一?＜项目.您可以显式发送此消息或使用ListView」nsertltem宏.
+LVM_DELETEALLITEMS	删除列表视图控件中的所有项目.您可以显式发送此消息或使用ListView_DeleteAllltems宏.
+LVM_DELETECOLUMN	从列表视图控件中移除一列。您可以昼式发送此消息或使用ListView_DeleteColumn宏。
+LVM_DELETEITEM	从列表赠控件中删除—项目.您可以殷发送此消息或使用ListView_Deleteltem宏.
+lvm_settextbkcolo R	蠲列表邮控＜牛中文本的背景颜色。㈣以取;发茵it消息或使用ListView_SetTextBkCol。苏.
+LVM_SETTEXTC0L0R	蠲列表邮招牛龄本颜色.伽似©裁觐消成使用ListView_SetTextCol。阮.
+LVM_SETVIEW	蠲 列表15!®^ 唯飕.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb774737(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+像列表Image Lists
+图像列表(Image Lists)是相同大小图像的一个集合，以0为图像的起始索引，它本身并不是控件，但 和List View、Tree View等控件一起使用。
+HIMAGELIST lmageList_Create(
+int ex,
+int cy,
+UINT flags,
+int clnitial,
+int eGrow
+)；
+参数：	_
+ex、cy图像的宽度，高度(象素)
+nFlags确定建立图像列表的类型，可以是以下值的组合：ILC_COLOR、ILC_COLOR4、ILC_COLOR8X ILC COLOR16、ILC COLOR24、ILC COLOR32、ILC_C0LORDD□ ILC_MASK;
+nlnitial用来确定图椽列表包含的图像数量
+□Grow根据该系统需要调整列表腾出空间
+本视频版权归黄强所有、侵权必究
+像列表Image Lists
+在资源中导入3个图标32X32的24位图标:
+▼ ¥ x
+E原视图-MFCApplicationB
+」（§] MFCApplication3
+， M FCApplication3.rc t> , Bitmap ， Dialog 围 IDD_ABOUTBOX 国 IDD_MFCAPPLICATION3_DIALOG 」 Icon
+0 IDIJCON1
+0 IDIJCON2
+0 IDIICON3 ______
+13 IDR_MAinframe t> String Table Version
+本视频版权归黄强所有、侵权必究
+〃创建图像列表
+HIMAGELIST hLarge= lmageList_Create(GetSystemMetrics(SM_CXICON)/
+GetSystemMetrics(SM CYICON),
+〃加载图标到图像列表
+for (int i =0; i< 3; i++)
+E安
+#include"resourc
+e.h“
+HICON
+hlcon = Loadlcon( GetModuleHandle(NJ MAKEINTRESOURCE(IDI_ICON1 + i ))F lmageList_Addlcon(hLarger hlcon);
+Destroylcon(hlcon);
+}
+〃设置列表视图的图像列表
+SendMessage(hListViewz LVM SETIMAGELIST, LVSIL NORMAL JLPARAM) hLarge);
+注：如果相关函数报错需要加入#pragma comment(lib「Comctl32.lib")
+本视频版权归黄强所有、侵权必究
+示代码
+for (int i = 0; i < 3; + + i)
+{
+LVITEM Iv;
+Iv.iltem = i;
+Iv.iSubltem =0;
+Iv.pszText =( i ==0 ? L“音乐” :(i == 1 ? L“啤酒”:L”炸鸡“))； Iv.ilmage = i;
+Iv.mask = LVIF TEXT | LVIF IMAGE | LVIF STATE;
+Iv.state = (i == 0? LVIS_SELECTED:O ); 一
+SendMessage(hListView； LVM INSERTITEM, 0, (LPARAM)&lv); } ~
+〃具有焦点
+SetFocus(hListView);
+//SendMessage(hListViewr LVM SETTEXTCOLOR, 0z RGB(255, 0, 0)); //SendMessage(hListViewr LVM^SETBKCOLOR, 0, RGB(100, 0, 100));
+//SendMessage(hListViewr LVM^SETTEXTBKCOLOR, 0, RGB。255, 0));
+本视频版权归黄强所有、侵权必究
+空件通知消息
+控件会向父窗口发送WM_NOTIFY$肖息的形式的通知代码
+LVN_INSERTITEM	通知列表视g腔件的父窗口已插入新项目。此通知代码以WM_NOTIFY消息的形式发送。
+LVN_ITEMACTIVATE	用户■舌项目时由列表视站件发苞此畋以WM_NOTIFY尚邸瞬发送。
+LVNJTEMCHANGED	通知列表视图控件的父窗口项目已更改.此通知代码以WM_NOTIFY消息的形式发送。
+LVNJTEMCHANGING	通知列表视图控件的父窗口项目正在改变。此通知代码以WM_NOTIFY消息的形式发送。
+LVN_KEYDOWN	通知列表视图控件的父窗口已按下键.此畋代码以WM_NOTIFY消息的形式发送.
+LVN_LINKCLICK	通知列表视图控件的父窗口跋已被点击。此通知以WM_NOTIFY消息的形式发送.
+LVN_MARQUEEBEGIN	通知列表视图控件的父园口边界框（选取框）雄已经开始.此畋代码以WM_NOTIFY消息的形式发送.
+LVN_ODCACHEHINT	当显示区域的内容发您化时，由虚拟列表视图控件发送。例如，当用户滚动腔件的电示时，列表视图控件发送此通知。所述 LVNJDDCACHEHINT通知代码在的形式发送WM_NOTIFY消息。
+LVN_ODFINDITEM	通过发送邮列表视图时，它需要车主找剑f 特定的回调项控制。例如，控件将畋愀捷键盘输入或收到LVM_FINDITEM消息时 凝此畋。
+LVN_ODSTATECHANGED	当项目状态或项目范围发生变化时，由列表视图控件发送。此通知以WM_NOTIFY消息的形式发送。
+LVN_SETDISPINFO	通知列表视图控件的父窗口，它必须更新它为某个项目维护的信息。此通知代码以WM_NOTIFY消息的形式发送。
+NM.CLICK例表硒）	当用户用鼠标左键单击某个项目时，由列表视图控件发送。此通知代码以WM_NOTIFY消息的形式发送。
+本视频版权归黄强所有、侵权必究
+911富
+case WM—NOT-FY-
+f
+NMHDR *phdrh(nmhdr *)_paraw
+一f ((PHDR—vcode nn L\/N」TEMCHANGED) Re (PHDR—V一dFrom nn 三))
+f
+LPNML-STVmw p<ew H (LPNML_STV-EW}-pgami
+-f (pv-ew—vuchanged n" LV-FISTATE)
+一f (PVEW—VUNewstaa 8i L\/_S—SELECTED)
+f
+TCHAR buf【641 H (s
+lvhem _vj
+-v.-sub-am H o；
+-V.PSZTexf H bum
+-v.cchTextMax n sN,eof(buf)一 sendMessagapHDR—vhwndFrom、LVM—GET_TEMTEXT、PV(D-W—V=sm、(LPARAM)adv)」
+MessageBOX(hwnd、buf Lnsi『n、MB6IQ; se-FOCUS(PHDR—vhwndFrom)；
+-break-
+冲酬SMSDNS?)®- hHPS7、msdn.m-crosoft.com、en—us、=b2ry、w-ndows、desk3p、bb761055(VHVS.85).aspx
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

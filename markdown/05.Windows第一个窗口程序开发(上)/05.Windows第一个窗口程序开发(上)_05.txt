@@ -1,0 +1,17 @@
+﻿
+口类 WNDCLASS
+WNDCLASS结构体包含一个窗口类的全部信息，定义一个窗口类确定窗口的属性：
+typedef struct tagWNDCLASSA {
+UINT	style;//® 口类的风格
+WNDPROC IpfnWndProc;//®口过程函数，处理窗口消息
+int	cbCIsExtra;//指定窗口类结构之后要分配的额外字节数。系统将字节初始化为零
+int	cbWndExtra;//指定窗口实例之后要分配的额外字节数。系统将字节初始化为零
+HINSTANCE hlnstance;//窗口的实例包柄
+HICON	hlcon;//该窗口类所用的图标
+HCURSOR	hCursor;//该窗口类所用的光标
+HBRUSH	hbrBackground; 〃该窗口类所用的背景刷
+LPCSTR	IpszMenuName; 〃该窗口奚所用的菜单资源名称
+LPCSTR	IpszClassName;// 该窗口类名称
+} WNDCLASSA;
+注：https://msdn.microsoft.com/en-us/library/windows/desktop/ms633576(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

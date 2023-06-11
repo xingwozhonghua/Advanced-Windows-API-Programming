@@ -1,0 +1,11 @@
+﻿合框控件通知消息
+控件会向父窗口发送命令消息WMJZOMMAND,通知码为CBN_XXX.
+CBN_SELCH ANGE	该CBN_SELCHANGE当用户改变组合框的列表框中当前选择通知代码发送.用户可以通过单击列表框或使用箭头键来更改选择。组合框的父窗口以 WM_COMMAND消息的形式在初初w?参教的高位字中使用CBN_SELCHANGE接收此通知.
+CBN_SELEN DCANCEL	所述CBN_SELENDCANCEL当用户选择的^目，但随后选择另f 控制或关闭对话框濒代码被发送.它表示用户的初始选择将被忽略。组合框的 父窗口通过WM_COMMAND消息接收此通知代码.
+CBN_SELEN DOK	所述CBN_SELENDOK当用户选择列表项，或选择项目，然后关闭列表通知代码被发送.它表示用户的选择将被处理，组合框的父窗口通过 WM_COMMAND消息接收此通邮码.
+CBN.SETFO CUS	该CBN_SETFOCUS当组合框接收键盘焦点通知^码发送.组合框的父窗口通过WM_COMMANDj肖息、接收此通知代码.
+WM_C0MP AREITEM	系统发送WM_COMPAREITEM消息以确定新项目在自绘组合框或列表框的排序^表中的相对位置.无论应用程序何时添力晰项目，系统都会将此消 息发送给使用CBS_SORT或LBS_SORT样式创建的组合框畛IJ表框的所有者.
+WM_DRAWI TEM	当按钮，组合框，列表框或菜单的视觉方面发生改变时，WM_DRAWITEM诲被发送到自绘按钮，组合框，列表框或菜单的父窗口.
+WM.MEASU 该WM_MEASUREITEM创坐制或菜单时肖息被发送到组合框，列表框，列表视图控件，或菜单项的所有者窗口. REITEM	
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb775792(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

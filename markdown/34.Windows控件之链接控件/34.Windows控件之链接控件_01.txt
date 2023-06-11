@@ -1,0 +1,86 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之链接控件
+本视频版权归黄强所有、侵权必究
+indows控件之热键控件
+链接控件一个文本的窗口，并在用户单击其嵌入的超链接＜a ＞标签时通知应用程 序。它是类名是WC_LINKO
+本视频版权归黄强所有、侵权必究
+，控件样式
+dwStyle:指定控件的风格。可以是以下风格的任意组合。
+热键控件一般设置WS_CHILD、WS_VISIBLE、WS_BORDER等窗口风
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hLink= CreateWindow(WC_LINK,
+L"<a id=\"hq\" href=\,,https://nmwsoft.taobao.comA" >测试链接</a>", WS_CHILD| WS_VISIBLE,
+30.30,
+200.30,
+hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstance,
+NULL);
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+空件无法创建的原因
+若创建失败，则需要加入以下指令指定清单依赖项
+#pragma comment(linker;,,\7manifestdependency:type='Win32' name='Microsoft.Windows.Common-Controls, \
+version = '6.0.0.0' processorArchitecture = publicKeyToken = '6595b64144ccf1df language =
+参考链接：htlps:〃technet microsoft.com/zh-cn/library/ew0y5khy(v = vs.120)
+本视频版权归黄强所有、侵权必究
+空件向父窗口发送的通知消息
+控件会向父窗口通过WM_NOTIFY消息发送两个通知消息：NM_CLICK用鼠标左键单击超链接, NM_RETURN用于在超链接时键盘按下enterWo
+NMCLICK或NMRETURN消息发送该NMLINK结构。
+typedef struct tagNMLINK { NMHDRhdr;
+LITEM item;
+} NMLINK, *PNMLINK;
+本视频版权归黄强所有、侵权必究
+ITEM结构
+typedef struct tagLITEM {
+UINT mask;//要设置或检索的信息的一个或多个以下标志的组合，项目总是通过索引访问，因此您必须始终设 置此标志并为iLink分配一个值。要获取产品ID,您必须同时设置LIFJTEMINDEX和LIFJTEMID。 LIF_STATE使用stateMask来获取或设置链接的状态。LIFJTEMID通过szID中给出的B值指定项目。 LI F_U RL设置或获取该项目的U RL。
+int iLink;〃链接索引，一个控作可以包含多个链接
+UINT state;〃状态组合，LIS_ENABLED LIS_FOCUSED LIS_VISITED LIS HOTTRACK
+UINT stateMask;〃描述要获取或设置哪个状态项的标志组合。
+WCHAR szlD[MAX_LINKID_TEXT];〃标签ID名称 WCHAR szUrl[L_MAX_URLlENGTH]; 〃链接表示的URL
+} LITEM, *PLITEM;
+本视频版权归黄强所有、侵权必究
+case WM NOTIFY:
+switch (((LPNMHDR)IParam)->code)
+{
+case NM CLICK:
+case NM^RETURN:
+{
+PNMLINK pNMLink = (PNMLINK)IParam; LITEM item = pNMLink->item;
+if ((item.iLink == 0))
+{
+ShellExecute(NULL, Lnopenn, item.szUrl, NULL, NULL, SW SHOW); } break;
+}
+break;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

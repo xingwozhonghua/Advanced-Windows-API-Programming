@@ -1,0 +1,12 @@
+﻿GetMessage. PeekMessage区别
+类型	GetMessage
+是否删除	GetMessage函数获取消息之后，会从 消息队列删除（WM_PAINT消息除外，至于 WM_PAINT则只有渔被合理处理之后才被 删除）
+阻塞	当系统无消息时，GetMessage会阻塞 等待下一条消息。
+返回值	有消息且该消息不为WM_Q U IT返回 TRUE,收到WM QUIT扳回FALSE,错误 返回-1
+PeekMessage
+以查看的方式从系统中获取消息，可以将 消息从系统中移除PM_REMOVE
+（WM_PAINTj肖息除外）或者不移除
+PMNOREMOVE
+是非阻塞函数；当系统无消息时，返回 FALSE,继续执行后续代码。
+有消息返回TRUE,无消息返回FALSE
+本视频版权归黄强所有、侵权必究

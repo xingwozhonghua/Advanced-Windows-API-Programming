@@ -1,0 +1,17 @@
+﻿盘消息
+系统按键消息：
+WM_SYSKEYDOWN
+WM_SYSKEYUP 与A】T键相组合的组合键
+非系统按键消息：
+WMKEYDOWN
+WM"KEYUP
+注意：
+新店Print键之外都有〃按下〃消息。
+b)	所有键都存在"弹起"消息。
+c)	根据MSDN说明，只有下面这些键才会产生字符消息: 缶可字符键
+回退键(BACKSPACE)
+回车键(carriage return)
+ESC
+SHIFT + ENTER (linefeed 换行)
+TAB
+本视频版权归黄强所有、侵权必究

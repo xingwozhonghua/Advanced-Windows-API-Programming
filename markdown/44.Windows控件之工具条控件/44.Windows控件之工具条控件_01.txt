@@ -1,0 +1,135 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之工具条控件
+本视频版权归黄强所有、侵权必究
+indows控件之工具条控件
+工具栏是一个包含一个或多个按钮的控件，当用户点击每个按钮时，都会向父窗口发 条命令消息。它是类名是TOOLBARCLASSNAME。
+本视频版权归黄强所有、侵权必究
+了控件样式
+dwStyle:指定控件的风格。
+TBSTYLEJLAT 创建一个扁平的工具栏，文字出现在按钮位图下。为防止重绘问题，应在工具栏控件变为可 见之前设置此样式。
+TBSTYLE_LIST	按钮文本在位图右侧的创建f 平面工具栏。否则，这种风格与TBSTYLE_FLAT相同。
+TBSTYLE_REGISTERDROP 生成TBN_GETOBJECT通知代码以在光标经过工具栏按钮时请求放置目标对象。 TBSTYLEJOOLTIPS	创建工具提示控件，应用程序可使用该工具提示控件来显示工具栏中按钮的描述性文本。
+TBSTYLEJRANSPARENT 创建一个透明的工具栏。在透明工具栏中，工具栏是透明的，但按钮不是。按钮文 字出现在按钮位图下。为防止重绘问题，应在工具栏控件可见之前设置此样式。
+TBSTYLE_WRAPABLE	创建一个可以有多行按钮的工具栏。当工具栏变得太窄而不能包含同一行上的所有按
+钮时，工具栏按钮可以〃换行"到下一行。
+一般设置WS_CHILD、WS_VISIBLE、WS_BORDER等窗口风格!
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+在 WMCREATE｝肖 息的响应中创建子 窗匚I、控件等等
+switch (Msg)
+case WM CREATE:
+HWND hToolBar= CreateWindow(TOOLBARCLASSNAME,
+NULL,
+WS_CHILD | WS_VISIBLE| TBSTYLE_LIST,
+30,30,
+200, 50,
+hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+本视频版权归黄强所有、侵权必究
+可以向控件发送TB_XXX消息来设置控件。
+TB_ADDBITMAP	将f或多个图像添加到可用于工具栏的按钮图像列表中.
+TB.ADDBUTT0NS	向工^栏添力1T或多个按钮.
+TB_ADDSTRING	向工^栏的字符串i也添加~＜字符串.
+TB.AUTOSIZE	导致工具栏被调整大小.
+TB.BUTTONCOUNT	检索工具栏中当前按钮的散量.
+TB.BUTTONSTRUCTSI ZE	指定TBBUTTON结构的大小.
+TB_CHANGEBITMAP	更改工具栏中按钮的位图.
+TB_CHECKBUTTON	选中或取消选中工^中的给定按钮.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb760435(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+〃创建图片列表
+HIMAGELIST hlmageList = lmageList_Create(16, 16, 〃单个位图的尺寸 ILC_C0L0R16 | ILC_MASK/*确保透明背景*/31);
+for (int i = 0; i< 3; i + +)
+(
+HICON hlcon = Loadlcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_ICON1 + i));
+lmageList_Addlcon(hlmageList, hlcon);
+Destroylcon(hlco n);
+)
+〃设置工具条的图片列表
+SendMessage(hfbolBar,TB_SETIMAGELISTA(LPARAM)hlmageList);
+本视频版权归黄强所有、侵权必究
+BBUTTON 结构
+typedef struct {
+int	iBitmap; 〃按钮图像的从零开始的索引。
+int	idCommand; 〃与按钮关联的命令ID,在WMCOMMAND消息中使用
+BYTE	fsState;〃按钮状态标志JBSTATE ENABLED. TBSTATE HIDDEN等
+BYTE	fsStyle;//按钮样式TBSTYLE_BUT〒ON、TBSTYLE CHECK等
+#ifdef WIN64
+BYTE" b Reserved [6];
+#else
+#if defined(_WIN32)
+BYTE	b Reserved [2];
+#endif
+#endif
+DWORD_PTR dwData; 〃应用程序定义的值。
+INT_PTR iString; 〃按钮字符串的从零开始的索弓I,或指向包含按钮文本的字符串缓冲区的指针
+} TBBUTTON, *PTBBUTTON, *LPTBBUTTON;
+本视频版权归黄强所有、侵权必究
+〃添加一组按钮
+TBBUTTON btn1;
+btnl.iBitmap = 0;
+btnl.iString = (INTPTR)L"第f;
+btnl.fsStyle 二 TBSTYLE BUTTON;
+btnl.fsState 二 TBSTATEJNABLED; btnl.idCommand = 1000;
+TBBUTTON btn2;
+btn2.iBitmap = 1;
+btn2.iString = (INTPTR)L"第二个"；
+btn2.fsStyle 二 TBSTYLE BUTTON;
+btn2.fsState 二 TBSTATEJNABLED;
+btn2.idCommand =2000;
+TBBUTTON btns[2] = ( btn1f btn2 };
+SendMessage(hloolBar;TB_ADDBUTTONS ,2,(LPARAM)(&btns));
+〃调整工具栏的大小，然后显示它
+SendMessage(hlbolBar;TB_AllTOSIZE,0,0)； ShowWindow(hToolBar;TRUE);
+}break;
+}
+return DefWindowProc(hWnd, Msg, wParam, I Param);
+本视频版权归黄强所有、侵权必究
+空件通知消息
+控件会向父窗口发送WM_NOTIFY$肖息的形式的通知代码
+TBN_BEGINDRAG	通知工具栏的父窗口，用户巳研始在工期中拖动按钮。此通知代码以WM_N0TIFY消息的形式发送。
+TBN_CUSTHELP	通知工具栏的父窗口，用户已选择"自定义工具栏'对话框中的"帮助"按钮。此通知代码以WM_N0TIFY游邸）形式发送。
+TBN_DELETINGBinTON	当按钮即将被删除时，由工^举件发送。
+TBN_DRAGOUT	当用户单击按钮然后将光标从按上移开时，由工件发送。此通知代码以WM_N0TIFY消息的形式发送。
+TBN_DRAGOVER	确定是否应为正在拖动的按钮发送TB_MARKBUTT0N消息。此通知代码以WM_NOTIFY消息的形式发送。
+TBN_DR0PD0WN	用户单击下拉按钮时由工Ml细牛发送.此通知代码以WM_N0TIFY消息的形式发送。
+TBN_DUPACCELERATOR	确定是否可以在两个或多个活动工使用力噌健。此通知代码以WM_N0TIFY消息的形式发送。
+TBN_ENDADJUST	通知工具栏的父窗口用户已停止自定义工具栏，此通知代码以WM_N0TIFY消息的形式发送。
+TBN_ENDDRAG	通知工具栏的父窗口用户已停止拖动工中的按钮。此通知代码以WM_N0TIFY消息的形式发送。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb760435(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+始加辎写绿朝做毓*
+:＞）e9jq（
+•（＞IO~aiAI '"工啬「'扣q 'puMq）x。护6ess。内
+：（Clll」Q	草搬P%e昭暮,1 ]nq）pu!」dsM
+•{0}=出9]jnq aVHDl
+） 0区即旧翼60由建〃（0 ==叩。。）J! :（wsedM）（]£OMiH *p。。ayo/v\ •（^ejejAA） ayo/v\oi= aipiD ayo/v\
+}
+:QNVNNOD IAIM ^seo
+管熙QNV内内OZC^IMM重旱草60昭署涉苜工®回岫一口摩
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

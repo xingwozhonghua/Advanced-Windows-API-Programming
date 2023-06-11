@@ -1,0 +1,181 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+窗口 操作 EnableWindow 等
+本视频版权归黄强所有、侵权必究
+空件/窗口操作
+Win32 API提供了一系列的函数来操作窗口与控件。
+函数	功能
+EnableWindow	启用或禁用鼠标和键盘输入到指定的窗口或控件
+FindWindow	检索顶级窗口的句柄，该窗口的类名和窗口名称与指定的字符串匹配。
+SetWindowText	更改指定窗曰标题栏的文本（如果有）
+GetWindowText	获取指定窗口标题栏的义本（如果有）
+GetWindowRect	检索指定窗□的边界矩形的尺寸
+GetClientRect	检索指定窗口的客户区矩形的尺寸
+SetFocus	将键盘焦点设置到指定的窗口
+Move Window	更改指定窗U的位直和尺寸
+GetActiveWindow	检索连接到调用线程的消息队列的活动窗口的窗口句柄。
+本视频版权归黄强所有、侵权必究
+r EnableWindow 函数
+EnableWindow函数启用或禁用鼠标和键盘输入到指定的窗口或控件。
+BOOL WINAPI EnableWindow （
+HWND	hWnd, //要启用或禁用窗口的句柄
+BOOL	bEnable//TRUE 窗口启用 FALSE 被禁用
+）；
+返鼬：
+类型：BOOL
+如果窗口先前被禁用，贝I」返回值不为零。
+如果窗口先前未被禁用，贝U返回值为零。
+备注
+默认情况下，窗口在创建时启用。如果创建要禁用的窗口，可在CreateWindow或CreateWindowEx函数中指定 WSDISABLED 样式。
+本视频版权归黄强所有、侵权必究
+FindWindow 函数
+FindWindow函数检索顶级窗口的句柄，该窗口的类名和窗口名称与指定的字符串匹配，不区分 大小写。该功能不搜索子窗口，要搜索子窗口请使用FindWindowEx函数。
+HWND WINAPI FindWindow （
+LPCTSTR IpCIassName, //RegisterClass或RegisterClassEx的类名
+LPCTSTR	IpWindowName//®口的标题如果为NULL,则所有名称都匹配
+）；
+返鼬：
+类型：HWND
+如果函数成功，贝I」返回值是具有指定的类名称和窗口名称的窗口的句柄。
+如果函数失败，返回值为NULL要获得扩展的错误信息，请调用GetLastError0
+本视频版权归黄强所有、侵权必究
+r SetWindowText 函数
+SetWindowText函数更改指定窗口标题栏或控件的文本。
+BOOL WINAPI SetWindowText (
+HWND	hWnd, 〃窗口的句柄
+LPCTSTR	IpString//新的标题或控制文本
+返鼬：
+类型：BOOL
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+备注：
+如果目标窗口由当前进程拥有，贝'JSetWindowText^^WM_SETTEXT消息发送到指定的窗口雌件。如果 要在另ffi程中设置控件的文本，请直接发送WM_SETTEXV肖息，而不是调用SetWindowText0
+本视频版权归黄强所有、侵权必究
+r GetWindowText 函数
+GetWindowText函数获取指定窗口标题栏或控件的文本。
+BOOL WINAPI GetWindowText （
+HWND	hWnd, 〃窗口的句柄
+LPCTSTR	IpString//接收新的标题或控制文本缓冲区
+int	nMaxCount 〃缓冲区大小
+）；
+返鼬：
+类型：int
+如果函数成功，贝I」返回值是复制字符串的长度（以字符为单位），不包括终止空字符。如果窗口没有标题栏或文本，如果标题栏 为空，或者窗口雌件句柄无效，则返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+此功能无法检索另f应用程序中的编辑控件的文本。
+备注：
+GetWindowText函数导致WM_GETTEXT消息被发送到指定的窗口或控件。要在另—进程中检秒件的文本，请直接发送 WM_GETTEXT消息，而不是调用GetWindow^xt。
+本视频版权归黄强所有、侵权必究
+GetWindowRect 函数
+GetWindowRect函数	检索指定窗口的边界矩形的尺寸，尺寸是相对于屏幕左上角的屏幕
+BOOL WINAPI GetWindowRect （
+HWND	hWndr 〃窗口的句柄
+LPRECT	I pRect 〃接收矩形大小的结构指针
+）；
+返鼬：
+类型：BOOL
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+本视频版权归黄强所有、侵权必究
+r GetClientRect 函数
+GetClientRect函数 检索窗口客户区域的坐标。相对于父窗口客户区域的左上角，因此左上角的坐 标总为（0,0）。
+BOOL WINAPI GetClientRect （
+HWND	hWnd, 〃窗口的句柄
+LPRECT	I pRect//接收矩形大小的结构指针
+）；
+返鼬：
+类型：BOOL
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+本视频版权归黄强所有、侵权必究
+"SetFocus 函数
+SetFocus函数 将键盘焦点设置到指定的窗口。
+HWND WINAPI SetFocus（
+HWN D	hWnd,//将接收键盘输入的窗口句柄。
+）；
+返鼬：
+类型：HWND
+如果函数成功，贝I」返回值是以前拥有键盘焦点的窗口的句柄。如果hWnd缪无效或窗口未附加到调用线程的消息队列，贝I」返回 值为NULLo要获得扩展的错误信息，请调用GetLastError0
+备注
+本质是发送WM_KILLFOCUS消息到失去键盘焦点和一个窗口WM_SETFOCUS消息到接收键盘焦点的窗口。它还激活接收焦 点的窗口雌收焦点的窗口的父窗口。
+本视频版权归黄强所有、侵权必究
+MoveWindow 函数
+MoveWindow函数 更改指定窗口的位置和尺寸。对于顶层窗口，位置和尺寸是相对于屏幕的左 上角的。对于子窗口，它们是相对于父窗口客户区域的左上角的。
+BOOL WINAPI MoveWindow(	
+HWND	hWnd,//窗口句柄。
+int	
+int	Yr//fryfM
+int	nWidth, 〃新览度
+int	nHeight,// 新 i割芟
+BOOL	b Repa i nt〃指示窗口是否瓣鲤会制。
+）；
+返鼬：
+类型：BOOL
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+备注：
+如果bRepaint参数为TRUE,贝推移动窗口后（即，MoveWindow函数调用UpdateWindow函数），系统立即向窗口过程发送 WM_RAINT 消息9
+本视频版权归黄强所有、侵权必究
+为什么在Win10上窗口的尺寸与实际参数不符?
+考虑到屏幕大，不缩放, 计界面也跟着缩放了!
+|查找曜	Q
+系统
+| D
+削）声音
+□败和酬
+Q 手
+0电源和睡眠
+所有的字都很小，所以Win 10默认设置缩放比例为125%, VS中窗体的设
+显小
+亮度和颜色
+-------1—
+夜间模式
+关
+夜间模式设置
+缩放与布局	/
+更奴本、项小
+| 125% 健荐） "	-
+本视频版权归黄强所有、侵权必究
+r GetActiveWindow 函数
+GetActiveWindow函数 检索连接到调用线程的消息队列的活动窗口的窗口句柄。
+HWND WINAPI GetActiveWindow ( void );
+返鼬：
+类型：HWND
+返回值是涔妾到调用线程的消息队列的活动窗口的句柄。否则，返回值为NULL
+备注：
+要获取前景窗口的句柄，可以使用GetForegroundWindow。
+要获得另—线程的消息队列中活动窗口的窗口句柄，请使用GetGUIThreadlnf。。
+本视频版权归黄强所有、侵权必究
+始加辎写绿朝做毓*
+•di nN
+/eoue;su|q<-(ujejed|(lDnaiS31V3aDdl))
+2&(CINm 内 H) 'pu/v\q '0£ 'OOZ '00厂0£
+'地一SM I 3iaiSIA~SM I ①IHZCSM '“&乙」
+1IQ3 DM)Mopu!M5s」D = Z1!P3M QNMH
+Kticin
+/aoue;su|q<-(iuejedl(lDny±S31V3aDdl))
+'LLL(nNmniH)
+'pu/v\q '0£ '00Z
+'0典
+'地％oa s/v\ I aiaisiA s/v\ I qiihd sm
+>LLL」
+1103 DM)Mopu!M3K9」：)=；!P3M QNMH
+
+-arrulos SOL gm、oocn、L土 pLUqwopu _ m ① >o 君 奇专生)坦。。出①S
+-(5211)*。。+① s _(」6a-aUMet①括 UEOSO 富、PUMq¥①出MOP£M 屈
+Lr -Qo—S君、_%甄=—|号 q、PUMqx£ ①沼 ss ①君 号 9 与 q、型 pLUq)艾仪 Mopu_Mso
+《。)H【寸9与q %HU1
+(E=胃h_I、5pUJqMXXMOP.EMES * 一g最LI-oUMq)艾仪 MOP.EMSS
+((PUMq hheH q
+* 盗口«<——«-_!_l_lnN)MOP.EMPULZH M
+-(PUMq hh LeH qooq anN=6uenH」君..—J)MOPU-MPUiznL-c:aNMH
+_ars_2M-、L 七 pLUeMOPU 一 MEq 也 UUJ -((DsraM-、PUMq)MOP£MEq2uLlJ
+始加辎写绿朝做毓*
+^e9jq（
+•（＞IO~aiAI，业啬口 ？nq FnN）x。护6essa内 伽？nq 'LgaiMopuMAE） •to） = [w]pq yvHDi ：0Mopu!M弘!AVAD = L9 QNMH ）
+:NMOONOlinai AIM 9seo
+々pu/V\q）Mopu!M3Kpdn （iNlVd内M栗绥）□扉巽堇〃 ：（puJDMoqsu 2puMq）Mopu!MMoqs □息业晋〃
+•（11 AN '力ueisuiq FflN 'TIDN 'OOP '00V '00L '00L 'MOQNIMBddViamACTSM
+'“写吉*口扉力二髯"1 *uenH」M1）Mopuw\5eao = Zpu/v\M QNMH （31V3aD"NM^SWZ 回卸）口扉离院〃
+鸟口扉&四离怛〃
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

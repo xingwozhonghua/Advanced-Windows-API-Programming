@@ -1,0 +1,12 @@
+﻿化按钮
+从文件中加载位图，加载图片到位图绘制对象hbmp中
+HBITMAP hBmp = (HBITMAP)Loadlmage(
+NULL,//模块实例句柄
+L”C:\\Users\\XXX.bmp”,〃 图片文件路径
+DECLARE_HANDLE(HBITMAP);
+位图句柄，标识内移中的相 关位图。
+IMAGE BITMAR 〃图片类型
+0, //指走图片宽
+0, 〃指定图片
+LR LOADFROMFILE 〃从路径处加载图片
+本视频版权归黄强所有、侵权必究

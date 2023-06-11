@@ -1,0 +1,14 @@
+﻿按钮样式
+dwStyle:指定按钮控件的风格，可以设置为以下按钮风格的任意组合。
+BS_AUTOCHECKBOX :同BS_CHECKBOX,不过单击鼠标时按钮会自动反选 BS_AUTORADIOBUTTON:局BS_RADIOBUTTON,不过单击鼠标时按钮会自动反转 BS_AUT03STATE :同BS_3STATE,不过单击按钮时会改变状态
+BS_CHECKBOX:指定在矩形按钮右侧带有标题的选择框，不会自动反选择
+BS_DEFPUSHBUTTON:指定默认的命令按钮，这种按钮的周围有一个黑框，用户可以按回车键来快速选 择该按钮
+BS_GROUPBOX:指定f 组框
+BS_LEFTTEXT:使控件的标题显示在按钮的左边
+BS_OWNERDRAW:指定一个自绘式按钮
+BS_PUSHBUTTON:指定一个命令按钮
+BS_RADIOBUTTON:指定一个单选按钮，在圆按钮的右边显示正文
+BS
+3STATE:同BS_CHECKBOX,不过控件有3种状态一选择、未选择和变灰
+当然,除了以上列出的风格，一般还会为按钮设置WS_CHILD、WS_VISIBLE和WS_TABSTOP等风格， WS_TABSTOP风格使按钮控件具有tab停止属性，即按tab健切换焦点控件时能够将焦点停在按钮控件上。创建 一垣单选按钮时，第一个按钮的风格应设置为WS_CHILD|WS_VISIBLE|WS_TABSTOP WS_GROUP|BS_AUTORADIOBUTTON,其他箪遥按钮的m)uZ^WS_CHILD|WS_VISIBLE| BS_AUTORADIOBUTTON,不包含WS_TABSTOP和WS_GROUP。
+本视频版权归黄强所有、侵权必究

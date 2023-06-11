@@ -1,0 +1,112 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之分页控件
+本视频版权归黄强所有、侵权必究
+_ndowsH»喜w±剧的寿
+Endows，剧更产£1M蔚理乓薛有注ln>邮渊西吵昏汁甲印』冈Msa口、—斗T 却 wl]『s耳扁日 wFttm®^。s^m PAGESCROLLER。
+
+
+控件样式
+dwStyle:指定控件的风格。
+PGS_AUTOSCROLL
+当用户将鼠标悬停在其中一个滚动按钮上时，寻呼机控件将滚动。
+PGS_DRAGNDROP
+包含的窗口可以是一个拖放目标。如果一个项目从寻呼机外部拖到一个滚动按钮上，寻呼机控制将自动滚动。
+PGS_HORZ
+创建一个可以水平滚动的传呼控制。此样式和PGS_VERT样式是互斥的，不能组合。
+PGS_VERT
+创建甬以垂直滚动的传呼控制。如果没有指定方向风格，这是默认方向。这种风格和PGS_HORZ风格是互斥的, 不能组合。
+要求
+一般设置WS_CHILD、WS_VISIBLE、WS_BORDER等窗口风格！
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM IParam)
+(
+switch (Msg)
+在 WMCREATE｝肖 息的响应中创建子 窗匚I、控件等等
+case WM CREATE:
+HWND hPage= CreateWindowCWC PAGESCROLLER,
+Ln10；
+WS CHILD | WS_VISIBLE| WS_BORDER|PGS_HORZ,
+30, 30,
+200, 50, hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+本视频版权归黄强所有、侵权必究
+}
+JJ建内容控件
+HWND
+hBtn 二 CreateWindowfWC BUTTON,
+L”演，这是f 很长的按钮，标题一直到这里才结雨 WS CHILD | WS VISIBLEIBS PUSHBUTTON, 0,0； 0, 0, h Pag巳〃父窗口是分页条 (HMENU)1000, ((LPCREATESTRUCT)IParam)->hlnst^ce, NULL);
+}break;
+}
+return DefWindowProc(hWnd, Msg, wParam, I Param);
+嵌入到分页控件 的子控件，显示内
+容超过分页控件
+本视频版权归黄强所有、侵权必究
+可以向控件发送PG M_XXX;肖息来设置控件。
+PGM_SETBK COLOR	设直寻呼机控制的当前背景色.您可以显式发送此消息或使用Pager_SetBkColor宏。
+pgm_setbo RDER	设直寻呼机控制的当前边框尺寸。您可以显式发送此消思或使用Pager_SetBorderS.
+pgm.setbu TTONSIZE	设直寻呼机控制的当前按钮大小。您可以显式发送此消虑或使用Pager_SetButtonSize宏.
+PGM_SETCH ILD	设直寻呼机控制的包含窗口。此消息不会更改所包含窗口的父级•它只分配一口句柄给页面控制器进行滚动。在大多数情况下，包含的窗口将 是一作窗口。如果是这种情况，则包含的窗口应该是寻呼机控制的子节点.您可以显式发送此消息或使用Pager_SetChild宏.
+pgm.setpo S	设直寻呼机控制的当前滚动位虱您可以显式发送此消息或使用Pager_SetPos宏.
+PGM_SETSE TSCROLLINF 0	用于内吝方使用;不建议用于应用程序。 超寻PW1控件M滚动参数，包括物值，每个超的行数1炽制瑙素。您可淄履送此消息或使用Pager_SetScrolllnf。宏。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb760857(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+〃设置按钮的宽度
+SendMessage(hPager PGM SETBUTTONSIZE, 0, (LPARAM)30);
+〃设置控件的子窗口
+SendMessage(hPager PGM SETCHILD, Oz (LPARAM)hBtn);
+〃设置当前(靖	3	1—1 rL/
+SendMessage(hPager PGM SETPOS, 0, (LPARAM)100);
+本视频版权归黄强所有、侵权必究
+空件通知消息
+控件会向父窗口发送WM_NOTIFY$肖息的形式的通知代码
+NM.RELEASEDCAPTURE ( 寻丽	通知寻呼机控制的父窗口，该控件涌放鼠橱鞭。NM_RELEASEDCAPTURE以WM_N0TIFY消息的形式发送.
+PGN_CALCSIZE	由寻呼机控制器发送的通知以获取所包含窗口的可滚动维度。这些尺寸被寻呼机控制器用来确定丽含窗口的可滚动大小.此通知 以WM_N0TIFY泮醐形式发送°
+PGN_HOTITEMCHANGE	热点（突出显示）项目更改时由寻呼机控件发送.
+PGN_SCR0LL	在包含的窗口正在滚动之前，由寻呼睥件发送的通知。此通知以WM_N0TIFY消息的形式发送。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb760857(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+示代码
+WMNOTIFY:
+_{
+NMHDR * pHDR = (NMHDR *)1 Pa ram;
+if ((pHDR->code == PGN CALCSIZE) && (pHDR->idFrom == 111)) (
+LPNMPGCALCSIZE Ipnmcs = (LPNMPGCALCSIZE)IParam; if (lpnmcs->dwFlag == PGF CALCWIDTH)
+{ —— lpnmcs->iWidth = 400; 〃设置子窗口的长度 lpnmcs->iHeight = 30;//设置子窗 口的高度 return 0;
+}
+}
+if ((pHDR->code == PGN SCROLL) && (pHDR->idFrom == 111)) (
+LPNMPGSCROLL pScroll 二(LPNMPGSCROLL)IParam; switch (pScroll->iDir)
+(
+case PGF SCROLLLEFT:
+case PGFJCROLLRIGHT:
+case PGFjCROLLUP: case PGFJCROLLDOWN: pScroll->iScroll = 30; //设置滚动的步长 break;
+}
+}break;
+}
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

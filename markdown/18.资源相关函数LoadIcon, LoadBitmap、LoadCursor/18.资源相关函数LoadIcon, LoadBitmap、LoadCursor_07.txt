@@ -1,0 +1,11 @@
+﻿oadCursor 函数
+从一个模块的可执行文件中加载指定的游标资源,已被Loadimage功能取代。
+HCURSOR WINAPI LoadCursor（
+」n_opt_HINSTANCEhlnstance,〃要加载的图标的模块实例的句柄。加载标准游标时，此参数必须为
+NULL
+_ln_ LPCTSTR IpCursorName//游标资源的名称。或者，此参数可以包含低位字中的资源标识 符和高位字中的零。使用MAKEINTRESOURCE宏创建此值。
+）；
+返回值
+如果函数成功，返回值是游标的句柄。
+如果函数失败，返回值为NULL要获得扩展的错误信息，请调用GetLastError0
+本视频版权归黄强所有、侵权必究

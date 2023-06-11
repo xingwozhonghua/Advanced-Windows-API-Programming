@@ -1,0 +1,14 @@
+﻿Wind o ws窗口的关闭
+头文件minwindef.h、basetsd.h
+关闭按钮
+D estroyWin d。w 函数
+WM CLOSE
+WM DESTROY
+WM NCDESTROY
+销毁窗口
+PostQuitMessage 函数
+WM_QUIT
+
+GetMessageQ
+退出消息循环
+本视频版权归黄强所有、侵权必究

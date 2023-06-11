@@ -1,0 +1,12 @@
+﻿WM NOTIFY消息
+—些Notification Code对所有新的Windows控件来说是通用的:
+Notification code	Sent because
+NM CLICK	用户在控件内单击鼠标左键
+NM DBLCLK	用户睦件内双击鼠标左键
+NM RCLICK	用户在控件内单击鼠标右键
+NM RDBLCLK	用户在控彳牛内双击鼠标右键
+NM RETURN	用户在控件具有输入焦点的时候按下回车
+NM SETFOCUS	控件^得输入焦点
+NM KILLFOCUS	控件失去输入焦点
+NM OUTOFMEMORY	控件因为没有足够的可用内存而不能完成一项操作
+本视频版权归黄强所有、侵权必究

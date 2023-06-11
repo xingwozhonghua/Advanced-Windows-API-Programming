@@ -1,0 +1,9 @@
+﻿第一个HelloWorld应用程序
+添加cpp文件，敲如下代码:
+so easy
+#include<windows.h>
+int WINAPI WinMain(HINSTANCE hlnstance, HINSTANCE hPrevInstance, LPSTR
+IpCmdLine, int nCmdShow)
+MessageBox(NULLz L”第f Win32程序”，LMhello world”,MB_OK); return 0;
+)
+本视频版权归黄强所有、侵权必究

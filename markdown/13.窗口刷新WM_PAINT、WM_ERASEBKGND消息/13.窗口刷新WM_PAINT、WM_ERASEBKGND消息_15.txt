@@ -1,0 +1,4 @@
+﻿口刷新WM PAINT消息
+为什么系统在应用消息队列为空时才发送WM_PAINT;肖息呢？
+这是因为系统把在窗口中的绘制操作当作一种低优先级的操作，于是尽可能地推后做。 不过这样也有利于提高绘制的效率：两个WM_PAINT¥肖息之间通过InvalidateRect和 InvaliateRgn使之失效的区域就会被累加起来，然后在f WM_PAINT消息中一次得到更 新，不仅能避免多次重复地更新同一区域，也优化了应用的更新操作。像这种通过 InvalidateRect和InvalidateRgn来使窗口区域无效，依赖于系统。在合适的时机发送 WM_PAINT;肖息的机制实际上是一种异步工作方式，也就是说，在无效化窗口区域和发送 WM_PAINT;肖息之间是有延迟的；有时候这种延迟并不是我们希望的，可以使用Windows GDI为我们提供的更方便和强大的函数：UpdateWindow和RedrawWindow。 UpdateWindow会检查窗口的Update Region,当其不为空时才发送WM_PAINT消息； RedrawWindow则给掬门更多的控制：是否重画非客户区和背景，是否总是发送 WM_PAINT;肖息而不管Update Region是否为空等。
+本视频版权归黄强所有、侵权必究

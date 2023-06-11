@@ -1,0 +1,20 @@
+﻿Windows窗口的创建
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM IParam)
+switch (Msg)
+case
+WM NCCREATE:
+CREATESTRUCT 结 构定义初始化参数 传递给应用程序的 窗口过程。
+CREATESTRUCT*p = (CREATESTRUCT*)IParam; return TRUE;
+}
+case WM CREATE:
+(
+CREATESTRUCT*p = (CREATESTRUCT*)IParam;
+SetWindowTextA(hWnd, ”砌世界， return 0;
+)
+default:
+)
+return 0;
+return DefWindowProc(hWnd, Msg, wParam, IParam);
+)
+本视频版权归黄强所有、侵权必究

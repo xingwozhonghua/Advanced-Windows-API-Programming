@@ -1,0 +1,18 @@
+﻿了静态控件样式
+dwStyle:指定控件的风格，可设置为以下的任意组合。
+SS_SIMPLE只显示一行文本(有'\n‘也不换行)，且不自动换行，超出控件范围的文本将被隐藏。
+SS_BITMAP此风格用于位图。
+SSJCON此风格用于光标和图标。
+SS_ENH METAFILE此风格用于增强的图元文件。
+SS_CENTER、SS_LEFT、SS_RIGHT使文字在静态控件中居中、居左、居右
+SS_GRAYFRAME建立一个熏色的边框
+SS_BLACKRECT建立一个黑色的矩形
+SS_WHITEFRAME 白色边框
+SS_ETCHEDFRAME建立一个浮雕边框
+SS_OWNERDRAW指定该风格后，当静态控件在视觉外观发生变化时，该静犀件的父窗口将响应WM DRAWITEM消息。
+SS_CENTERIMAGE用来使静态控件中的图像居中
+SS_LEFTNOWORDWRAP文本居左，不自动换行(有才会换行)，超出控件范围的文本将被隐藏。
+SS NOTIFY 当用户单击或双击控件时，发送父窗口STN CLICKED, STN DBLCLK, STN DISABLEffl STN ENABLEiB口代码。
+当然，除了以上列出的风格，一般还会设置WS_CHILD、WS_VISIBLE和WS_TABSTOP等风格，
+SS” (Static Style)开头的表示只能用于CStatic控制。以〃WS〃(Window Style)开头的常数表示可适于所有窗口。
+本视频版权归黄强所有、侵权必究

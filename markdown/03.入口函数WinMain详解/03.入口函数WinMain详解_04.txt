@@ -1,0 +1,7 @@
+﻿奇怪的数据类型?
+瞧	原型	说明
+WINAPI	#define WINAPI _stdcall	标准调用约定、_stdcall 是专门用来调用Win API 的
+HINSTANCE	struct HINSTANCE_ {int unused;}; typedef HINSTANCE * HINSTANCE	就是一个结构体类型指针
+LPSTR	typedef CHAR *LPSTR;	就是char *类型
+HANDLE	typedef void * HANDLE;	就是一个void类型指针
+本视频版权归黄强所有、侵权必究

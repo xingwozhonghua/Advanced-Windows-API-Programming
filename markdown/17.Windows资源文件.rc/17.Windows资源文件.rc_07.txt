@@ -1,0 +1,16 @@
+﻿indows资源文件・rc
+MENUEX	定义菜单的外观和功能。
+MESSAGETABLE	通过命名并指定包含它的文件的名称来定义消息表。该文件是由消息编译器生成的二进制资源文件。 定义f菜单项，其中可以包含菜单项和子菜单。
+POPUP	
+	已皿
+PLUGPLAY	
+	定义数据资源。数据资源允许您任可执行文件+包含二^制数据。
+RCDATA	
+	定义字符串资源。字符串资源是可以从可执行文件加载的Unicode或ASCII字符串。 由Visual C++解释的特殊资源.有关更多信息，请参见TN035。
+STRINGTABLE	
+TEXTINCLUDE	
+TYPELIB	与/ TLBID^fl/ TLBOUT簸器选项一g使用佛B资源。
+User-Defined	定义包含特定于应用程序的瓣的资源。
+VERSIONINFO	定馈本信息资源.包含版本号，预呻乍系£5^1息。
+VXD	已过时.
+本视频版权归黄强所有、侵权必究

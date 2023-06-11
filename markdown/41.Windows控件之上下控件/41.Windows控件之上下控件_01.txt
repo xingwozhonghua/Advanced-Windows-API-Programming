@@ -1,0 +1,101 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows控件之上下控件
+本视频版权归黄强所有、侵权必究
+i n d o ws控件之上下控件
+上下控件是一对箭头按钮，用户可以通过点击来增加或减少f值，例如滚动位 置或配套控件（称为伙伴窗口）中显示的数字。它是类名是UPDOWN_CLASSe
+上下控件	上下控件搭配一个编辑框
+本视频版权归黄强所有、侵权必究
+，控件样式
+dwStyle:指定控件的风格
+UDS_HORZ	控件的箭头指向左和右，而不是指向上和下。
+UDS_WRAP	如果控件的增加或减小超过了结尾或开始，使控件可以〃环绕"o
+UDS_ARROWKEYS当按下向上和向下键时，使控件可以增加或减小。
+UDS_SETBUDDYINT 当改变时，控件将设置伙伴窗口的文本（使用WM_SETTEXT）肖息），文本是按十进制 或十六进制格式化后的位置值，如果好友窗口是列表框，则设置其当前选择而不是其标题。
+UDS_NOTHOUSANDS不要在每隔三个十进制数字的地方加千分隔符。
+UDS_AUTOBUDDY自动关联控件为TAB顺序前一个作为控件的伙伴窗口。
+UDS_ALIGNRIGHT将旋转按钮窗口定位在伙伴窗口的右边。伙伴窗口的宽度被减小来适应此 控件的宽度。
+UDS_ALIGNLEFT 将旋转按钮窗口定位在伙伴窗口的右边。伙伴窗口被移动到右边，并且它
+的宽度被减小来适应此控件的宽度。
+dwStyle参数可以是以上风格的组合。跟其他控件一样，创建时一般也还要指定WS_CHILDs WS_VISIBLE、 WS_TABSTOP 等风格。
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+IJ建伙伴控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM IParam)
+switch (Msg)
+case WM CREATE:
+HWND hEdit = CreateWindow(WC_EDIT, L-10",
+WSCHILD | WSVISIBLE | ESNUMBER | ESC ENTER, 30,30,
+100, 50,
+hWnd,
+(HMENU)100,
+创建一个编辑框作 为上下控件的伙伴
+控件
+((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+本视频版权归黄强所有、侵权必究
+腱控件
+HWND hUpdown= CreateWindow(UPDOWN_CLASS,
+L”树视图”，
+WS_CHILD | WS_VISIBLE| UDS_AUTOBUDDY | UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS UDS_HOTTRACK, OQ 0,0, 〃设置为6以自动调整大小以适合好友窗口。 hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)・>hlnstance,
+NULL);
+}break;
+}
+return DefWindowProc(hWnd, Msg, wParam, I Param);
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+}
+本视频版权归黄强所有、侵权必究
+可以向控件发送U D M_XXX;肖息来设置控件。
+UDM_SETBASE	为上下控件设置基魏基准值确定好友窗口是以士迸制还是十六进制数字显商字。十六进制数字总是无符号的，并且+进制数字是
+UDM_SETBUDDY	为上下控件设量好友窗口。
+UDM_SETP0S	以16位精度设量上下控件的当前典
+UDM_SETPOS32	以32位精度设童上下控件的位虱
+UDM_SETRANGE	设*下控制的最州最大位置（范围）.
+UDM_SETRANGE32	下控觥32位范围。
+UDM_SETUNICODEFORM AT	iSSg^Unicod曲格林志。此消皂允许您猝耐成招粮用09^5集，重新创蛔牛。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb759880(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+〃设置控件的范围
+SendMessage(hUpdownz UDM SETRANGE, 0, MAKELPARAM(1,10));
+〃设置控件的当前位置
+SendMessage(hllpdown/ UDM SETPOS, 0, 6);
+本视频版权归黄强所有、侵权必究
+空件通知消息
+控件会向父窗口发送WM_NOTIFY$肖息的形式的通知代码
+NM.RELEASEDCAPTU 颤上下招枷靖口，瞄牛正在祥放鼠ittO］以WM_NOTIFY消息的形^
+RE （上下）
+UDN_DELTAPOS	当控制器的位置即将改变时，由操作商发送到上下控制器的父窗口。当用户通过按下控件的向上或向下箭头请求更改值时会发生这伸情
+兄该UDN DELTAPOS泮&以的形式发送WM_NOTIFY；脸
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb759880(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+case WM NOTIFY:
+NMHDR * pHDR = (NMHDR *)IParam;
+if ((pHDR->code == UDN DELTAPOS) && (pHDR->idFrom == 111)) (
+LPNMUPDOWN pCtrl 二(LPNMUPDOWN)IParam;
+TCHAR buf[64] = {0}; wsprintf(buf, L”位置％d %d", pCtrl->iPosz pCtrl->iDelta); MessageBox(hWnd, buf, L"提示"，MB OK);
+}
+}break;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,12 @@
+﻿，通告消息
+以WM_COMMAND或WM_NOTIFY形式呈现的。表示，由各种控件产生的消息，例如，按 钮的单击等，为的是向其父窗口(通常是对话框)通知事件的发生。
+备注：
+LOWORD(wParam)是控件ID, HIWORD(wParam)是notification code,比如BN_CLICKED, BN_DBLCLK等，标志用户对控件的操作，双击，单击之类。	"
+Notification Code根据不同控件的命名规律：
+Button 按钮：	BN XXX
+ListBox 歹 ij 表框：	LBN XXX
+ComboBox组合框：	CBN XXX
+Tab 框：	TBN XXX
+Edit编辑框：	EN XXX
+Static静态文本	STN XXX
+本视频版权归黄强所有、侵权必究

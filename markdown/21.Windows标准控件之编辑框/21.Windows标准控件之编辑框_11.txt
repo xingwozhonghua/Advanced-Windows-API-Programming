@@ -1,0 +1,11 @@
+﻿etWindowText 函数
+GetWindowText将指定窗口的标题栏（如果有的话）的文本复制到缓冲区中。如果指定的窗口是控 件，贝U会复制控件的文本。但是，GetWindowText无法检索另一个应用程序中的控件的文本。
+int WINAPI GetWindowText （
+_ln_HWNDhWndz 〃窗口或控件的句柄
+_Out_ LPTSTR IpString, //将接收文本的缓冲区
+_ln_ int nMaxCount//要复制到缓冲区的最大字符数，包括空字符 ）；
+返回值
+如果函数成功，贝|」返回值是复制字符串的长度（以字符为单位），不包括终止空字符。如果窗口没有标题栏或文本，如果标题栏为 空，或者窗口雌件句柄无效，则返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+如果目标窗口是由当前进程所拥有，GetWindowText函数导致WM_GETTEXT消息被发送到指定的窗口或控制。如果目标窗口由 另一个进程拥有并具有标题，贝"GetWindowText将检索窗口标题文本。
+要在另—进程中检秒件的文本，请直接发送WM_GETTEXT消息，而不是调用GetWindowText。
+本视频版权归黄强所有、侵权必究

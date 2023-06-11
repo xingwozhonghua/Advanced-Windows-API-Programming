@@ -1,0 +1,85 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+创建对话框主窗口程序
+本视频版权归黄强所有、侵权必究
+IJ建对话框主窗口程序
+前面我们学习了各种控件，用代码来创建实在不方便，好在VS提供了可视化编辑器，我们在对话框资 源中可以轻松布局各种控件！
+［工朝	▼ 4 X
+1搜索工具箱	
+11对话框编借备	E
+006.rc - IDD_DIALCX51 - Dialog < X
+Button
+List Box
+Check Box
+Edit Contro
+Combo Box
+Group Box Radio Button
+Static Text
+Picture Control
+Horizontal Scroll Bar
+Vertical Scroll Bar
+Slider Control
+Spin Control Progress Control Het Kav
+LJ
+..I jj
+t] Dialog
+krllxab'函旅264 窈金剃 N 令*#
+豚+
+直
+本视频版权归黄强所有、侵权必究
+IJ建对话框主窗口程序
+创建对话框为主窗口的步骤：
+1 .在资源视图-》右键-》插入对话框资源，轻松布局子控件。
+2、	添加f 图标资源，作为对话框的图标。
+3、	利用CreateDialog仓腱并显示非模态对话框，以桌面窗口为父窗口。
+4、	在对话框窗口过程中处理相关消息。
+本视频版权归黄强所有、侵权必究
+，演示代码
+#include <Windows.h>
+#include "resource.h"
+INT_PTR CALLBACK DlgProc(HWND hDIg, UINT msg, WPARAM wParam, LPARAM IParam);
+int WIN API WinMain(H IN STANCE hlnstance, HINSTANCE hPrevInstance, LPSTR IpCmdLine, int nShowCmd) {	〃创建非模态对话框
+HWND hdlg = CreateDialog(hlnstance, MAK日NTRESOURCE(IDD_DIALOG1),
+GetDesktopWindow(), (DLGPROC)DlgProc);
+ShowWindow(hdlg, SW SHOW);
+〃消息循环
+MSG msg;
+while (GetMessage(&msg, NULL, 0, 0))
+(
+if (!lsDialogMessage(hdlg, &msg))
+(
+TranslateMessage(&msg);
+Dispatch Message(&msg);
+) - -
+)
+return 0;
+}
+本视频版权归黄强所有、侵权必究
+演示代码
+INT PTR CALLBACK DlgProc(HWND hDIg, UINT msg, WPARAM wParamz LPARAM IParam) (
+switch (msg)
+case WM INITDIALOG:
+//设置对话框的图标
+SendMessage(hDlgz WM SETICON, ICON SMALL,
+(LPARAM)Loadlcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI ICONI))); return 0;
+case WM SYSCOMMAND:
+if (wParam == SC CLOSE) {
+PostQuitMessage(O);//退出 } return 0;
+本视频版权归黄强所有、侵权必究
+演示代码
+case WM COMMAND:
+{
+switch (LOWORD(wParam))
+{
+case ID BTN LOGON:
+"MessageBox(hDlg, L”你点击了登录!”，L“提示、MB_OK); return TRUE;
+case IDCANCEL:
+DestroyWindow(hDlg);
+PostQuitMessage(O);/何 以使 GetMessage 返回 0 return TRUE;
+}
+}
+}
+return (INT PTR)FALSE;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

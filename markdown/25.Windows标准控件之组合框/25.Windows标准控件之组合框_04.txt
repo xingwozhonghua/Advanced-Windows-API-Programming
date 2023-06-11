@@ -1,0 +1,17 @@
+﻿了控件样式
+dwStyle:指定控件的风格
+CBS_AUTOH SC RO LL:使编辑框组件具有水平滚动的风格
+CBS_DISABLENOSCROLL:使列表框在不需要滚动时显示一个禁止的垂直滚动条
+CBS_SIMPLE:始终显示列表框。列表框中的当前选择显示在编辑控件中。
+CBS_DROPDOWN:与CBS_SIMPLE类似，只是除非用户选择编辑控件旁边的图标，否则不会显示
+CBS_DROPDOWNLIST:组合框编辑控件被替换为显示列表框中当前选择的静态文本
+CBS_HASSTRINGS:指定一个含有字符串的自绘式组合框
+CBS_LOWERCASE:将编辑框和列表框中的所有文本都自动转换为小写字符
+CBS_NOINTEGRALHEIGHT:组合框的尺寸由应用程序而不是Windows指定，通常，由Windows指定尺 寸会使列羡项的某些部分隐藏起来
+CBS_OEMCONVERT:使编辑框组件中的正文可以在ANSI字符集和OEM字符集之间相互转换。这在编辑 框中包含文件名时是很有用的
+CBS_OWNERDRAWFIXED:指定自绘式组合框，即由父窗口负责绘制列表框的内容，并且列表项有相同的 高度
+Q^CBSJDWNERDRAWVARIABLE:指定自绘式组合框，并且列表项有不同的高度
+CBS_SORT:自动对列表框组件中的项进行排序
+CBS_UPPERCASE:将编辑框和列表框中的所有文本都自动转换为大写字符
+dwStyle参数可以是以上风格的组合。跟其他控件一样，创建时一般也还要指定WS_CHILDX WS_VISIBLE、 WS_TABSTO P 和 WS_VSC RO LL等风格。
+本视频版权归黄强所有、侵权必究

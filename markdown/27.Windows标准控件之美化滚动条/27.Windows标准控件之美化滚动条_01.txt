@@ -1,0 +1,26 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows标准控件之美化滚动条
+本视频版权归黄强所有、侵权必究
+化滚动条控件
+我们可以通过在父窗口处理WMJZTLCOLORSCROLLBAR消息来美化滚动条控件。
+本视频版权归黄强所有、侵权必究
+M CTLCOLORSCROLLBAR消息
+当控件即将绘制时，不是只读或禁用的列表控件将WM_CTLCOLORSCROLLBAR¥肖息发 送到其父窗口。通过响应此消息，父窗口可以使用指定的设备上下文句柄来设置控件的文本 和背景颜色。
+WPARAM 显示上下文（DC）的句柄。
+LPARAM子窗口（控件）的句柄。
+返回值
+如果应用程序返回它创建的画笔（例如，通过使用CreateSolidBrush或CreateBrushlndirect函数）， 则应用程序必须释放画笔。如果应用程序返回系统画笔（例如，由GetStockObject或 GetSysColorBrush函数检索到的画笔），则应用程序不需要释放笔刷。
+本视频版权归黄强所有、侵权必究
+父窗口处理消息设置列表框的背景色与文字颜色：
+case WM CTLCOLORSCROLLBAR:
+{
+HDC hdc = (HDC)wParam;
+HWND hCtrl = (HWND)IParam;
+UINT Ctrl ID = GetWindowLong(hCtrL GWL ID);
+SetBkColor(hdc, RGB(255, 0, 0));
+HBRUSH bsh = CreateSolidBrush(RGB(255, 0, 0)); return (LRESULT) bsh;
+}
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

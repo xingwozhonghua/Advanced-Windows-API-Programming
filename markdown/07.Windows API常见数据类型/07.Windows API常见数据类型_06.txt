@@ -1,0 +1,14 @@
+﻿Windows API常见数据类型
+头文件basetsd.h
+类型	定义	
+INT8	typedef signed char	INT8,*PINT8;
+INT16	typedef signed short	INT16, *PINT16;
+INT32	typedef signed int	INT32, *PINT32;
+INT64	typedef signed _int64	INT64Z *PINT64;
+UINT8	typedef unsigned char	UINT8Z *PUINT8;
+UINT16	typedef unsigned short	UINT16, *PUINT16;
+UINT32	typedef unsigned int	UINT32, *PUINT32;
+UINT64	typedef unsigned _int64	UINT64, *PUINT64;
+LONG32	typedef signed int	LONG32, *PLONG32;
+ULONG32	typedef unsigned int	ULONG32, *PULONG32;
+本视频版权归黄强所有、侵权必究

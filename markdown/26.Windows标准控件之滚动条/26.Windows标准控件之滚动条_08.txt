@@ -1,0 +1,5 @@
+﻿设置滚动条范围
+SendMessage(hScrollBar, SBM SETRANGE, 0, 100);
+设置当前位置
+SendMessage(hScrollBarz SBM SETPOS, 40, 1);
+本视频版权归黄强所有、侵权必究

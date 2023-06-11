@@ -1,0 +1,16 @@
+﻿M
+HSCROLL消息消息
+当LOWORD(wParam)指示用户的滚动请求，可为以下值:
+SB ENDSCROLL结束滚动。
+SBLEFT
+SB^RIGHT SBjlNELEFT SB[LINERIGHT SB^PAGELEFT sb[pageright
+滚动到左上角。
+滚动到右下角。
+向左滚动一个单位。 向右滚晶一个期位。
+向左滚动窗口的宽度。 向右滚动窗口的宽度。
+SBJHUMBPOSITION 用户拖动滚动框(拇指)并释放鼠标按钮。该HI WORD表示滚动框在拖动 操作结束的位置。
+SBJHUMBTRACK	用户正在拖动滚动框。该消息被重复发送，直到用户释放鼠标按钮。该
+HIWORD表明滚动框被拖动到的位置。
+I Param的
+如果消息由滚动条控件发送，则此参数是滚动条控件的句柄。如果消息是由标准滚动条发送的，则此 参数为NULL。
+本视频版权归黄强所有、侵权必究

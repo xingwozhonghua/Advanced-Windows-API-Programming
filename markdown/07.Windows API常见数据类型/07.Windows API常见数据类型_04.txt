@@ -1,0 +1,14 @@
+﻿Windows API常见数据类型
+头文件 minwindef.h
+类型	定义		
+BYTE	typedef	unsigned char	BYTE;
+WORD	typedef	unsigned short	WORD;
+BOOL	typedef	int	BOOL;
+WORD	typedef	unsigned short	WORD;
+DWORD	typedef	unsigned long	DWORD;
+FLOAT	typedef	float	FLOAT;
+INT	typedef	int	INT;
+UINT	typedef	unsigned int	UINT;
+ULONG	typedef	unsigned long	ULONG;
+ATOM	typedef	WORD	ATOM;
+本视频版权归黄强所有、侵权必究

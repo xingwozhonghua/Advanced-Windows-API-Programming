@@ -1,0 +1,11 @@
+﻿取单选按钮与复选按钮的状态
+想要获取单选按钮或复选框的选中状态，可以使用SendMessage向控件发送BM_GETCHECK消息或 直接使用Button_GetCheck宏，其返回值为：
+返回代码
+描述
+BST.CHECKED
+按钮被选中。
+BST_INDETERMINATE
+按钮呈灰色，表示处于不确定状态（仅在按钮具有BS.3STATE或BS_AUTO3STATE样式时适用）。
+BST_UNCHECKED
+按钮被清除
+本视频版权归黄强所有、侵权必究

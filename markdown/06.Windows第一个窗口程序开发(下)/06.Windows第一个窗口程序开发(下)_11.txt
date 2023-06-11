@@ -1,0 +1,15 @@
+﻿课程代码
+#include< windows.h>
+〃窗口过程函数，对接收到的消息进行响应
+long CALLBACK MyWndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM I Param)
+{
+switch (message)
+{
+case WM_DESTROY:
+PostQuitMessage(O);
+return 0;
+default: 〃缺省时采用系统消息缺省处理函数
+return DefWindowProc(hwnd, message, wParam, I Pa ram); )
+return (0);
+)
+本视频版权归黄强所有、侵权必究

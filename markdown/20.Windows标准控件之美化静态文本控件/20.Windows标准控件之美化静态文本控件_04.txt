@@ -1,0 +1,7 @@
+﻿M CTLCOLORSTATIC消息
+静态控件或只读或禁用的编辑控件在即将绘制控件时将WM_CTLCOLORSTATIC消息发 送到其父窗口。通过响应此消息，父窗口可以使用指定的设备上卞文句柄来设置静态控件的 文本前景色和背景色。
+WPARAM 显示上下文（DC）的句柄。
+LPARAM子窗口（控件）的句柄。
+返回值
+如果应用程序返回它创建的画笔（例如，通过使用CreateSolidBrush或CreateBrushlndirect函数）， 则应用程序必须释放画笔。如果应用程序返回系统画笔（例如，由GetStockObject或 GetSysColorBrush函数检索到的画笔），则应用程序不需要释放笔刷。
+本视频版权归黄强所有、侵权必究

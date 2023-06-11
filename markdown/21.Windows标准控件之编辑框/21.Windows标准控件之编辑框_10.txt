@@ -1,0 +1,12 @@
+﻿辑框控件通知消息
+控件会向父窗口发送命令消BWM COMMAND,通知码为EN XXX.
+EN_ERRSPA CE	当编辑控件无法分配足够的内存以满足特定请求时发送.确控件09父窗口通过WM COMMAND消息接收此 码.
+EN_HSCROL L	用户单击编辑控件M水平滚动条时发送.确控｛郴父窗口通过WM COMMAND；肖息接收此通知代码.在屏 暮更新之前畋用口.
+EN_KILLFOC US	该EN_KILLFOCUS当编辑控件去谴盘焦点通知代码发送.编g牛的父窗口通过WM_COMMAND消思接收 ittism码.
+EN_MAXTEX T	当前文本插入已超出i袖控件的指定字符敌时发送.文本插入已被截断. 当编辑控件没有ES_AUTOHSCROLL样式并且要插入的字符敬jSjgS控件0瞬度时，也会发送此海覆. 当编噂件没有ES_AUTOVSCROLL样式并且文本插入产生的行总数超过曲舞粮Ji®度时，也会发送此消息. 婀粉郴父窗口 is^wM_coMMAND消码.
+EN.SETFOC US	锤囹眦如发送.父窗口愈WM_COMMAND消息弋码.
+EN_UPDATE	编辑控件6啪重新绘制时发送.此濒代码田野MS式化文本后但在昱示文本之前发送.如有必要，可以调整 枷控制商口林小.翩物郴父盲口愈WM_COMMAND消息接ifelttiSMM弋码.
+EN_VSCROL L	当用户单击编辑控件的毒旬衮动条或用户在编辑控件上滚动鼠标滚轮时发送.确控件的父函口通过 WM_COMMAND消忠弋码.叫幕更新之前畋用口.
+WM.CTLCO LOREDIT	当控件即将绘制时，不是只读或禁用的编辑控件将WM_CTLCOLOREDIT消息发送到其父窗口.通过响应此消 忠，父窗口可以使用t靛的设备上下文句柄来设置编吨觥文本和背毁颜色.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb775458(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

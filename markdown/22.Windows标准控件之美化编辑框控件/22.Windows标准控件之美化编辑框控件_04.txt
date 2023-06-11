@@ -1,0 +1,7 @@
+﻿M CTLCOLOREDIT消息
+当控件即将绘制时，不是只读或禁用的编辑控件将WM_CTLCOLOREDIT¥肖息发送到其 父窗口。通过响应此消息，父窗口可以使用指定的设备上下文句柄来设置编辑控件的文本和 背景颜色。
+WPARAM 显示上下文（DC）的句柄。
+LPARAM子窗口（控件）的句柄。
+返回值
+如果应用程序返回它创建的画笔（例如，通过使用CreateSolidBrush或CreateBrushlndirect函数）， 则应用程序必须释放画笔。如果应用程序返回系统画笔（例如，由GetStockObject或 GetSysColorBrush函数检索到的画笔），则应用程序不需要释放笔刷。
+本视频版权归黄强所有、侵权必究

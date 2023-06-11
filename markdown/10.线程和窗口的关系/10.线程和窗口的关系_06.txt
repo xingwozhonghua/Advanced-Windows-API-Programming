@@ -1,0 +1,8 @@
+﻿SendMessage 函数
+LRESULT WINAPI SendMessage（
+HWND hWnd,〃接收消息的窗口的句柄
+UINT Msg,//;肖息ID
+WPARAM wParam,〃附加的消息特定的信息 LPARAM IParam〃附加的消息特定的信息
+）；
+SendMessage将指定的消息发送到一个或多个窗口。该SendMessage函数的函数调用指定的窗口 的窗口过程，将会一直阻塞等待，直到窗口过程已经处理了该消息。
+本视频版权归黄强所有、侵权必究

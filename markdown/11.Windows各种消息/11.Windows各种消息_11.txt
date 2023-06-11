@@ -1,0 +1,14 @@
+﻿WM NOTIFY消息
+每个控件根据其自身特点来定义结构体，但要求第一个字段一定是NMHDR。如果我 们需要知道ListView选中的行和列，那么可以这么定义：
+typedef struct tagNMLISTVIEW
+{
+NMHDR hdr;	//NMHDR.
+int iltem;	〃行号.
+int iSubltem;	// 列号.
+UINT uNewState;
+UINT uOldState;
+UINT uChanged;
+POINT ptAction;
+LPARAM I Pa ram;
+} NMLISTVIEW, *LPNMLISTVIEW;
+本视频版权归黄强所有、侵权必究

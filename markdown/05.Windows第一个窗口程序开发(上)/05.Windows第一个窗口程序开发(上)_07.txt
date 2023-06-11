@@ -1,0 +1,10 @@
+﻿注册
+
+口类
+使用Registerclass该函数注册一个窗口类。
+ATOM WINAPI RegisterClass(
+const WNDCLASS *lpWndClass 〃指向WNDCLASS结构的长指针 )；
+返回值：
+如果函数成功，返回值是唯一标识已注册的美的f原子；失败返回值为0,调用GetLastError函数获得更多错 误信息。ATOM类型为Windows中定义的新数据类型，其即unsigned short类型！
+注：https://msdn.microsoftcom/en-us/library/windows/desktop/ms633586(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,12 @@
+﻿父窗口处理该消息设置静态文本的背景色与文字颜色：
+case WM CTLCOLORSTATIC:
+{
+HDC hdc = (HDC)wParam;
+HWND hCtrl = (HWND)IParam;
+UINTctrllD = GetWindowLong(hCtrl, GWL ID);〃获取控件ID
+SetTextColor(hdc, RGB(O, 255, 0));
+SetBkColor(hdc, RGB(255, 0, 0));
+return (LRESULT) GetStockObject(BLACK BRUSH);
+}
+break;
+本视频版权归黄强所有、侵权必究

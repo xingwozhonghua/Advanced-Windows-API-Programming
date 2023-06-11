@@ -1,0 +1,5 @@
+﻿PostThreadMessage 函数
+BOOL WINAPI PostThreadMessage（ DWORD idThread,〃线程的标识符ID UINT Msg,//;肖息ID
+WPARAM wParam,〃附加的消息特定的信息 LPARAM IParam〃附加的消息特定的信息 ）；
+注意：如果指定的线程没有）肖息队列，则该函数失败。当线程首次调用其中—User或GDI函数时，系统创建 f 线程的消息队列。PostThreadMessage发送的消息不与窗口关联，所以通过调用GetMessage或 PeekMessage函数来获取）肖息，返回的MSG结构的hwnd成员是NULLO作为一般规则，与窗口无关的消息不 能由DispatchMessage函数分派。
+本视频版权归黄强所有、侵权必究

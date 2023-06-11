@@ -1,0 +1,21 @@
+﻿了鼠标消息
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LRARAM I Pa ram)
+switch (Msg)
+case WM DESTROY:
+PostQu itMessage(O);/何以使 GetMessage 返回 0 return 0;
+case WMMOUSEMOVE:
+~ char str[64];
+sprintf(str;"鼠动:％d,%d\n”, LOWORD(IParam), HIWORD(IParam)); OutputDebugStringA(str);
+return 0;
+case WMLBUTTONDOWN:
+~ sprintf(str;"鼠标左键点击％^%6" LOWORD(lParam), HIWORD(IParam)); OutputDebugStringA(str);
+return 0;
+case WMLBUTTONDBLCLK:
+~ sprintf(str;"鼠标左键双击％^%6" LOWORD(lParam), HIWORD(IParam)); OutputDebugStringA(str);
+return 0;
+需在注册窗口类的时 候 WNDCLASS 的 style 成员加 CS.DBLCLKS
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, IParam);
+本视频版权归黄强所有、侵权必究

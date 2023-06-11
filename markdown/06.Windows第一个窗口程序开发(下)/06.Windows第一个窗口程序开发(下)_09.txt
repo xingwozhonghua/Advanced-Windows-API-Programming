@@ -1,0 +1,8 @@
+﻿消息循环
+TranslateMessag e将虚拟键消息转换为字符消息。
+BOOL WINAPI TranslateMessage（ const MSG *lpMsg 〃指向MSG结构的指针
+）；
+返回值
+如果消息已被翻译（即字符消息已发布至U线程的消息队列中），则返回值为非零值。
+如果消息是WM_KEYDOWN, WM_KEYUP, WM_SYSKEYDOWN或WM_SYSKEYUP,不管翻译如何，返回值都是非零值。 如果消息未被转商（即字符消息没有发布到线程的消息队列中），则返回值为零。
+本视频版权归黄强所有、侵权必究

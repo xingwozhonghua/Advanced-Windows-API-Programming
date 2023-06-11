@@ -1,0 +1,8 @@
+﻿indows资源文件・rc
+在资源视图中，我们右键工程，添加资源:
+插入T长位ES,发现政了.rc文件：
+IDBBITMAP1 BITMAP nC:\\Users\\btn1 .bmp"
+还^£了 resou rce. h 文件:
+#define IDB BITMAP1
+101
+本视频版权归黄强所有、侵权必究

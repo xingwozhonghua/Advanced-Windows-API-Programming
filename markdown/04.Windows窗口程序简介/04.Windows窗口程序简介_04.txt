@@ -1,0 +1,9 @@
+﻿-Windows窗口程序简介
+目前开发Windows窗口程序的主流技术有以下:
+技术	简介	语言
+Win32 API	Windows平台底层API、效率高、难J戴高	C+ +
+MFC框架	微软S5出类库Microsoft Foundation Classes, MFC)对 Win32 APIK面向对象封装、难度较高	C+ +
+QT框架	Qt Company开发的跨平台C++图形用户界面应用程序开发 框架。Qt是面向对象的缺，使用特殊的代码生成扩展(称 为元对象编译器(Meta Object Compiler; moc))以及一些 宏，Qt很容易扩展，并且允许真正地组件编程。	C+ +
+WPF框架	WPF (Windows Presentation Foundation)是微软推出的 基于Windows的用户界面框架，基于DirectX 9/10技术 ,使fflXAML设th属于.NET Framework的一分。	C#
+Windows Forms	微软的.NET Framework框架的图形用户界面部分，该组件 通过将现有的Windows API (Win32 API)封装为托管代码 提供了财Windows本地(native)组件的访问方式<>	C#、VB
+本视频版权归黄强所有、侵权必究

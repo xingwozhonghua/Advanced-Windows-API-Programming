@@ -1,0 +1,10 @@
+﻿indows资源文件・rc
+LISTBOX	创建f列表框控件。
+LTEXT	创建f左对齐的文本控件。
+PUSHBOX	创建f推箱控制。
+PUSHBUTTON	创建』按钮控件。
+RADIOBUTTON	创建』单选按钮控件。
+RTEXT	创建f右对齐的控件。
+SCROLLBAR	创建f衮动条控件。
+STATE3	创建f三状态复选g牛。
+本视频版权归黄强所有、侵权必究

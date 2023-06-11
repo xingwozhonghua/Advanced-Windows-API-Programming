@@ -1,0 +1,114 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之热键控件
+本视频版权归黄强所有、侵权必究
+indows控件之热键控件
+热键控制是一个输入窗口，使用户可以输入要用作热键的按键组合。它是类名是
+HOTKEY_CLASSe
+本视频版权归黄强所有、侵权必究
+，控件样式
+dwStyle:指定控件的风格。可以是以下风格的任意组合。
+热键控件一般设置WS_CHILD、WS_VISIBLE、WS_BORDER等窗口风
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hHotkey= CreateWindow(HOTKEY_CLASS,
+L”XXX”，
+WS_CHILD| WS_VISIBLE,
+30.30,
+200.30,
+hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+可以向控件发送H KM_XXX消息来设置控件。
+创建热键控件后，应用程序通过使用三条消息与它交互：
+H KM_SETRULES	定义热键控件的无效组合和默认修饰符组合。
+H KM_SETHOTKEY	设置热键控制的热键组合。
+H KM_G ETHOTKEY	获取热键控制的热键组合。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb775233(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+f拟键码
+相应的键名对应的整数值。
+值	含义
+HOTKEYF_ALT 0x04	ALT键
+HOTKEYF_CONTROL 0x02	CTRL 键
+HOTKEYF_EXT 0x0889	扩展吏钥
+HOTKEYF_SHIFT 0x01	SHIFT键
+字母A-Z
+F1-F12
+Space
+Num 0-9
+0x41 - 0x5A
+0x70 - 0x7 B
+0x20
+0x60 - 0x69
+本视频版权归黄强所有、侵权必究
+〃设置控件的内容将CTRL + ALT + A(0x41是A的虚拟键码)
+SendMessage(hHotkey/ HKM SETHOTKEY,
+MAKEWOR[5(Ox69,HOTKEYF_CONTROL | HOTKEYF ALT), 0);
+〃获取控件的内容
+WORD key= SendMessage(hHotkeyz HKM_GETHOTKEYzOz 0); BYTE I = LOBYTE(LOWORD(key));//虚拟键码 BYTE h = HIBYTE(LOWORD(key));//Ctrl Alt
+bool b1 = h &HOTKEYF CONTROL;
+bool b2 = h &HOTKEYF>LT;
+本视频版权归黄强所有、侵权必究
+空件向父窗口发送的通知消息
+热键控件不会向父窗口通过WM_NOTIFY消息发送任何通知代码。但是，当用户更改控件的内容时, 它将通过WM_COMMAND消息发送EN_CHANGE通知。控件的默认窗口过程处理处理以下消息：
+WM.CHAR	码.
+WM.CREATE	件.清脚有?体.
+WM.ERASEBKGND	泠，调用DefWindowProc砌，并再;X®锄?
+WM^GETDLGCODE	返回 DLGC_WANTCHAR 湘 DLGC_WANTARROWS{SB9®合.
+WM.GETFONT	幡g.
+WM_KEYDOWN	如果觥SENTER, TAB. SPACE BAR, DEL, ESC或BACKSPACE,则调用DefWindowProc函故.如果柚是SHIFT, CTRUEALT,它将随狙 合是否有效，如果是，员爆用祖合设■热st.所有？i他st都设矗为热键，而不会首先隘其有效性.
+WM.KEYUP	
+WM.KILLFOCUS	幢SA曲
+WM.LBUTTONDOWN	将焦点设置到国口.
+WM.NCCREATE	皿 WS_EX_CUENTEDGE 圈口样式.
+WM.PAINT	细
+WM.SETFOCUS	创建并豆示插入符
+WM.SETFONT	字体.
+WM.SYSCHAR	密 土
+WM.SYSKEYDOWN	如果是是ENTER, TAB, SPACE BAR, DEL, ESC或BACKSPACE,则调用DefWindowProc函故.如果剧ESHIFT, CTRLagALT,它将检查组 合是否有效，如果是，只峻用幻合设置热览所有其他谜都设置为热键，而不会首先检直其有效性.
+本视频版权归黄强所有、侵权必究
+浏911蕾
+case WM—COMMANP
+f
+IND hQr-一 n (IND)一Param;
+WORD code H 工WORD(wparam)； 一f (code EN—CHANGE) f
+WORD key H sendMessage(hQrL HKM—GETHOTKEY Q 0)；
+BYTE 一 H LOBYTE(LOWORD(key))7、BM^'®
+BYTE h，H_BYTE(LOWORD(key)M、Qr_ A_r+ boo- bl H h 2H0TKEYF—C0NTR0L;
+boo- b2 H h RHOTKEYF.Am
+TCHAR buf【64J n ◎;
+wspr-nif(buf L=%d %d %c，3bl、b2、-)； ouipur+Debugsir-ng(buf)；
+)brek_
+
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

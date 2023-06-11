@@ -1,0 +1,93 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows绘图API函数（下）
+本视频版权归黄强所有、侵权必究
+extOut函数
+TextOut函数在指定位置写入的字符串，利用当前选择的字体，背景颜色^文本颜色。
+BOOL TextOut （
+HDChdc, //设备上下文的句柄
+int	nXStart, 〃x坐标
+int	nYStart, 〃y坐*示
+LPCTSTR IpString, 〃文本
+int	cchString//文赤矣重
+）；
+返回值：
+如果函数成功，返回值为非零。 如果函数失败，返回值为零。
+本视频版权归黄强所有、侵权必究
+etTextColor 函数
+SetTextCol o r函数设置指定D C中的文字颜色。
+COLORREF SetTextColor （
+HDChdc, //设备上下文的句柄
+COLORREF crColor//颜色
+）；
+返回值：
+如果函数运行成功，返回当前DC之前的文字颜色; 如果函数运行失败，返回CLR INVALIDO
+本视频版权归黄强所有、侵权必究
+etBkColor 函数
+SetBkColor函数将当前的背景色为指定的颜色值，或者为最接近的物理色彩如果该设备不 能表示指色值。
+COLORREF SetBkColor （
+HDChdc, //设备上下文的句柄
+COLORREF crColor//背景色
+）；
+返回值：
+如果函数成功，贝腿回值将前一个背景颜色指定为COLORREF值。 如果函数失败，贝腿回值为CLR_INVALID。
+本视频版权归黄强所有、侵权必究
+etBkMode 函数
+SetBkMode功能设置指定设备上下文的背景混合模式。背景混合模式与文字，阴影画笔以 及不是实线的笔风格一起使用。
+COLORREF SetBkMode （
+HDChdc, //设备上下文的句柄
+int iBkMode//背景模式，OPAQUE 不透明 TRANSPARENT 透明
+）；
+返回值：
+如果函数成功，则返回值指定先前的背景模式。 如果函数失败，返回值为零。
+本视频版权归黄强所有、侵权必究
+rawText 函数
+DrawText函数绘制格式化指定的矩形文本。它根据指定的方法对文本进行格式化（扩展制 表符，验证字符，断行等等）。
+int DrawText （
+HDChdc, //设备上下文的句柄
+LPCTSTR IpchText, 〃文本
+int	nCou nt, 〃字符串的字符长度
+LPRECT IpRect, //文本的矩形
+UINT uFormat〃格式化文本的方法
+）；
+返回值：
+如果函数成功，贝腿回值是以逻辑单位表示的文本的高度。如果指定了DT_VCENTER或DT_BOTTOM, 则返回值是从lpRect->top所绘制文本的底部开始的偏移量
+如果函数失败，返回值为零。
+本视频版权归黄强所有、侵权必究
+DrawText 函数
+u Format可是以下一个或多个值:
+DTBOTTOM	将文本对齐至1 鹿形的底部。该值仅与DT_SINGLELINE值一起使用。
+DTCALCRECT	确定矩形的宽度和高度。如果有多行文本，DrawText将使用IpRect参瞒向的矩形的宽度，并扩展矩形 的底部以限定最后一行文本。如果最大的单词比矩形宽，则宽度将展开。如果文本小于矩形的宽度，则 宽度会减小。如果只有一行文本，贝UDrawText将修改矩形的右侧，以便限制该行中的最后f 字符。无 论哪种清况，Drawlbxt都会返回格式化文本的高度，但不会绘S歧本。
+DTCENTER	在矩形中水平居中文本。
+DTEDITCONTROL	复制多行编辑控件的文本显示特性。具体而言，平均字符宽度的计算方式与编傩件相同， 并且该函数不显示部分可见的最后一行。
+DTENDELLIPSIS	对于显示的文本，如果字符串的末尾不适合矩形，则会截断并添加椭圆。如果不在字符串末尾的单词 超出了矩形的范围，则它将被截断而不用椭圆。
+本视频版权归黄强所有、侵权必究
+etTextAlign 函数
+SetTextAlign函数设置为指定设备上下文文本对准标志。
+UINT SetTextAlign (
+HDC hdc, //设备上下文的句柄
+UINT f Mode//标志
+返回值：
+如果函数成功，返回值就是之前的文本对齐设置。 如果函数失败，返回值是GDI_ERROR。
+本视频版权归黄强所有、侵权必究
+SetTextAlign 函数
+文本对齐标志：
+TABASELINE TA^BOTTOM TAJOP ta[center TA]LEFT ta[right
+参考点将在文本的基线上。
+参考点将位于边界矩形的底部边缘。 参考点将位于边界矩形的顶部边缘。 参考点将与边界矩形的中心水平对齐。 参考点将位于边界矩形的左边缘。 参考点将位于边界矩形的右边缘。
+当当前字体具有垂直缺省基线时，与汉字一样，必须使用以下值代替TA_BASELINE和TAJZENTER。
+VTA_BASELIN E 参考点将在文本的基线上。
+VTA_CENTER	参考点将与边界矩形的中心垂直对齐。
+本视频版权归黄强所有、侵权必究
+嗣911尤SI
+case WM—PAZ-R
+f
+PAZTSTRUCT ps;
+HDC hdc H Beg 一 nPa 一 nuhwnp-p?ps)； seskco_or(hdc、RGB(255、Q。))； 7seskMode(hdc、TRANSPARENT)； sefrexfA_一gn(hdc、TA—LEFT )； Texiouuhdc'。。'。。、L..令基sv _2r一当(L..eJ基s=))；
+RECT r H 二。。、2。。、3。。、3。0)；
+Recorng-e(hdc、r.-efcsp-r.r 一 ghLLbosom)；
+DrawTexuhdc、L=奇笛=3公行=耳._§一当(|_=奇笛=3公笛=耳.)、2?〔 DT—SZGLELZE- DT—BOTTOM)； Endpa-nuhwnd、p?ps)；
+)
+Is
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

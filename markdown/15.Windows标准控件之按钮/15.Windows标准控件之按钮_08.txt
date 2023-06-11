@@ -1,0 +1,14 @@
+﻿安钮消息代码
+LOWORD(wParam)是控件ID, HIWORD(wParam)是notification code,比如BN CLICKED, BN_DBLCLK等，标志用户对控件的操作，双击，单击之类。
+case WM COMMAND:
+switch (LOWORD(wParam))
+{
+case 111:
+if (HIWORD(wParam) = = BN_CLICKED)
+{
+MessageBox(NULL, L”您单击了按钮七 L“提示二 MB OK); } break;
+default:
+break;
+}
+)break;
+本视频版权归黄强所有、侵权必究

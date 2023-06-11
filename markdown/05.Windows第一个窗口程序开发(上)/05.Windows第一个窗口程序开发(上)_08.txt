@@ -1,0 +1,14 @@
+﻿创建窗口
+WNDCLASS结构体包含一个窗口类的全部信息，定义一个窗口类确定窗口的属性：
+HWND WINAPI Create Window (
+LPCTSTR IpCIassName, //RegisterClass注册的窗口类名称
+LPCTSTR IpWindowName, 〃窗口名称
+DWORD dwStyle, 〃窗口的样式
+int	x, 〃成］始x里标
+int	y, 〃初始y坐标
+int nWidth, //窗口的宽度，CW_USEDEFAULT表示默认宽度和高度； int nHeight, 〃窗口的高度，CW USEDEFAULT表示默认宽度和高度； HWND hWndParent, 〃父窗口句柄
+HMENU hMenu, 〃窗口菜单的句柄
+HINSTANCE hlnstance, 〃模块实例的句柄
+LPVOID lpParam//ifi过WM CREATE消息的IParam参数指向的CREATESTRUCT结构
+注：https://msdn.microsoft.com/en-us/library/windows/desktop/ms632679(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

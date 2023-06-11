@@ -1,0 +1,7 @@
+﻿GetMessage 函数
+BOOL WINAPI GetMessage（
+LPMSG IpMsg,〃该结构从线程的消息队列接收消息信息 HWND hWnd,//该窗口必须属于当前线程
+UINT wMsgFilterMin,//要检索的最低消息值的整数值
+UINT wMsgFilterMax//菱检素的最大消息值的整数值 ）；
+GetMessage的第二个参数hWnd设置为NULL,则GetMessage会获取线程中的所有窗口的消息 以及通过PostThreadMessage投递的消息。如果您指定一个窗口句柄作为，那么GetMessageR 获取在消息队列里和这个窗口有关的消息。注意，那么当窗口关闭后，hWnd无效了，无法根据 hWnd捕获到PostQuitMessage发送的WM_QUIT¥肖息了，从而导致循环无法结束，所以需要判断 其返回值是否为T来结束消息循环!
+本视频版权归黄强所有、侵权必究

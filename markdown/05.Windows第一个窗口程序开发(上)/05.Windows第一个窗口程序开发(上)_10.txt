@@ -1,0 +1,6 @@
+﻿创建窗口
+返回值
+如果函数成功，则返回值是新窗口的句柄。失败返回值为NU山 调用GetLastErro凄获得扩展错误信息。
+备注
+在函数返回之前，Create Window发送WM_CREATE＞肖息给窗口过程。对于重叠窗口，弹出窗口和子窗口， CreateWindow将WM_CREATE, WM_GEfMINMAXINFO和WM_NCCREATE）肖息发送到窗口。WM_CREATE 消息的IParam参数包吾一个指向CREA^ESTRUCT结构的指针。如巢指定了WS_VISIBLE样式，贝I」 CreateWindowW向窗口发送激活并显示窗口所需的所有消息。如果创建的窗口是子窗口，则其默认位置位于Z 顺序的底部。如果创建的窗口是顶层窗口，则其默认位置位于Z顺序的顶部（但在所有最顶层窗口下面，除非创 建的窗口本身是最顶层的窗口）。
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,6 @@
+﻿控件会向父窗口发送命令消息WM_HSCROLL与WM_VSCROLL¥肖息
+WM_CTLCOLORSCRO LLBAR	该WM_CTLCOLORSCROLLBAR消皂被发送到当控制将要被绘制的滚动条控件的父窗口.通过响应此消皂，父窗口可以使用显示上下文句 柄来噂衮赫拥景颜色. —窗口通过它的WindowPro您数接收£个消息。
+WM_HSCROLL	所述WM_HSCROLL当滚动事件在窗口的标准水平滚动条发生j肖息被发送到的窗口。当控件中出现滚动事件时，此得总也会发送给水平滚 动条控件的所有者。 —窗口通过它的通数接收g个消息.
+WM_VSCROLL	所述WM VSCROLL当滚动事件在窗口的标准垂直滚动条发生肖息被发送到的窗口。当控件中出现滚动事件时，此消息也会发送给垂直滚 动条控件的所有者。 —窗口通过它的WJndowProc函敬接收这个消息.
+更多查阅MSDN链接：httDS：//msdn.microsoft.com/en-us/library/windows/desktOD/bb787529(v=vs.85).asux
+本视频版权归黄强所有、侵权必究

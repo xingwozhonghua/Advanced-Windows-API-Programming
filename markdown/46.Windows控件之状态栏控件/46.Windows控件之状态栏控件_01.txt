@@ -1,0 +1,97 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之状态栏控件
+本视频版权归黄强所有、侵权必究
+indows控件之状态栏控件
+状态栏是在其中一个应用程序可以显示各种状态信息的父窗口的底部的水平窗口。。 它是类名是 STATUSCLASSNAMEO
+本视频版权归黄强所有、侵权必究
+控件样式
+dwStyle:指定控件的风格。
+SBARS_SIZEGRIP 状态栏控件将包含状态栏右端的大小调整手柄。定位手柄类似于尺寸边界;它是一个矩形区 域，用户可以单击并拖动以调整父窗口的大小。
+SBTJOOLTIPS	使用这种风格来启用工具提示。
+SBARS_TOOLTIPS 与SBTJOOLTIPS相同。
+一般还需要设置WS_CHILD、WS_VISIBLE等窗口风格！
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+在 WMCREATE｝肖 息的响应中创建子 窗匚I、控件等等
+switch (Msg)
+case WM_CREATE:
+(
+HWND hStatus= CreateWindow(STATUSCLASSNAME,
+NULL,
+WS CHILD|WS VISIBLE,
+0, 0, 0, 0, hWnd/ '
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstancez
+NULL);
+本视频版权归黄强所有、侵权必究
+可以向控件发送SB_XXX消息来设置控件。
+SBJSSIMPLE	陷状态淄牝遍定它是否处于简单岫
+SB.SETBKC0L0R	设直状态栏中的背景颜色.
+SB_SETIC0N	设直状态栏中零件的图标.
+SB_SETMINHEIGHT	设直状态窗口绘图区域的最小高度.
+SB_SETPARTS	设直状态窗口中的零件数量和每个零件右边的坐标.
+SB_SETTEXT	SB_SETTEXT；费设置状态窗口指定部分的文本.
+SB_SETTIPTEXT	为状态栏中的零件设置工具提示文本。状态栏必须使用SBLT00LTIPS样式创建以启用工司是示.
+SB_SETUNIC0DEF0RMAT	设置控件的Unicode字符格式标志.此消息允许您在运行时更改控件使用的字符集，而不必龄创建控件.
+sb_simple	版状而口袈涂单示由前f SB_SETPARTS消息所廊口部分.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb760726(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+〃将状态栏分为几段
+int array[3] = ( 100,200,250 };
+SendMessage(hStatus, SB_SETPARTS, (WPARAM)3, (LPARAM)array);
+〃设置状态栏文本
+SendMessage(hStatus, SB_SETTEXT, (LPARAM)O, (WPARAM)TEXT(”第一部分”));//设置面板内容
+SendMessage(hStatus, SB SETTEXT, (LPARAM)1, (WPARAM)TEXT(n第二部分”))；
+SendMessage(hStatus, SB_SETTEXT, (LPARAM)2, (WPARAM)TEXT(n第三部分”))；
+〃设置状态栏高度(将WM_SIZE消息发送到状态窗口以重新绘制窗口) SendMessage(hStatus, SB_SETMINHEIGHT, 50,0); SendMessage(hStatus, WM_SIZE,0,0);
+本视频版权归黄强所有、侵权必究
+t态栏如何自适应父窗口?
+当调整父窗口的大小时，状态栏并没有适应父窗口，将出现以下画面:
+利用WM_SIZE消息，并且向状态条发送此消息，让其重绘。
+case WM_SIZE:
+SendMessage(hStatus, WM SIZE, 0, 0); break;
+本视频版权归黄强所有、侵权必究
+空件通知消息
+控件会向父窗口发送WM_NOTIFY$肖息的形式的通知代码
+NM.CLICK （状态栏）	觐状态淄柚5®口，用户成牛内点击了鼠略键。NM.CUCK （状态栏）aWM.NOTIFY;肖,送.
+NM_DBLCLK （状态栏）	觐状态前父窗口，用户双击明中的鼠猝键.此畋以WM_NOTIFY消息的晦秘.
+NM_RCLICK （状态栏）	通知状态前粮）父窗口，用户雨牛中点击了鼠标右键.此通知以WM_NOTIFY尚恩的形式发送.
+NM_RDBLCLK （状态栏）	通知状态部件的父窗口，用户双击控件中的鼠标右键.NM.RDBLCLK （状态栏）以WM_NOTIFY澹息的形式发送.
+SBN.SIMPLEMODECHANGE	当简单模式由于SB_SIMPLE消息而改瀚t,由状态曲牛发送。此通知以WM_NOTIFY消息的形式发送。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb760726（v=vs.85）.aspx
+本视频版权归黄强所有、侵权必究
+哽再哥、身绿朝砸岫*
+:>|e9jq（
+：0 ujn^9J （
+©0 91AI '栏啬「'用草亲尊氐1 'pu/V\q）x。护6essa内
+}
+（>13113 IAIN == epoo<-yaHd ）^!
+：山印耳|（¥ yQHNN） = yQHd ¥ yQHNN
+}
+•Ad 110N AIM
+
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

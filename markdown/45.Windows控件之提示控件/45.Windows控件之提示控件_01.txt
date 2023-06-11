@@ -1,0 +1,104 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之提示控件
+本视频版权归黄强所有、侵权必究
+indows控件之提示控件
+当用户将鼠标指针停在某个控件或者窗口上时，工具提示会自动出现或弹出用来提示 用户7信息。它是类名＞TOOLTIPS_CLASSo
+本视频版权归黄强所有、侵权必究
+控件样式
+dwStyle:指定控件的风格。
+TTS_ALWAYSTIP 表示当光标位于工具上时，即使工具提示控件的所有者窗口处于非活动状态，也会显示工具 提示控件。如果没有这种风格，工具提示只有在工具所有者窗口处于活动状态时才会出现。
+TTS_BALLOON表示工具提示控件具有卡通〃气球”的夕卜观，其圆角和指向该项目的箭头。
+TTS_CLOSE 在工具提示上显示关闭按钮。仅在工具提示具有TTS_BALLO ON样式和标题时才有效；
+TTS_NOANIMATE 禁用Windows 98和Windows 2000系统上的滑动工具提示动画。
+TTS_NOFADE 禁用淡出工具提示动画。
+TTS_NOPREFIX防止系统从字符串中除去&符号或在制表符处终止字符串。如果没有这种样式，系统会自动删 除与号字符，并在第f制表符处终止f字符串。
+TTS_USEVISUALSTYLE使用主题超链接。
+一般设置WS_POPUP、WS_EX_TOOLWI NDOW等窗口风格！
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+在 WMCREATE｝肖 息的响应中创建子 窗匚I、控件等等
+switch (Msg)
+case WM CREATE:
+HWND hTooltip= CreateWindow(TOOLTIPS_CLASS,
+NULL,
+WS_POPUP |TTS_NOPREFIX | TTS_ALWAYSTIP| TTS_BALLOON,,
+0,。，0,0,
+hWnd,
+NULL,//这里必须为NULL
+((LPCREATESTRUCT)IParam)->hlnstance,
+NULL);
+〃设置为顶层窗口，否则能会被父窗口覆盖
+SetWindowPos(hTooltipzHWND_TOPMOST,0,0,0,0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+本视频版权归黄强所有、侵权必究
+可以向控件发送TTM_XXX消息来设置控件。
+TTM_ADDT00L	商H提示招
+TTM_ADJUSTRECT	从其窗口矩形或显示指定文本显示矩形所需的攻提示窗口矩形中计算工^提示控件的文本显示矩形.
+TTM_DELT00L	灯愈示招曹删
+TTM_ENUMT00LS	检索工具提示控件滞的关于当前工具的信息-即工M提示当前正任显示文本的工
+TTM_GETBUBBLESIZE	返回工M提示控件的宽度和高度.
+TTM_GETCURRENTT00L	在工具提示控件中检索当前工^的信鼠
+TTM.GETDELAYTIME	检索当前为工具提示控件触制始，弹出和重新显示持续时间，
+TTM_GETMARGIN	检索为工具提示窗口设置的顶部，左侧，腐3和右侧边晅 边8理工具提示窗口边框与工^提示窗口中包含的文本之间的距离（以像 素为单位）・
+TTM_G ETMAXTIPWIDTH	检索以提示窗口的最大宽度.
+TTM.GETTEXT	检索以提示控件部的有关工具的信息，
+更多查阅MSDN链接：htlps:〃msdn.microsoft.com/en-us/library/windows/desktop/bb760246(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+〃将工具提示与工具关联。
+TOOLINFO tool Info = { 0 };
+toolInfo.cbSize = sizeof (tool Info); toollnfo.hwnd = hWnd ;
+toolInfo.uFlags = TTFSUBCLASS;
+toollnfo.uld = (UINT_PTR)hWnd;
+toolInfo.lpszText = L”这是一个窗口的提示框,用它来提示用户一些信息！ ”; toollnfo.hinst = ((LPCREATESTRUCT)! Param)-> hl nstance;
+GetClientRect(hWnd,&toollnfo.rect);
+〃设置提示框
+SendMessage(h7boltip, TTM_ADDTOOLQ(LPARAM)&toollnf。);
+〃设置提示框的宽度，让它可多行显示
+SendMessageChfboltip, TTM_SETMAXTIPWIDTHQ(LPARAM)100);
+〃设置工具提示窗口保持可见的时间
+SendMessage(hTooltip, TTM_SETDELAYTIME, TTDT_AUTOPOR MAKELPARAM(2* 1000, 0));
+本视频版权归黄强所有、侵权必究
+空件通知消息
+控件会向父窗口发送WM_NOTIFY$肖息的形式的通知代码
+NM_CUST0MDRAW (工^提 示)	由工^提示控件发送以通知其父窗口有关绘图操作.此通知f弋码以WM_NOTIFY消息的形式发送.
+TTN_GETDISPINFO	提示招牛友茵以提示窗口所需瞧成此通郁弋码以WM_NOTIFY消恩的送.
+TTN_LINKCLICK	点击节工M提示内的文字链接时发送.
+TTN_NEEDTEXT	通过工^提示控件发送，以检索显示理提示窗口所需的信艮 此通知与TTN_GETDISPINFO相同.此通知代码以WM_NOTIFY消 ，醐形秘送.
+TTN.POP	通知所有者窗口即将隐藏工具提示.此通知代码以WM_NOTIFY消息的形式发送.
+TTN.SHOW	通知所有者窗口即将显示工具提示控件.此通知代码以WM_NOTIFY消息的形式发送.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb760246(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+case WM_NOTIFY:
+(
+NMHDR * pHDR = (NMHDR *)IParam;
+if ( pHDR->code == TTN_SHOW)
+(
+MessageBox(hWnd, L”提示框秀出”,L”提示”,MB_OK);
+}
+return 0;
+Jbreak;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

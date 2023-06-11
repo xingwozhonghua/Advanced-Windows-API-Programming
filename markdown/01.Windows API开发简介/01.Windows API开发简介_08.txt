@@ -1,0 +1,11 @@
+﻿Windows API 分类
+Windows API就是Windows应用程序接口，是针对Microsoft Windows操作系 统家族的系统编程接口，这样的系统点舌Windows 8.1ZWindows 8zWindows 7 等几乎所有版本。WIN32 API也就是Microsoft Windows 32位平台的应用程序编 程接口。
+Windows API包括几千个可调用的函数，大致可以分为以下几类：
+＞基础服务
+＞组件服务
+＞用户界面服务
+＞图形多媒体服务
+＞消息和协彳乍
+＞网络
+＞ Web服务
+本视频版权归黄强所有、侵权必究

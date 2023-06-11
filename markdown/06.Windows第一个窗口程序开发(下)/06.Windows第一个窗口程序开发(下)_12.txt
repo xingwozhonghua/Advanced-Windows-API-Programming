@@ -1,0 +1,6 @@
+﻿课程代码
+int WINAPI WinMain(HINSTANCE hlnstance, HINSTANCE hPrevInstance, LPSTR IpCmdLine, int nCmdShow)
+(
+WNDCLASS wndclass;
+wndclass.style = CS_HREDRAW) CS VREDRAW; 〃窗口类样式 wndclass.lpfnWndProc = MyWndProc; // 自定义窗口处理函数 wndclass.cbCIsExtra = 0; 〃窗口类无扩展 wndclass.cbWndExtra = 0; 〃窗口实例无扩展 wndclass.hlnstance = hlnstance; // 当前实例句柄 wndclass.hlcon = Loadlcon(NULL/ IDI_APPLICATION); 〃窗口的最小化图标为缺省图标 wndclass.hCursor = LoadCursor(NUL匚 IDC ARROW); 〃窗口采用箭头光标 wndclass.hbrBackground = (HBRUSH)(GetStockObject(WHITE_BRUSH)); 〃背景白色 wndclass.lpszMenuName = NULL; // 窗口无菜单 wndclass.lpszClassName = Lnhellon; 〃窗口类名
+本视频版权归黄强所有、侵权必究

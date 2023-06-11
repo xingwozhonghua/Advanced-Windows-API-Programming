@@ -1,0 +1,5 @@
+﻿Windows消息驱动机制
+Windows向线程）肖息队列传递消息时，首先会填充一个MSG结构，然后将这个MSG结 构复制到消息队列。MSG中的信息包括：目标窗口，消息标识符，两个消息参数，消息 派发时的时间，鼠标光标位置。
+typedef struct tagMSG{
+HWND UINT WPARAM LPARAM DWORD POINT } MSG;	hwnd; 〃窗口句柄，表正消息所属的窗I_1 message; 〃消息的标识符，比如WM_KEYDOWN wParam; 〃消息的附力口参数 LParam; 〃消息的附加参数 time; 〃消息被传递时候的时间 pt; 〃消息被传递时候光标在屏幕上的位置
+本视频版权归黄强所有、侵权必究

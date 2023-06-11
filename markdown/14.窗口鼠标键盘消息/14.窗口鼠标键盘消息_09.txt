@@ -1,0 +1,4 @@
+﻿盘消息
+我们是怎么收到WM_CHAR的呢？就是因为我们在消息循环时调用了 TranslateMessage函数对I建盘i肖息进行翻译，如果消息为WM_KEYDOWN或者 WM_SYSKEYDOWNZ并且按键与位移状态相组合产生一个字符，则TranslateMessage把 字符消息放入消息队列中。此字符消息将是GetMessage从消息队列中得到的按键消息之后 的下一个消息。
+在我们处理这个¥肖息时，对应的wParam不是虚拟键，而是ANSI或Unicode字符代码， —般情况下我们可以这样用：（TCHAR）wParam。因为TranslateMessage函数从 WM_KEYDOWN和WM_SYSKEYDOWN消息产生了字符消息，所以字符消息是夹在按键 消息之间传递给窗口消怠处理程序的。
+本视频版权归黄强所有、侵权必究

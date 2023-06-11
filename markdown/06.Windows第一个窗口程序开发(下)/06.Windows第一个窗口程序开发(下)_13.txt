@@ -1,0 +1,20 @@
+﻿课程代码
+〃注册窗口类 RegisterClass()
+if (!RegisterClass(&wndclass))
+{
+MessageBox(NULL,Ln 窗口注册失败!	提示\MB_OK);
+return FALSE;
+〃仓 U 建窗口 Crea teWindow()
+HWND hwnd = CreateWindow(L"hello,,/ //RegisterClass注册过的窗口类
+L”第一个窗口程序“,〃窗口标题名
+WS OVERLAPPEDWINDOW, 〃窗口的风格 WS_ Windows Style
+CWpSEDEFAULT, 〃窗口左上角坐标值为缺省值TCW_ Create Wndow
+CWpSEDEFAULT,
+CWpSEDEFAULT, 〃窗口的高和宽为缺省值
+CWUSEDEFAULT,
+NULL, 〃此窗口无父窗口
+NULL, 〃此窗口无子菜单
+hlnstance, 〃创建此窗口的应用程序的当前句柄
+NULL//不使用该值
+).
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,123 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows创建菜单（中）
+本视频版权归黄强所有、侵权必究
+我们可以在资源视图右键-》添加资源
+添加资源	X
+Accelerator
+@ Bitmap @ [V Cursor 同 3 Dialog
+Q HTML
+® Icon
+[Menu
+03 Ribbon
+B String Table 匝 Toolbar
+回 Version
+本视频版权归黄强所有、侵权必究
+我们可以任意编辑菜单资源，并制定菜单的ID
+资源视图-006
+，	0061 .rc
+， Menu
+E IDR_MENU1
+▼ p X
+0061.rc -1	DR_MENU1 - Menu * X	
+Ln—	.[200] IM |	
+[101 "上
+[102]打开
+清皿处心
+本视频版权归黄强所有、侵权必究
+oadMenu 函数
+LoadMenu函数从与应用程序实例关联的可执行文件(.exe)中加载指定的菜单资源。
+HMENU WINAPI LoadMenu (
+HINSTANCE hlnstance, //包含要加载的菜单资源的模块的句柄。
+LPCTSTR	IpMenuName//菜单资源的名称或由低位字中的资源标识
+符和高位字中的零组成。请使用MAKEINTRESOURCE宏创建此值 )；
+返回值：
+如果函数成功，则返回值是菜单资源的句柄。
+如果函数失败，返回值为NULL。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+etMenu函数
+SetMenu函数指定一个亲斤的菜单至U指定的窗口。
+BOOL WINAPI SetMenu （
+HWND	hWnd, 〃窗口句柄
+HMENU	hMenu 〃菜单句柄
+）；
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+etMenu函数
+GetMenu函数获取菜单到指定的窗口。
+HMENU WINAPI GetMenu （
+HWND hWnd, 〃窗口句柄
+）；
+返回值：
+返回值是菜单的句柄。
+如果指定的窗口没有菜单，则返回值为NULL。 如果窗口是子窗口，则返回值是未定义的。
+本视频版权归黄强所有、侵权必究
+etSubMen u 函数
+GetSub M en u检索由指定菜单项激活的下拉菜单或子菜单的句柄。
+HMENU WINAPI GetSubMenu（
+HMENU hMenu,//菜单句柄
+int nPos//指定菜单中从零开始的相对位置。 ）；
+返回值：
+如果该功能成功,则返回值是由菜单项激活的下拉菜单或子菜单的句柄。 如果菜单项没有激活下拉菜单或子菜单，则返回值为NULL
+本视频版权归黄强所有、侵权必究
+etMenultemlnfo 函数
+GetMenultemlnfo函数检索有关菜单项的信息。
+BOOL WINAPI GetMenultemlnfo （
+HMENU hMenu, /原单句柄
+UINT	ultem, 〃要获取信息的菜单项的标识符或位置。该参数取决于fByPosition的值。
+BOOL fByPosition, //FALSE是一个菜单项标识符。True是一个菜单项索引。 LPMENUITEMINFO Ipmii//指向MENUITEMINFO指针，接收有关菜单项的信息。
+）；
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。要获得扩展的错误信息，请使用GetLastError函数。
+本视频版权归黄强所有、侵权必究
+FMENU ITEM INFO 结构
+typedef struct tagMENUITEMINFO
+UINT cbSize;〃结构的大小为sizeof(MENUITEMINFO)o
+UINT fMask;//指示要检索或设置的成员掩码
+UINT fType;//菜单项类型，将fMask设置为MIIM_TYPE以使用fTypeo
+UINT fState;//菜单项状态，将fMask设置 为MIIM_STATE以使用fStateo UINT wID;//自定义的值，设置fMask到MIIM_ID彳吏用WIDO
+HMENU hSubMenu;//菜单项关联的下拉菜单或孚菜单的句柄。NULL表示不是打开下拉菜单或子
+将fMask设置为MIIM_SUBMENU 以使用 hSubMenuo
+HBITMAP hbmpChecked;//如果指定MFT_RABlOCHECK,则默认位图是f 项目符号。否则，
+是f 复选曲。将fMask设置为MIIMJZHECKMARKS以使用 hbmpCheckedo HBITMAP hbmpUnchecked;//将fMask设置 为MIIM CHEC^MARKS以使用 hbmpUncheckedo ULONG_PTR dwItemData;//程序自定义的值。
+LPTSTR dwTypeData;//要检索MFT_STRING类型的菜单项，需指向一段缓冲区 UINTcch;//MFT_STRING类型的菜单项的信息时，菜单项文本的长度(以字符为单位)。 HBITMAP hbmpltem;//要显示的位图句柄，在fMask成员中设置了MIIM BITMAP标志时使用。
+) MENUITEMINFO, * LPMENUITEMINFO;
+本视频版权归黄强所有、侵权必究
+演示代码
+case WM_CREATE:
+〃从资源加载菜单
+HMENU hTop = LoadMenu(GetModuleHandle(NULL), MAKEINTRESOURCE(IDR_MENU1)); SetMenu(hWnd, hTop);
+HMENU hSubO = GetSubMenu(hTop, 0);
+MENUITEMINFO mii = { 0 };
+mii.cbSize = sizeof(MENUITEMINFO);
+mii.fMask = MIIMJD | MIIM_TYPE | MIIM_SUBMENU | MIIM_DATA;
+mii.fType = MFT_STRING;
+mii.cch = 256;
+mii.dwfypeData =new TCHAR [mii.cch];
+//获取菜单信息
+GetMenultemlnfo(hSubO, 0, true, &mii);
+} break;
+本视频版权归黄强所有、侵权必究
+
+^eejq
+i旱草就由建if耳“l'puMq)x。护6essa内
+:ZOL sseo
+^eejq
+i旱草就由建食分1 'pu/V\q)x。护6essa内
+:LOL sseo
+^eejq
+i旱草就由建苜工“l'puMq)x。护6essa内
+：002 sseo
+) ((uje」edM)C|£OMCn) q”!MS
+)
+:QNVIAINOD 内M3S2
+创"买要
+始加辎写绿朝做毓*
+©0一职'挡啬O
+©0一职'挡凯
+©0一职’匹凯「“
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

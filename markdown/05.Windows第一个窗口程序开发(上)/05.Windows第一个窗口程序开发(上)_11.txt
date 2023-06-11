@@ -1,0 +1,11 @@
+﻿显示窗口
+S howWi nd ow设置指定窗口的显示状态：
+BOOL WINAPI ShowWindow （
+HWND hWnd, 〃窗口的句柄
+int nCmdShow 〃控制如彳可显示窗口
+）；
+返回值
+如果窗口先前可见，则返回值不为零。如果窗口先前被隐藏，则返回值为零。
+备注
+应用程序第一次调用ShowWindow时，它应该使用WinMain函数的nCmdShow参数作为其nCmdShow参数。 随后对ShowWindow的调用必须使用给定列表中的而不是由WinMain函数的nCmdShow参数指定的 值。
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,81 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows控件之动画
+本视频版权归黄强所有、侵权必究
+i n d o ws控件之动画
+—个动画控制是显示音频视频交错（AVI）剪辑的窗口。AVI剪辑是一系列像电 影一样的位图帧。动画控件只能显示不包含音频的AVI剪辑。它是类名是 ANIMATE_CLASSe
+本视频版权归黄强所有、侵权必究
+了控件样式
+dwStyle:指定控件的风格
+ACS_CENTER	使动画片居于控件中央，控件窗口的尺寸和位置保持不变，否则控件
+的尺寸会自动调整来适应动画片的大小。
+ACS_TRANSPARENT 使动画片的背景透明（不输出动画片的背景色）。
+ACS_AUTOPLAY	一旦打开动画片后就一直重复播放。
+除了上述风格的组合外，一般还要指定WS_CHILD和WS_VISI BLE风格。
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+JJ建动画控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hAnimate 二 CreateWindowCANIMATE CLASS,
+L-XXX；
+WS CHILD | WS VISIBLE | ACS CENTER,
+0,0；
+400,400,
+hWnd,
+(HMENCOm,
+((LPCREATESTRUCT)I Param)-> hl nstance,
+NULL);
+}break;
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+可以向控件发送ACM_XXX）肖息来设置控件。
+ACM_OPEN	打开AVI剪辑并在动画控制中显示其第一帧，如果有ACS_AUTOPLAY样式，
+则在AVI文件或AVI资源打开后，控件将立即开始播放AVi剪辑。资源名称设置 为NULL,将AVI资源并将其从内存中移除
+ACM_STOP	消息来停止剪辑，当控件播放完AVI剪辑或发送ACM_STOP时，播放的最后一
+帧仍然显示。
+ACM_PLAY	在动画控件中播放AVI剪辑。
+ACMJSPLAYING检查音频"财页交错（AVI）剪辑是否正在播放。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/bb761884(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+打开动画文件
+SendMessage(hAnimater ACM OPEN, (WPARAM)NULL, (LPARAM) L”C:\\Users\\clock.avi”)； 〃位置
+播放动画控件
+SendMessage(hAnimatez AC MP LAY, (WPARAM)-1,〃循环播放
+(LPARAM)MAKELPARAM(3,8)); //loword是开始帧的索引,hiword是结束帧的索引
+本视频版权归黄强所有、侵权必究
+控件向父窗口发送以下消息，窗口过程为ANIMATE CLASS窗口类处理以下消息。
+WM_CLOSE	释放与动画控件关联的AV反件或AVI资源。
+WM.DESTROY	释放AVI文件或AVI资源，释放内部教据结构，然后调用DefWindowProc函数。
+WM.ERASEBK GND	使用静态在件的当前背景颜色擦除囱口背景。
+WM.NCCREAT E	分配并初始化内部数据结构，然后调用DefWindowProc.
+WM.NCHITTES T	返回HTTRANSPARENT命中测试值。
+WM_PAINT	在动画控件中绘制一个AVI框架。
+WM.SIZE	检查控件是否具有ACS_CENTER样式。如果控件没有，它调用DefWindowProc.否贝!J,它将动画集中在控件中，使控件失效，然 后调用 DefWindowProc0
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

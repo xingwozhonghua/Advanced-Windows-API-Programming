@@ -1,0 +1,18 @@
+﻿测试代码
+〃消息循环(收到WM_QUIT)肖息退出)
+MSG msg;
+while (GetMessage(&msg, NULL, 0,0 ))
+(
+if( msg.message == WM_MOUSEMOVE)
+(
+// PostMessage( hWnd, WM_AAA, 0, 0);
+//PostThreadMessage(GetCurrentThreadldO, WM AAA, 0, 0); //PostQuitMessage(O);
+SendMessage(hWnd, WM AAA, 0, 0);
+) -
+if (msg.message == WMAAA)
+MessageBoxA(NULL, ”消息循环:WM_AAA”，二 0);
+)
+TranslateMessage(&msg);// 翻译消息
+DispatchMessage(&msg); 〃分爰)肖息到窗口过程
+}
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,8 @@
+﻿Windows消息循环
+—个简单的消息循环包含调用以下三个API函数：GetMessage, TranslateMessage,和 DispatchMessage,—般写法为：
+while(GetMessage (&msg, NULL, 0, 0))
+TranslateMessage (&msg);
+DispatchMessage (&msg); )
+消息循环结束条件, GetMessage 收至！］ WM_QUIT;肖息，
+注：应用程序可以调用PostQuitMessage函数发送WM_QUIT消息，结束消息循琳PostQuitMessage函数投递f WM_QUIT消息到线程消息队列并且立即返回.该函数简通常用来响应WM_DESTROY消息9
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,13 @@
+﻿安钮消息
+按钮控件会向父窗口发送命令消息WMJZOMMAN D:
+通知代码	描述
+BCN_HOTITEMCHANGE	鼠标进入或离开按钮的客户区域。
+BN_CLICKED	用户点击了 f按钮.
+BN.DBLCLKaJoBN.DOUBLECLICKED	用户双击一
+BN_DISABLE	f鼬被禁用.
+BN_PUSHED 或 BN_HILITE	用户按下了 f按钮.
+BN_KILLFOCUS	该按钮失去了键盘焦点。
+BN_PAINT	该该秘.
+BN_SETFOCUS	谒娴获得了	点。
+BNJJNPUSHED 或 BN_UNHILITE	阂娴下。
+本视频版权归黄强所有、侵权必究

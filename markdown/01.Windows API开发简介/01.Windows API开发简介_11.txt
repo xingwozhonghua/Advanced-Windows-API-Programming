@@ -1,0 +1,34 @@
+﻿Windows API 分类
+图形化用户界面(GUI) , Windows用户界面相关应用程序接口，提供的功能有创建和管理屏幕 和大多数基本控件(control)，比如仓腱窗口、滚动条，消息、菜单、光标、计时器、和发送消 息以及其他与GUI有关的功能。这些调用接口位于32位Windows下的user32.dll.
+-[user32.dll]
+Options Profile Window Help
+区仙酒5 Al 电目E w
+DLL
+LL
+/VIN-CORE-LOCALIZATION-L1 -2-0.DLL
+NEL32.DLL
+API-MS-WIN-CORE-RTLSUPPORT-L1 -1-O.DLL
+API-MS-WIN-CORE-RTLSUPPORT-L1-2-O.DLL
+NTDLLDLL
+KERNELBASE.DLL
+API-MS-WIN-CORE-PROCESSTHREADS-L1-1 -O.DLL gll KERNEL32.DLL
+白 API-MS-WIN-CORE-PROCESSTHREADS-L1-1-O.DU 曰独 KERNEL32.DLL
+曰扣 API-MS-WIN-CORE-PROCESSTHREADS-白 Bl] KERNEL32.DLL
+£]归 API-MS-WIN-CORE-PROCESS'
+B -Bi] KERNEL32.DLL
+(±) API-MC-WIN-rnRF-
+PI | Ordinal 卜 | Hin；
+| Function
+| Entry Point
+Ordinal
+Hint
+Function
+1616(0x0650) 1617(0x0651) 1618(0x0652) 1619(0x0653) 1620(0x0 6 54) 1621 (0x0 6 5 5) 1622(0x0 6 5 6) 1623(0x0 6 5 7) 1624(0x0 6 5 8) 1625(0x0 6 5 9)
+1626	(0x065A)
+1627	(0x0 6 5B)
+1628	(0x065C)
+107(0x0068) 108(0x0 0 6 0 109(0x006D) 110(0x006E) 111 (0x006F) 112(0x0070) 113 (0x0071) 114(0x0072) 115(0x0073) 116(0x0074) 117(0x0075) 118(0x0076) 119(0x0077)
+CreatelconFromResourceEx Createlconlndirect CreateMDIWindowA CreateMDIWindowW CreateMenu CreatePopupMenu CreateSystemTh reads CreateWindowExA C reateWindowExW CreateWindowInBand CreateWindowInBandEx CreateWindowIndirect CreateWindowStationA
+Entry Point
+0x0001 5990 0x000111E0 0x0006F000 0x0006F040 0x00017620 0x000179C0 0x00074E00 0x00014020 0x0001AA60 0x00071 D50 0x00071 DD0 0x00071E20 0x00073A90
+本视频版权归黄强所有、侵权必究

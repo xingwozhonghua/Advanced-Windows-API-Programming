@@ -1,0 +1,7 @@
+﻿将CB_ADDSTRING消息发送给组合框控件中插入数据。
+SendMessage(hComboBox, CB ADDSTRING, 0, (LPARAM)L“音乐，
+SendMessage(hComboBox, CB^ADDSTRING, 0, (LPARAM)L“足球，
+SendMessage(hComboBox, CBJNSERTSTRING, 1, (LPARAM)L”编程，
+选择其中一项
+SendMessage(hComboBox/ CB SETCURSEL, 2, 0);
+本视频版权归黄强所有、侵权必究

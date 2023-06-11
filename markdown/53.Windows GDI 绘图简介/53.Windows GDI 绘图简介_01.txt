@@ -1,0 +1,76 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows GDI绘图简介
+本视频版权归黄强所有、侵权必究
+indows GDI简介
+Windows绘图的实质就是利用Windows提供的图形设备接口GDI (Graphics Device
+Interface)将图形绘制在显示器上。
+G DI的主要目标之一是支持在各种输出设备(如显示器、打印机和绘图仪等)上进行与设 备无关的图形输出。开发者只需要与GDI进行交互，无需关心当前硬件设备，使得应用程序 可以在支持Windows的任意图形输出设备上工作。
+
+本视频版权归黄强所有、侵权必究
+设备环境DC (Device Context),也称为设备描述表或设备上下文。
+DC是Windows中的一种数据结构，保存了绘图操作中一些信息，如当前的画笔、画刷、 字体和位图等图形对象及属性，以及坐标映射、颜色和背景等影响图形输出的绘图模式。形 象的说，f 设备环境提供了T长画布和一些绘画的工具，我们可以使用不同格式、颜色的 绘画工具在上面涂鸦。我们不必关心所绘制的设备，Windows会自动将设备环境(DC: Device Context)所描述的结构映射到相应的物理设备上(显示器或打印机等输出设备)。
+本视频版权归黄强所有、侵权必究
+GDI.dll动态链接库
+Windows的图形大部分是由GDI.dll动态链接库输出的函数来处理的。GDI动态链接库通过调用在不同设备 驱动程序模块中的例程来控制输出设备。
+[gdi32.dll]
+)ptions Profile Window Help
+
+PI	Ordinal A	Hint	Function
+Entry Point
+VIN-CORE-HEAP-L2-1 -O.DLL
+VIN-CORE-LIBRARYLOADER-L1 -2-O.DLL
+VIN-CORE-PROCESSTHREADS-L1 -1 -1 .DLL
+MEL32.DLL
+API-MS-WIN-CORE-RTLSUPPORT-L1 -1 -O.DLL
+API-MS-WIN-CORE-RTLSUPPORT-L1-2-O.DLL
+NTDLLDLL
+KERNELBASE.DLL
+NTDLLDLL
+API-MS-WIN-EVENTING-PROVIDER-L1 -1 -O.DLL
+3⑦
+3⑦
+3⑦
+3⑦
+3⑦
+3⑦
+EXT-MS-WIN-ADVAPI32-REGISTRY-L1-1-0.DLL
+EXT-MS-WIN-ADVAPI32-REGISTRY-L1 -1 -1 .DLL
+EXT-MS-WIN-KERNEL32-APPCOMPAT-L1-1-O.DLL
+EXT-MS-WIN-NTUSER-STRING-L1 -1 -O.DLL
+EXT-MS-WIN-KERNEL32-FILE-L1-1-0.DLL
+EXT-MS-WIN-KERNEL32-DATETIME-L1 -1-O.DLL
+FYT.MC.WIN.VFRNFI URlfC-l 1-1-0 nil
+E	Ordinal	Hint	Function A	Entry Point
+	1064(0x04 2 8) 1065 (0x04 2 9)	48	(0x0 0 3 0) 49	(0x0 0 31)	CreateCompatibleBitmap CreateCompatibleDC	OxOOOO6A5O 0x000069B0
+	1066(0x04 2A)	50(0x0032)	C reate DCA	0x00006EE0
+	2000 (0x07DO) 1067 (0x04 2 B) 1071 (0x04 2 F) 1068(0x04 2 0 1069 (0x04 2 D) 1 n?nu \	51 (0x003 3) 52(0x0034) 56(0x0038) 53	(0x0035) 54	(0x0 0 3 6)	CreateDCExW CreateDCW CreateDI Bitmap CreateDI BPatternBrush CreateDI BPatternBrushPt	OxOOOO92DO 0x00006080 0x00006BB0 0x000092F0 0x00007370 nvnnnnARnn
+本视频版权归黄强所有、侵权必究
+有四种类型的DC:显示器，打印机，内存（或兼容）和信息。如下表所述，每种类型 都有特定的用途。
+更多查阅MSDN链接：htlps:〃msdn.microsoft.com/en-us/library/windows/desktop/ddl62467(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+常见的GDI Objects
+GDI对象	产生方法	销毁方法
+位图(HBITMAP)	CreateBitmapfCreateBitmaplndirect,	DeleteObject CreateCompatibleBitmap.CreateDIBitmap, CreateDIBSection,CreateDiscardableBitmap
+画刷(HBRUSH)	CreateBrushlndirect,CreateDIBPatternBrush,	DeleteObject CreateDIBPatternBrushPt.CreateHatchBrush, C reate Patte rn B ru s h, C reateS。1 i d B r u s h
+设备上下文(HDC)	Create DC	DeleteDQReleaseDC
+字体(HFONT)	CreateFont.CreateFontlndirect	DeleteObject
+内存DC (HDC)	CreateCompatibleDC	DeleteDC
+调色板(HPALETTE)	CreatePalette	DeleteObject
+画笔(HPEN)	CreatePen.CreatePenlndirect	DeleteObject
+区域(HRGN)	CombineRgn.CreateEllipticRgn,	DeleteObject CreateEllipticRgnlndirectCreatePolygonRgn, CreatePoly Polygon Rg n,CreateRectRg n, Create Rect Rg n 1 nd i rect, Create Rou nd Rect Rg n,
+本视频版权归黄强所有、侵权必究
+Windows坐标系
+屏幕坐标系
+以屏幕左上角为原点(0,0),一些与整个屏幕有关的函数均采用屏幕坐标，如
+GetCursorPosOx SetCursorPos。、CreateWindow。、MoveWindow()o 弹出式菜 单使用的也是屏幕坐标。
+窗口坐标系
+以窗口左上角为坐标原点，它包括窗口标题栏、菜单栏和工具栏等范围。
+客户区坐标系
+以窗口客户区左上角为原点，主要用于客户区的绘图输出和窗口消息的处理。鼠标消 息的坐标参数使用客户区坐标，DC绘图函数使用与客户区坐标对应的逻辑坐标。
+本视频版权归黄强所有、侵权必究
+DI绘图的步骤
+GDI绘图包括以下步骤:
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

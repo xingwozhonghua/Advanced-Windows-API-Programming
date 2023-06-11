@@ -1,0 +1,16 @@
+﻿case WM COMMAND:
+{"
+switch (LOWORD(wParam))
+{
+case 111:
+if (LBN SELCHANGE == HIWORD(wParam))
+int index=SendMessage((HWND)IParamz LB GETCURSEL, 1,0);
+TCHAR buf[64] = {0};
+SendMessage((HWND)IParam, LB GETTEXT, index,(LPARAM) buf); MessageBox(NULL, buf, L“提示、MB OK | MB ICONINFORMATION);
+}
+break;
+}break;
+default:
+break;
+}
+本视频版权归黄强所有、侵权必究

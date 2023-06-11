@@ -1,0 +1,8 @@
+﻿符号定义
+类型
+CONST	#define	CONST
+CALLBACK #define CALLBACK
+WINAPI	#define	WINAPI
+VOID	#define	VOID
+定义
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,18 @@
+﻿同一个线程创建两个窗口测试
+〃创建窗口 (返回之前发送WMCREATE)
+HWND hWnd 二 CreateWindow(L"MrHuang^L-M^bS口程序”，
+WS OVERLAPPEDWINDOW,100,100,300,300,NULL,NULL, hlnstance,NULL);
+〃创建窗口 (返毗前发送WMCREATE)
+HWND hWnd2 二 CreateWindow(L"MrHuang", L"第二个窗口的"，
+WS OVERLAPPEDWINDOW, 100, 500, 300, 300, NULL, NULL, hlnstance, NULL);
+〃消息循环(收到WM_QUIT消息退出) MSG msg;
+while ( GetMessage(8imsg, NULL, 0,0))
+if( msg.message == WM MOUSEMOVE)
+char a [1024];
+sprintf(a, "%pn, msg.hwnd); MessageBoxA(NULL, a,二 0);
+会同时弹出两个窗 口，使用一个线程 消息队列
+} 一
+TranslateMessage(8imsg);//Hi5 消息
+DispatchMessage(&msg);〃分发消息到窗口过程
+}
+本视频版权归黄强所有、侵权必究

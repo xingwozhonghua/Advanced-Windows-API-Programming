@@ -1,0 +1,9 @@
+﻿indows标准控件之拒钮
+按钮控件允许用户通过单击来执行操作，既可以显示文本，又可以显示图像，当该按 钮被单击时，它看起来像是被按下，然后被释放。按钮既是Windows标准控件，也是子窗 口，窗口类名是buttono
+按钮(Button)
+单选按钮(Radio Button)
+复选框(Check Box)
+Button 1
+O Radiol
+I I Checkl
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,5 @@
+﻿TranslateMessage 函数
+BOOL WINAPI TranslateMessage（
+CONST MSG *lpMsg 〃该结构从线程的消息队列接收消息信息 ）；
+TranslateMessage函数用于将虚拟键消息转换为字符消息，字符消息被投递到调用线程的消 息队列中，当下一次调用GetMessage函数时被取出。当我们敲击键盘上的某个字符键时，系统 将产生WM_KEYDOWN和WM_KEYUP）肖息 而我们在程序中往往需要得到某个字符的ASCII码， TranslateMessage这个函数就司以将WMKEYDOWN和WM_ KE YUP消息的组合转换为一条 WM_CHAR消息（该消息的wParam附加参数包含了字符的ASCIIS）,并投递到调用线程的消息 队列中。注意，TranslateMessage函数并不会修改原有的消息，它只是产生新的消息并投递到消 息队列中。WM KEYDOWN和 WM KEYUP组合产生WM CHAR或WM DEADCHAR;肖息。 WM SYSKEYDOWN^Q WM SYSKEVUP组合产生 WM SYSCHAR或 WM^SYSDEADCHAR消息。
+本视频版权归黄强所有、侵权必究

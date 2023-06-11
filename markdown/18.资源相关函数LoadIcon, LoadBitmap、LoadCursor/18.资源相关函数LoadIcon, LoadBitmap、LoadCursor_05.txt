@@ -1,0 +1,6 @@
+﻿AKEINTRESOURCE 宏
+MAKEINTRESOURCE宏将整数转化为指针类型进行保存。
+#define	MAKEINTRESOURCEA(i)	((LPSTR)((ULONG_PTR)((WORD)(i))))
+#define	MAKEINTRESOURCEW(i) ((LPWSTR)((ULONG_PTR)((WORD)(i))))
+可以理解为：将参数做了一个强转，让一个整数值来传递给LPCTSTR类型的参数
+本视频版权归黄强所有、侵权必究

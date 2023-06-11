@@ -1,0 +1,13 @@
+﻿PeekMessage 函数
+BOOL WINAPI PeekMessage（
+LPMSG IpMsg,〃该结构从线程的消息队列接收消息信息 HWND hWnd,//该窗口必须属于当前线程
+UINT wMsgFilterMin,〃要检索的最低消息值的整数值 UINT wMsgFilterMax//复检素的最大消息值的整数值 UINT wRemoveMsg
+）；
+PeekMessage与GetMessage功能大致相同，区别在于wRemoveMsg参数:
+PM_NOREMOVE
+PM_REMOVE
+PM_NOYIELD
+PeekMessage处理后，消息不会从队列中删除。
+PeekMessage处理后，消息将从队列中移除。
+防止系统释放任何等待主叫方空闲的线程，一般与上两个值结合使用。
+本视频版权归黄强所有、侵权必究

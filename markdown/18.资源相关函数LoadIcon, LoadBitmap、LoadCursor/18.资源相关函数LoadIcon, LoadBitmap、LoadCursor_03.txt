@@ -1,0 +1,6 @@
+﻿indows资源文件
+Windows提供了相应的API加载图标、菜单、位图、工具条、字符串等 资源。
+LoadBitmap Loadicon LoadCursor LoadString LoadMenu
+加载指定的位图资源 加载指定的图标资源 加载指定的游标资源 加载字符串资源 加食指定的菜羊资源
+LoadAccelerators加载指定的加速器表
+本视频版权归黄强所有、侵权必究

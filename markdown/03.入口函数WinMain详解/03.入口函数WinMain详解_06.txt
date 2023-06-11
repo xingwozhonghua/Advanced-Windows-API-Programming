@@ -1,0 +1,6 @@
+﻿窗口的显ZF方式
+#define SW_HIDE 0
+#define SW^SHOWNORMAL 1 #define SW>ORMAL	1
+#define SW^SHOWMINIMIZED 2 #define SW^SHOWMAXIMIZED 3 #define SW_MAXIMIZE	3
+#define SW^SHOWNOACTIVATE 4 #define SW^SHOW 5 #define SW^MINIMIZE 6 #define SW^SHOWMINNOACTIVE 7 #define SW^SHOWNA 8 #define SW>ESTORE 9 #define SW^SHOWDEFAULT 10 #define SWJORCEMINIMIZE 11 #define SW_MAX 11
+本视频版权归黄强所有、侵权必究

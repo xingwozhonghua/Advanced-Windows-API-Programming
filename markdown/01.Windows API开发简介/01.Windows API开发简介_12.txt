@@ -1,0 +1,37 @@
+﻿Windows API 分类
+通用控件链接库(Common Control Library),为应用程序提供接口来访问操作系统提供的一些 高级控件。比如像：状态栏(status bar) x进度条(progress bars)、工具栏(toolbar)和标 签(tab) o这个链接库位于32位Windows下comctl32.dll中。
+[comctl32.dll]
+)ptions Profile Window Help
+区即青5J A
+%sm昭
+Pl | Ordinal二
+Hint
+Function
+| Entry Point
+J.DLL
+CRT.DLL
+NTDLLDLL
+API-MS-WIN-CORE-CONSOLE-L1-1-O.DLL
+API-MS-WIN-C0RE-DATETIME-L1 -1 -O.DLL
+API-MS-WIN-CORE-DEBUG-L1-1-O.DLL
+API-MS-WIN-CORE-ERRORHANDLING-L1-1-O.DLL
+API-MS-WIN-CORE-FIBERS-L1-1-O.DLL
+API-MS-WIN-CORE-FILE-L1-1-O.DLL
+API-MS-WIN-CORE-HANDLE-L1 -1 -O.DLL
+API-MS-WIN-CORE-HEAP-L1-1-O.DLL
+API-MS-WIN-CORE-LOCALIZATION-L1-2-O.DLL
+API-MS-WIN-CORE-LIBRARYLOADER-L1-2-O.DLL
+API-MS-WIN-CORE-MEMORY-L1 -1 -O.DLL
+API-MS-WIN-CORE-NAMEDPIPE-L1 -1-O.DLL
+ADl.MC.WIN.rnRF.DRnrF^FNVIRnNMFNT.I 1-1-0 DI I
+E	Ordinal	Hint	Function A	Entry Point
+	20(0x0014)	6(0x0006)	CreateStatusWindow	OxOOOOFOfiO
+	6(0x0006)	7 (0x0007)	CreateStatusWindowA	OxOOOOF060
+	21 (0x0015)	8(0x0008)	CreateStatusWindowW	OxOOOOF02Q
+	7 (0x0007)	9 (0x0009)	CreateToolbar	0x00010220 I
+	22(0x00 1 6)	10(0x000A)	CreateToolbarEx	0x00010130
+	16(0x0010)	11 (OxOOOB)	CreateUpDownControl	0x00017E10
+	413 (0x01 9D)	40(0x0028)	DefSubclassProc	0x00019E00
+	23 (0x0017)	41 (0x0029)	DestroyPropertySheetPage	0xO00083EO
+	"fAvnm	ea、	n IIC	r%	Avnnnm "
+本视频版权归黄强所有、侵权必究

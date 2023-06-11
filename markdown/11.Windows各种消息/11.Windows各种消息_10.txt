@@ -1,0 +1,12 @@
+﻿WM NOTIFY消息
+WM COMMAND可携带的信息较少，WM NOTIFY比WM COMMAND功能更强大, 可以存储二些额外的信息，Edit,Button,ListBox等发送\AZM_COMRiAND消息，而 ListView,Toolbar,Tree等控件发送WM_NOTIFY消息，因为需要提供的信息更多。
+消息类型	WPARAM	LPARAM
+WM.NOTIFY	发生WM_NOTTFY消息的控件ID	NMHDR牍十
+我们将所有附加信息都存放在NMHDR (Notify Message Handler)的一个公共结构体中，该结构体 指针通过LPARAM通知到父窗口。NMHDR如下：
+typedefstruct tagNMHDR
+{
+HWND hwndFrom; 〃控件句柄.
+UINT PTR idFrom; 〃控件 ID.
+UINT~ code; // NM code.
+} NMHDR;
+本视频版权归黄强所有、侵权必究

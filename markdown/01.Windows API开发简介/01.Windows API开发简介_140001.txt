@@ -1,0 +1,34 @@
+﻿Windows API 分类
+Windows外壳(Windows Shell),作为Windows API的组成部分，不仅允许应用程序访问 Windows外壳提供的功能，还对之有所改进和增强。它位于32位Windows下的shell32.dll中。
+-[shell32.dll]
+Options Profile Window Help
+区扇由皇囚—国电日CD h?________________________
+a PI | Ordinal 卜 | Hint	| Functioc	| Entry Poiri?
+.DLL
+XLDLL
+MS-WIN-CORE-CONSOLE-L1-1-O.DLL
+KERNEL32.DLL
+□ API-MS-WIN-CORE-RTLSUPPORT-11 -1 -O.DLL
+⑦ API-MS-W1N-CORE-RTLSUPPORT-L1-2-O.DLL
+S) NTDLLDLL
+5] KERNELBASE.DLL
+3J API-MS-W1N-CORE-PROCESSTHREADS-L1 -1 -O.DLL
+曰翰 KERNEL32.DLL
+B Hl] API-MS-W1N-CORE-PROCESSTHREADS-L1-1-B Ba) KERNEL3ZDLL
+S 311 API-MS-W1N-CORE-PROCESSTHRE 白更fl KERNEL32.DLL
+白API-MS-WIN-CORE-PRO B 砸 KERNEL32.DLL 白瓠 API-MS-WIN-C
+S 9a KERNELS； B Ba] API-I B知
+I	A
+E	Ordinal	Hint	Function A	Entry Point
+	589 (0x024D)	449 (0x01C1)	Sbell^Notifylcon	OxOO1EC63O
+	590 (0x0 2 4E)	450 (0x01 C2)	Shell^NotifylconA	0x001EC630
+	591 (0x0 2 4F)	451 (0x01 C3)	Sbell^NotifylconGetRect	0x0009FC40
+	592 (0x0250)	452 (0x01 C4)	Shell NotifylconW	0x000B8880
+	576 (0x0240)	431 (0x01 AF)	ShdlAboutA	0x002457D0|
+	577 (0x0241)	432 (0x01 B0)	SbellAboutW	0x00245890
+	578 (0x0242)	433 (0x01 B1)	SbellExec_RunDLL	0x00189A60
+	579 (0x0243)	434 (0x01 B2)	ShellExec_RunDLLA	0x00189A60
+	580(0x0244)	435 (0x01 B3)	ShellExec_RunDLLW	0x00189AE0
+	581 (0x0245)	436 (0x01 B4)	SbellExecuteA	0x00189BD0
+	582 (0x0246)	437 (0x01 B5)	ShellExecuteEx	0x00189C50
+本视频版权归黄强所有、侵权必究

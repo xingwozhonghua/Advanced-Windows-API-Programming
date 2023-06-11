@@ -1,0 +1,88 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+创建非模态对话框
+本视频版权归黄强所有、侵权必究
+
+X 平 60ea，ao_l<a—aQ，Y.900
+♦±qel 6UES - △ uou- ■ △
+§^<5IQQ-恻
+6o 一 eQ、 de£mu A
+M.900 、 900^、
+900 >i^
+M烟骐理-tnxv 圈
+要*螫着=
+■CreateDialog 宏
+CreateDialog宏从对话框资源模板中创建非模态对话框，CreateDialog宏实际使用CreateDialogParam 函数。
+HWND CreateDialog( HINSTANCE LPCTSTR HWND DLGPROC
+)；
+hlnstance, 〃应用程序实例句柄
+IpTemplate, 〃对话框模板，使用MAKEINTRESOURCE宏创建此值。 hWndParent, // 父窗口句柄
+IpDialogFunc //指向对话框过程的指针
+返回值：
+如果函数成功，则返回值是对话框的句柄。
+如果函数失败，返回值为NULL。要获得扩展的错误信息，请调用GetLastErroro
+备注
+该CreateDialog函数使用CreateWindowEx函数来创建对话框，然后发送WMJNITDIALOG消息到对话框过程，应用 程序调用ShowWindow函数显示对话框，通过使用DestroyWindow函数销毁对话框。要支持键盘导航和其他对话框功 能，对话框的消息循环必须调用IsDialogMessage函数。
+本视频版权归黄强所有、侵权必究
+演示代码
+case WM_LBUTTONDOWN:
+〃创建非模态对话框
+HWND hDlg= CreateDialog(GetModuleHandle(NULL)/MAKEINTRESOURCE( IDD DIAL0G1) ,hWnd, (DLGPROC)MyDlgProc);
+〃显示对话框
+ShowWindow(hDlgz SW SHOW);
+} break;
+本视频版权归黄强所有、侵权必究
+，演示代码
+BOOL CALLBACK MyDlgProc(HWND hWndz UINT message,
+WPARAM wParam, LPARAM I Pa ram)
+(
+switch (message)
+{
+case WM INITDIALOG:
+{
+HWND hEdit = CreateWindow(L,,EdiT,,,
+L”这是一个编辑框控件哈哈哈“，
+WS CHILD | WS_VISIBLE| ES MULTILINE | ES NOHIDESEL, 30,00, 200, 10。hWnd, (HMENU)1111, GetModuleHandle(NULL), NULL);
+SetFocus(hEdit);
+return false;//将键盘焦点设置为对话框的某个控件时才能返回FALSEO
+}
+}
+本视频版权归黄强所有、侵权必究
+演示代码
+BOOL CALLBACK MyDlgProc(HWND hWndz UINT message, WPARAM wParam, LPARAM I Pa ram)
+switch (message)
+
+case WM COMMAND:
+switch (LOWORD(wParam))
+模态对话框是调用 EndDialog,而非模态则 是 D estroyWindow 销毁对 话框
+case IDOK:	.
+case IDCANCEL:
+Destroy Window(hWnd);
+return TRUE;
+}
+}
+本视频版权归黄强所有、侵权必究
+DialogMessage 函数
+IsDialogMessage函数确定消息是否用于指定的对话框，如果是则处理消息。
+BOOL WINAPI IsDialogMessage （
+HWND hDIg, 〃对话框句柄
+LPMSG IpMsg〃消息
+）；
+返回值：
+如果消息已被处理，则返回值不为零。
+如果消息尚未处理，则返回值为零。
+备注
+尽管IsDialogMessage函数用于无模式对话框，但您可以将它用于包含控件的任何窗口，使窗口能够提供与对话框中使 用的相同的键盘选择。当IsDialogMessage处理消息时，它会检查键盘消息并将它们转换为相应对话框的选择。例如， 按唱b键时，选择下f 控件或一组控件，按下时，向下箭头键选择组中的下f 控件。由于IsDialogMessage函数执 行所有必要的消息转换和分派，因此IsDialogMessage处理的消息不得传递给Translate Message或Dispatch Message 函数。
+本视频版权归黄强所有、侵权必究
+演示代码
+MSG msg;
+while ( GetMessage(&msg, NULL, 0,0 ))
+{
+if (!lsDialogMessage(hDlg/&msg))
+{
+TranslateMessage(&msg);〃 翻译 $ 肖息
+DispatchMessage(&msgj;〃分发消息到窗口过程 }
+}
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

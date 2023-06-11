@@ -1,0 +1,14 @@
+﻿IJ建组合框
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+}
+switch (Msg)
+case WM CREATE:
+HWND hComboBox = CreateWindow(L"cOMboBox", L"组合框招牛"，
+WS CHILD | WS VISIBLE | CBS SIMPLE, 30」00, 200,100, hWnd, (HMEN 11)111, ((LPCREATESTRUCT)I Param)-> hl nstance, NULL);
+}break;
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+在 WMCREAT&肖 息的响应中创建子 窗匚1、控件等等
+系统注册的窗口类 名是 comboBox, 不区分大小写
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,9 @@
+﻿它可向控件发送的消息
+BM_CLICK	模拟用户点击一个按钮。此消息导致按钮接收WM_LBUTTONDOWN和WM_LBUTTONUP
+消息，并按钮的父窗口接收BN_CLICKED通知代码。
+BM_SETCHECK	设置单选按钮或复选框的检查状态。您可以显式发送此消息或使用Button_SetCheck宏。
+BST_CHECKED设置按钮状态以选中。BSTJNDETERMINATE将按钮状态设置为灰色（不确 定状态）仅当按钮具有BS_3STATE或BS_AUT03STATE样式时才使用此值。 BST_UNCHECKE D将按痴状态设置为耒选中。
+BM_SETSTATE	设置按钮的高亮状态。突出显示状态表示按钮是否突出显示，就好像用户已经按下了一样。您
+可以显式发送此消息或使用Button_SetState宏。
+BM_GETSTATE 检索按钮或复选框的状态。您可以显式发送此消息或使用Button_GetState宏。
+本视频版权归黄强所有、侵权必究

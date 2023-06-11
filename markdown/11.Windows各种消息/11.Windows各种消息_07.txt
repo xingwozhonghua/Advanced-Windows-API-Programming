@@ -1,0 +1,6 @@
+﻿命令消息
+以WM_COMMAND表示，来自菜单、加速键或工具栏按钮的消息。
+#define WM_COMMAND 0x0111	(佃制 273)
+备注：
+LOWORD(wParam)是菜单或加速键的ID,菜单的分隔条的ID为0。对于系统菜单的菜单 项和加速键，点击后，Windows会向所属的窗体发送WM_SYSCOMMAND,而不是 WM_COMMAND 消息。
+本视频版权归黄强所有、侵权必究

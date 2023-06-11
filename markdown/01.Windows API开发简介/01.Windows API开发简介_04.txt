@@ -1,0 +1,3 @@
+﻿什么是Windows API ?
+Windows的API （Application Programming Interface,应用程序 编程接口），是Windows操作系统提供给应用程序的大量函数，开 发者调用这些函数，犹如〃积木块〃一样，可以搭建出各种界面丰富, 功能灵活的应用程序。所以可以认为API函数是构筑整个Windows的 基石，在它的下面是Windows的操作系统核心，而它的上面则是所 有的华丽的Windows应用程序。
+本视频版权归黄强所有、侵权必究

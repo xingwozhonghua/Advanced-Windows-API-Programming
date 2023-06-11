@@ -1,0 +1,13 @@
+﻿它可向控件发送的消息
+BM_CLICK	发送按钮WM_LBUTTONDOWN和WM_LBUTTONUP消息，并向父窗口发送BN_CLICKED通知代码。
+BM_GETCHECK	返回按钮的检查状态.
+BM_GETIMAGE	返回界胡关联的位图或图标的句柄，如果按钮没有位图或图标，则返回NULL.
+BM_GETSTATE	返回按钮的当前检查状态，推送状菠瞧点状态.
+BM.SETCHECK	设置所有样式的单猝钮和复选框的检查状态.如果单欧钮的wPmm参数大于零，则该按钮被赋予WSJABSTOP样式.
+BM_SETIMAGE	瞒定B驰图瞄啊关联，并返®柄迎一^图或图标.
+bm.setstate	设置按钮魄送状态.对于自绘按钮，如果按钮的状态已更改，则会向父窗口发送WM_DRAWITEM消息.
+bm.setstyle	设置按钮样式.如果㈣rm参数的低位字是TRUE,则更新绘制按钮.
+WM_CHAR	当用户按下加号(+)或等号(=)缝时，选中复选框或自动复选框.当用户按下减号(-)键时清除复选框或自动复选框.
+WM_ENABLE	细鼬.
+WM_ERASEBKGN D	擦除自绘按钮的背景。其他按钮的背景作为WM_PAINT?[]WM_ENABLE处理的分被删除.
+本视频版权归黄强所有、侵权必究

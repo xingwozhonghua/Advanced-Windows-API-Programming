@@ -1,0 +1,7 @@
+﻿WM COMMAND消息
+当我们按下一个菜单选项，或者一个控件需要通知父窗口一个事件发生（如鼠标单击、双击 等），或者快捷键被按下时，Windows将会发送一个WMJZOMMAND消息给父窗口。并通过 wParam高位置1或0区分菜单、快捷键、或者控件事件Code,通过wParam低位可知道菜单ID或控 件ID,通过IParam知道控件句柄。
+WM_COMMAND消息来源	WPARAM高位		WPARAM佩立		LPARAM
+	0				0
+	1			应萨ID	0
+招牛	响应 Code (如BNLCLICKED)			掬牛ID	控件句柄
+本视频版权归黄强所有、侵权必究

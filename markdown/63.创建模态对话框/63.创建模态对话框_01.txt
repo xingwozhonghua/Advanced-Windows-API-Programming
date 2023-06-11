@@ -1,0 +1,125 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+创建模态对话框
+本视频版权归黄强所有、侵权必究
+JJ建模态对话框
+在资源视图-》右键-》插入对话框资源
+资源视图-006	▼ ¥ X
+J 囤 006
+，	006.rc
+> Bitmap
+， Dialog
+圃 IDD DIALOG1
+t> ■ Icon
+> String Table
+006.rc - IDD DIALOG1
+■O X
+...I jj
+本视频版权归黄强所有、侵权必究
+ialogBox 衣
+DialogBox宏从对话框资源模板中创建模态对话框，DialogBox宏实际使用了DialogBoxParam函数。
+int DialogBox(
+HINSTANCE
+LPCTSTR
+HWND
+DLGPROC
+)；
+hlnstance, 〃应用程序实例句柄
+IpTemplate, 〃对话框模板，使用MAKEINTRESOURCE宏创建此值。 hWndParent, // 父窗口句柄
+IpDialogFunc //指向对话框过程的指针
+返回值:
+如果函数成功，则返回值是用于终止对话框的EndDialog函数调用中的nResult参数。 如果函数失败：
+由于hWndParent参数无效而失败，则返回值为零。
+其他原因而失败，则返回值为・1,调用GetLastError获得错误信息。
+本视频版权归黄强所有、侵权必究
+ialogProc回调函数
+D LG P ROC类型定义对话框消息处理函数的类型，它处理发送到模态或模态对话框的消息。
+typedef INT PTR (CALLBACK* DLGPROC)(HWND/ UINT, WPARAM, LPARAM);
+对话框窗口过程一般形式为：
+INT PTR CALLBACK DialogProc (
+HWND hwndDIg, 〃对话框窗口句柄
+UINTuMsg, 〃消息
+WPARAM wParam, 〃消息附加参数
+LPARAM IParam〃消息附加参数
+)；
+通常，对话框过程在处理消息时应返回TRUE,否则返回FALSEO如果对话框过程返回FALSE,则对话框管理器将 执行默认对话框操作以响应该消息。如果对话框过程处理需要特定返回值的消息，则对话框过程应在返回TRUE之 前立即调用SetWindowLong (hwndDIg, DWL_MSGRESULT, IResult)来设置所需的返回值。
+本视频版权归黄强所有、侵权必究
+演示代码
+case WM_LBUTTONDOWN:
+{ "
+int ret=DialogBox(GetModuleHandle(NULL)z MAKEINTRESOURCE( IDD_DIAL0G1) ,hWnd, (DLGPROC)MyDlgProc);	"
+bool b = (ret == 999);
+} break;
+本视频版权归黄强所有、侵权必究
+M INITDIALOG消息
+在对话框显示之前立即发送到对话框过程。对话框程序通常使用此消息来初始化控件并执行任何影响 对话框外观的其他初始化任务。
+#define WM INITDIALOG 0x0110
+wParam中具有默认键盘焦点的控件句柄。
+仅当对话框过程返回TRU E时，系统才会分配默认的键盘焦点。
+I Param 的	附加初始化数据。在调用 CreateDialoglndirectParam, CreateDialogParam,
+DialogBoxIndirectParam或DialogBoxParam函数来创建对话框时，该数据作为 I Param参数传递给系统。
+仅当应用程序将键盘焦点设置为对话框的某个控件时才能返回FALSEO 否则需要返回TRUE。
+本视频版权归黄强所有、侵权必究
+，演示代码
+BOOL CALLBACK MyDlgProc(HWND hWndz UINT message,
+WPARAM wParam, LPARAM I Pa ram)
+(
+switch (message)
+{
+case WM INITDIALOG:
+{
+HWND hEdit = CreateWindow(L,,EdiT,,,
+L”这是一个编辑框控件哈哈哈“，
+WS CHILD | WS_VISIBLE| ES MULTILINE | ES NOHIDESEL, 30,00, 200, 10。hWnd, (HMENU)1111, GetModuleHandle(NULL), NULL);
+SetFocus(hEdit);
+return false;//将键盘焦点设置为对话框的某个控件时才能返回FALSEO
+}
+}
+本视频版权归黄强所有、侵权必究
+M CTLCOLORDLG消息
+在系统绘制对话框之前发送到对话框。通过响应此消息，对话框可以使用指定的显示设备上下文句柄 来设置其文禾和背景颜色。
+#define WM CTLCOLORDLG 0x0136
+wParam中对话框的设备上下文句柄。
+I Param的 对话框的句柄。
+如果应用程序处理此消息，则它必须返回画笔句柄，系统使用画笔绘制对话框的背景。系统不会自动 销毁返回的画笔，当刷子不再需要时，应用程序有责任销毁刷子。
+请注意WMJZTLCOLORDLG消息发送到对话框本身;所有其他WM_CTLCOLOR *消息都发送给控件 的所有者。
+本视频版权归黄强所有、侵权必究
+
+izsq(looco) u」m①」
+」((0oLnLn£s*)qsn」8p=OSE$』uH qsq HsnvsH
+「_坦即凶凌M出滞□(二晋dMudH) H uplluaH
+)
+d—Jeo—Joul-D IAIM ①善
+)
+(CD62SSCDIU) lpj_/v\s
+) (IU2奇 d- IAI<ol<d—JUP奇 dM IAI<Ql<dM CD62SS ① E 1N5、PUMq aNMH)uo」d6Q>IAI >D<ST1<U1OOS
+田£116弱
+ndDialog 左
+EndDialog函数销毁模态对话框，使系统结束对话框的任何处理。
+BOOL WINAPI EndDialog （
+HWNDhDIg, 〃对话框的句柄
+INT PTR nResult // 作为DialogBox函数的返回值。
+）；
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+备注：
+必须使用EndDialog函数销毁DialogBox, DialogBoxParam, DialogBoxIndirect和DialogBoxIndirectParam函 数创建的对话框，对话框过程函数中可以随时调用EndDialogo	~	~
+EndDialog不会立即销毁对话框，它会设置一个标志，对话框过程在尝试从应用程序队列中检索下一条消息之前， 系统检查标志。如果标志被设置，系统结束消息循环，销毁对话框，并使用nResult中的值作为创建对话框的函数 的返回值。
+本视频版权归黄强所有、侵权必究
+演示代码
+BOOL CALLBACK MyDlgProc(HWND hWndz UINT message, WPARAM wParam, LPARAM I Pa ram)
+switch (message)
+{
+case WM COMMAND:
+{
+switch (LOWORD(wParam))
+{ case IDOK: case IDCANCEL:
+EndDialog(hWnd, 999); return TRUE;
+}
+}
+}
+}
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

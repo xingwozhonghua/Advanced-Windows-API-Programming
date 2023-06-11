@@ -1,0 +1,10 @@
+﻿UpdateWindow 函数
+Upd ateW i n d。w更新窗口客户区：
+BOOL WINAPI UpdateWindow （
+HWND hWnd//窗口的句柄
+）；
+返回值
+如果函数成功，返回值为非零。失败返回零。
+备注
+如果窗口的更新区域不是空的，则UpdateWindow函数通过向窗口发送WM_PAINT消息来更新指定窗口的客户 区。该函数直接将WM_PAINT＞肖息发送到指定窗口的窗口过程，绕过应用程序队列。如果更新区域为空，则不 发送WM_PAINT消息。
+本视频版权归黄强所有、侵权必究

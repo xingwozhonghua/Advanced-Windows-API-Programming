@@ -1,0 +1,13 @@
+﻿消息循环
+GetMessage从线程的消息队列中检索消息。
+BOOL WINAPI GetMessage（
+LPMSG IpMsg, 〃指向MSG结构的指针
+HWND hWnd,//窗口的句柄，其消息将被检索
+UINT	wMsgFilterMin,//要检索的最低消息值的整数值
+UINT	wM sg F i Ite rMax//要陛的最高消息值的蜘直
+）；
+返回值
+如果函数检索WM_QUIT）肖息，则返回值为零。
+如果该函数检索WM_QUIT以外的消息，则返回值不为零。
+如果有错误，返回值是如hWnd是无效的窗口句柄或IpMsg是无效的指针时，调用GetLastError获得扩展错误信息。
+本视频版权归黄强所有、侵权必究

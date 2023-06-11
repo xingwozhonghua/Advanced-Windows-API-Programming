@@ -1,0 +1,12 @@
+﻿InvalidateRect 函数
+InvalidateRect函数添加一个矩形到指定窗口的更新区域（必须重绘的窗口客户区域部分）。
+BOOL InvalidateRect （
+HWND hWnd, 〃窗口的句柄
+const RECT* IpRect, 〃矩形区域，null则将整个客户区添加到更新区域。
+BOOL bErase//指定更新区域内的背景在处理更新区域时是否要擦除。如果此参数为true,则在调用 BeginPaint函数时将清除背景。如果此参数为FALSE,则背景保持不变。
+）；
+返回值
+如果函数成功，返回值为非零。失败返回零。
+备注
+无效区域在更新区域中累积，直到发生下一个WM_PAINT）肖息时处理该区域，或者直到使用ValidateRect或 ValidateRgn函数验证该区域为止。只要更新区域禾是空的，并且该窗口的应用程序队列中没有其他消息，系统 就会向窗口发送WM_PAINT消息。当参数bErase= TRUE时，WM_ERASEBKGND消息产生，当bErase为false 时WM_ERASEBKGND消息不产生。如果更新区域的任何部分的bErase参数为TRUE,则背景将在整个区域中擦 除，而禾仅仅在指定部分中擦除。
+本视频版权归黄强所有、侵权必究

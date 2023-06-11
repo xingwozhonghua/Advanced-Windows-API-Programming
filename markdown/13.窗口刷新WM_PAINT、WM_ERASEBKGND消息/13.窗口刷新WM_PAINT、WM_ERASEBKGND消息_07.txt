@@ -1,0 +1,11 @@
+﻿AINTSTRUCT 结构
+每个窗口要有一个PAINTSTRUCT结构来记录一^绘制信息，PAINTSTRUCT结构保存 了应用程序拥有的窗口的客户区域，例如绘制客户区时是否要清除背景色等.定义如下：
+typedef struct tagPAINTSTRUCT (
+H DC	hdc;〃用于绘画的显示器DC的句柄
+BOOL	fErase;//是否擦除背景，若应该擦除背景，则此值不为零
+RECT	rePaint;//指定客户区的矩形
+BOOL	fRestore;//保留；由系统内部使用
+BOOL	flncUpdate;//榛留；由系统内部使用
+BYTE	rgbReserved[32];〃保留；由系统内部使用
+} PAI NTSTRUCT, *PPAI NTSTRUCT;
+本视频版权归黄强所有、侵权必究

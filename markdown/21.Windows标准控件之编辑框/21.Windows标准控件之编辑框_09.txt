@@ -1,0 +1,7 @@
+﻿将EM_SETSEL消息发送给编辑控件中选择一系列字符。
+〃选择编辑框的文字
+SendMessage(hEdit, EM SETSEL, (WPARAM)3, (LPARAM)6);
+将WM_CUT消息应用程序将WM_CUT¥肖息发送到编辑控件或组合框，以便在编辑控件中删除(剪切) 当前选择(如果有)，并将删除的文本以CF_TEXT格式复制到剪贴板，执行的删除WM_CUT消息可 以通过发送编辑控制的复原EM_U N DO消息。
+〃剪切
+SendMessage(hEditz WM CUT, (WPARAM)OZ (LPARAM)O);
+本视频版权归黄强所有、侵权必究

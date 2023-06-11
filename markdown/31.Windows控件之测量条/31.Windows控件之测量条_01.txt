@@ -1,0 +1,100 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之测量条
+本视频版权归黄强所有、侵权必究
+indows控件之测量条
+Trackbar控件，也称测量条控件，一般由一个滑动条，一个滑块和可选的刻度组 成，可通过移动滑块在相应的控件中显示对应的值。通常配合标签控件或编辑框控件, 用于显示相应的值。它是类名是TRACKBAR_CLASS。
+D
+本视频版权归黄强所有、侵权必究
+了控件样式
+dwStyle:指定控件的风格
+TBS_HORZ滑动条是水平方向的 TBS_VERT滑动条是垂直方向的 TBS_LEFT滑动条箭头位于窗口左侧 TBS_RIGHT滑动条箭头位于窗口右侧 TBS_TO P 滑动条箭头位于窗口顶部 TBS_BOTTOM滑动条箭头位于窗口底部 TBS_BOTH滑动条位于窗口两侧 TBS_AUTOTICKS滑动条具有刻度，默认 TBS_NOTICKS滑动条不具有刻度
+滑动条的刻度条在每一蚀值位置显示一个刻度标记，如果在滑动条上显示某一数值选择区间，则应使用风 格TBS_ENABLESELRANGE,此时选择区间两个不再是刻度标记，而是一个小的三角形符号。另外，使用风格 TBS_NOTH U M B会使滑标消隐起来。
+dwStyle参数可以是以上风格的组合。跟其他控件一样，创建时一般也还要指定WS_CHILDX WS_VISIBLE、 WS_TABSTOP 等风格。
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+JJ建测量条控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hTrack = CreateWindow(TRACKBAR_CLASSf
+L-XXX；
+WS CHILD |
+WS>ISIBLE | TBf AUTOTICKS |
+TBSjNABLESELRANGE,
+30, 30,
+200,30,
+hWnd,
+((LPCREATESTRUCT)I Param)-> hl nstance,
+NULL);
+}break;
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+句测量条控件发送消息
+可以向控件发送TBM_XXX消息来设置控件。
+TBM.SETPOS	设置轨迹栏中滑块的当前逻楫位置.
+TBM_SETPOSNO TIFY	设置轨迹栏中滑块的当前逻辑位舌.
+TBM.SETRANGE	设置轨迹栏中滑块的最小和最大逻辑位置的范图。
+TBM_SETRANGE MAX	设置轨迹栏中滑块的最大逻楫位置.
+TBM.SETRANGE MIN	设置轨迹栏中滑块的最小逻辑位置.
+TBM.SETSEL	在踉踪栏中设置可用选择范图的起始位置和结束位置.
+TBM_SETSELEND	在跟踪栏中设置当前选择范围的结束逻辑位置.如果跟踪栏不具有TBS_ENABLESELRANGE样式，则会忽略此消息.
+TBM.SETSELSTAR T	在跟踪栏中设置当前选择范围的起始逻辑位置。如果跟踪栏不具有TBS_ENABLESELRANGE样式，则会忽略此消息。
+TBM.SETTHUMB LENGTH	设置轨迹栏中滑块的长度.如果跟踪栏不具有TBS_FIXEDLENGTH样式，则会忽略此消息.
+TBM_SETTIC	在指定的逻辑位置在轨迹栏中设置刻度线标记.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/bb760145.aspx
+本视频版权归黄强所有、侵权必究
+设置刻度范围
+SendMessage(hTrack/TBM_SETRANGE, (wparam)true,/7w 绘标志 (LPARAM)MAKELONG(0/10)); 〃位詈
+设置选择范围
+SendMessage(hTrack/TBM_SETSEL, (WPARAM) FALS E, 〃重绘标志 (LPARAM)MAKELONG(2/3))；
+设置当前位置
+SendMessage(hTrack/TBM_SETPOS/ (wparam)true,/7w 绘标志 (LPARAM)4);
+本视频版权归黄强所有、侵权必究
+控件会向父窗口发送命令消BWM HSCROLL与WM VSCROLL｝肖息
+LOWORD(wParam)指示用户的滚动请求，为以下值:
+#define TB LINEUP
+#define TBJINEDOWN
+#define TB>AGEUP
+#define TB>AGEDOWN
+#define TBJHUMBPOSITION
+#define TBJHUMBTRACK
+#define TBJOP
+#define TB^BOTTOM
+#define TB~ENDTRACK
+012345678
+如果是TB THUMBPOSITION或TB THUMBTRACK , HIWORD(wParam)指定在滚动框的 当前位置「否则忽略！
+本视频版权归黄强所有、侵权必究
+哽再哥、身绿朝砸岫*
+；0 uunjaj
+!(jnq)6uu；s6nqaQindino !(sod'(uje」edM)Cl£OMIH '(山e」edM)C]aOMO1
+"\p%:辣典亲 P%：%OMIH P%：C1£OMOL1 ’jnq)并U!」ds/v\
+•(0 ‘0 ^OdlBD-IAiai z>|3eJiq)96ess9|Alpu0S 二sod 1NICI
+40}=出9]jnq yVHDi
+顷把dl(ONMH)=冷心 QNMH
+moaDSH_IAIM
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

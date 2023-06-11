@@ -1,0 +1,5 @@
+﻿入口函数WinMain详解
+测试Win32的命令行参数:
+C:\Users\35497\Desktop\code\test\Debug>Win32Projectl. exe hello "test” 20316160 0 一 皿响 —— Win32Projectl. exe hello
+10 10
+本视频版权归黄强所有、侵权必究

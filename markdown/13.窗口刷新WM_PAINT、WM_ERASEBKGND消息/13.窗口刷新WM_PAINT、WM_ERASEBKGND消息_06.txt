@@ -1,0 +1,10 @@
+﻿eginPaint 函数与 EndPaint 函数
+HDC BeginPaint( HWND LPPAINTSTRUCT
+)；
+hwnd, //窗口的句柄
+IpPaint//绘制信息
+备注：
+BeginPaint函数使窗口无效区域变得有效，从而使windows不再发送WM PAINT消息（直到窗口大 小改变等，是窗口再次变得无效,如果窗口一直无效，贝"windows会不停的发送WM_PAINT消息）。 同时填充PAINTSTRUCT结构，让程序员可以根据ps变量中的标志值进行某些操作。
+如果函数成功，返回值是指定窗口的〃显示设备描述表"句柄。
+如果函数失败，返回值是NULL,表明没有得到显示设备的内容。
+本视频版权归黄强所有、侵权必究

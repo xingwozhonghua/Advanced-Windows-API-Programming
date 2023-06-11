@@ -1,0 +1,29 @@
+﻿口刷新WM PAINT消息
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM ERASEBKGND:
+OutputDebugSt
+}
+}
+static int i = 0;
+char str[64];
+sprintf(str;"第％d次接收WM_ERASEBKGND}gE、!\n", i++)，
+OutputDebugStringA(str);
+return 1;
+case WM PAINT:
+}
+default:
+static int j= 0;
+char str[64];
+sprintf(str;"第％d次接收WM PAI NT消息!\n；j++);
+OutputDebugStringA(str);
+break;
+ring。把调试信息 输出到编译器的 输出窗口！
+break之后交给
+DefWindowPro c去将无效区域变
+有效!
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究

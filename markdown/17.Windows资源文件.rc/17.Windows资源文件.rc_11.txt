@@ -1,0 +1,16 @@
+﻿Windows资源文件・rc
+声明(Statements):根据资源的不同而不同，有的资源有"声明"，有的资源则没有，且每一种资源对应特定的声明。比如MENU 的资源就会具有MENUITEM声明，用于指定菜单项；对话框资源(DIALOGQIALOGEX)具有CAPTION声明，用于指定对话框标题。
+CAPTION	话框穗
+CHARACTER ISTICS	指定可以读取或写入资源定义文件的工具可以使用的资源的相关信息.
+	话框的翘。
+CLASS	
+EXSTYLE	设置对话框展窗口版;。
+FONT	充为该对话^1文本的字体。
+LANGUAGE	将所有资源的语言设置到下—* LANGUAGE语句或文件末尾.当LANGUAGE语句出现在ACCELERATORS, DIALOG, MENU, RCDATAag STRINGTABLE资源定义主体跚头加丽，指超信言仅明于该资源。
+	话框 09^。
+MENU	
+	毂f
+MENUITEM	
+STYLE	设置对话框的窗口样式。
+VERSION	指可以读取瞄入资疑烦拖资源的版本信息。
+本视频版权归黄强所有、侵权必究

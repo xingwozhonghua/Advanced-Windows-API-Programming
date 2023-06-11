@@ -1,0 +1,8 @@
+﻿Win32 API的A/W 函数
+Win32 API中带字符串的APIT殳都有两个版本，例如CreateFileA和CreateFileW。 当然也有例外，例如GetProcAddres涵数。A用表ANSI编码，W代表Unicode字符集。 Windows 中的 Unicode 字符一般指 UCS2 的 UTF16-LE 编码。
+看如下预编译指令：
+#ifdef UNICODE
+#define MessageBox MessageBoxW
+#else
+#define MessageBox MessageBoxA #endif //(UNICODE
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,7 @@
+﻿消息循环
+Windows中有f 系统消息队列，对于每f 正在执行的Windows应用程序，系统为其建立一 个〃消息队列〃，即应用程序队列，用来存放该程序可能创建的各种窗口的消息。窗口程序要想一 直捕获消息，则必须不停循环读取消息队列，例如：
+MSG msg;
+while (GetMessage(&msgz NULL, 0z 0)) (
+TranslateMessage(&msg); Dispatch Message(&msg);
+)
+本视频版权归黄强所有、侵权必究

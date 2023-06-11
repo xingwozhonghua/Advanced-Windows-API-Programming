@@ -1,0 +1,9 @@
+﻿M ERASEBKGND消息
+当窗口的移动，窗口的大小的改变时，必须擦除窗口背景时发送WM_ERASEBKGND;肖 息被发送以准备用于绘画的无效部分的窗口。Windows会给窗口发出先发出一次或者几次 WM_ERASEBKGND消、紧接着是WM_PAINT消息。当窗口无效时，DefWindowProc函数 默认逋过使用WNDCLASS结构中指定KhbrBackground背景画笔擦除背景。如果 hbrBackground为NULL,则应用程序应处理WM_ERASEBKGND消息并清除背景。
+如果应用程序处理i肖息并擦除背景，应用程序应返回非零值以响应WM_ERASEBKGND ; 这表明不需要进一 擦余。如果应用程序返回零，囱口将保持标记为需要擦除（通常，这表示 BeginPaint中获取的PAINTSTRUCT结构的fErase成员将为TRUE）。
+备注
+wParam 中
+设备上下文的句柄。
+I Param的
+此参数未使用。
+本视频版权归黄强所有、侵权必究

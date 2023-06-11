@@ -1,0 +1,4 @@
+﻿1］何设置按钮的背景图片?
+类似于使用SendMessage向控件发送BM_GETCHECK消息获取单选、复选按钮状态，我们可以向按钮控件发送 BM_SETIM AGE）肖息将新图标或位图与按钮关联，代码如下：
+SendMessage(hBtn1, BM SETIMAGE, (WPARAM)IMAGE BITMAB (LPARAM)hBmp);
+本视频版权归黄强所有、侵权必究

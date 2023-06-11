@@ -1,0 +1,10 @@
+﻿句柄的概念
+在Windows编程中会用到大量的句柄，比如：HINSTANCE （实例句柄），HBITMAP （位图句柄），HDC （设备描述表句柄），HICON （图标句柄）等。这当中还有一个通用的句 柄，就是HANDLE。
+类型	定义
+HANDLE	typedef void *	HANDLE;
+HWND	DECLAREHANDLE(HWND);
+HINSTANCE	DECLAREHANDLE(HINSTANCE);
+HMODULE	typedef HINSTANCE HMODULE;
+D EC LAREHAND LE 宏定义
+#define DECLARE HANDLE(name) struct name##_(int unused;); typedef struct name##_ *name
+本视频版权归黄强所有、侵权必究

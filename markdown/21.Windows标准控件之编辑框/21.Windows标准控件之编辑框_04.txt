@@ -1,0 +1,14 @@
+﻿IJ建编辑框
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREAT&肖 息的响应中创建子 窗匚1、控件等等
+HWND HEdit = CreateWindow(L”EdiT”， L”这是一个编辑框控件哈哈哈”， WS_CHILD | WS_VISIBLE |ES_MUL 30, 100, 200,100, hWnd, (HMENU)111, ((LPCREATESTRUCT)IParam)->hlnstancez (
+NULL);	'
+LRESULT ret = SendMessage(hEdit, EM_SETSEL, (W }break;
+ES_NOHIDESEL,
+系统注册的窗口类 名是edit,不区分
+}
+return DefWindowProc(hWnd, Msg, wParam, IParam);
+RAM)3,
+本视频版权归黄强所有、侵权必究

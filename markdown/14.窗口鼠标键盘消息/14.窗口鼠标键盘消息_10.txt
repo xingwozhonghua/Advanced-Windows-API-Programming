@@ -1,0 +1,9 @@
+﻿盘消息顺序
+因为 TranslateMessage 函数从 WM_KEYDOWN 和 WM_SYSKEYDOWN 消息产生了字 符消息，所以字符消息是夹在按键消息乏间传递给窗口消息处理程序的。例如，如果Caps Lock未打开，而使用者按下再释放A键，贝！］窗口消息处理程序按JII赡将收^如下的三个消息:
+WMKEYDOWN
+FAJ的虚拟键码(0x41)
+WMCHAR
+FaJ的字符代码(0x61)
+WMKEYUP
+FAJ的虚拟瞬(0x41)
+本视频版权归黄强所有、侵权必究

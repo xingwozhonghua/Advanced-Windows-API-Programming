@@ -1,0 +1,127 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows控件之日期时间选择器
+本视频版权归黄强所有、侵权必究
+indows控件之日期时间选择器
+日期时间选择器(DTP)控件的客户区显示日期或时间信息，或者同时显示日期 和时间信息，并充当用户通过其修改信息的界面。日期可以从日历中选择，也可以使 用上下控制;可以通过输入由控件的格式字符串定义的字段来更改时间。它是类名是 DATETIMEPICK_CLASSe
+本视频版权归黄强所有、侵权必究
+，控件样式
+dwStyle:指定控件的风格。可以是以下风格的任意组合。
+DTS_APPCAN PARSE	允许用户对输入消息进行必要的处理。
+dts_rightalign	下拉式月份日历将与控件右对齐，而不是左对齐，这是默认设置。
+DTS_SHOWNONE	控件显示一个复选框，当用户选中时，方可键入或选择一个日期。
+DTS_LONGDATEFORMAT	以长格式显示日期。此样式的默认格式字符串LOCALE_SLONGDATEFORMAT
+定义，如"1996年4月19日星期五"，此样式下拉按钮不显示图标。
+DTS_SHORTDATEFORMAT:以短格式显示日期。此样式的默认格式字符串由LOCALE_SSHORTDATE定义, 它产生类似"4/19/96”的输出。
+DTS_S H O RTDAT EC EN TU RYFO RM AT 类似 DTS_SHORTDATEFORMAT 风格，除了年份是四位数的字 段。输出："2/19/1996" o
+DTSJIMEFORMAT:	显示时间，它产生如"5:31:42 PM”的输出。
+DTS_UPDOWN:	在DTP控件的右侧放置f 上下控件来修改日期时间值。此样式可用于代替默认
+样式的下拉式月历。
+除了上面的风格外，一般还会设置WS_CHILD、WS_VISIBLE、WS_BORDER等窗口风
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hDatetime= CreateWindowCDATETIMEPICK CLASS,
+L"XXXn,
+WSCHILD | WSVISIBLE | DTSLONG DATE FORMAT,
+30.30,
+200.30,
+hWnd,
+(HMEN 11)111,
+((LPCREATESTRUCT)I Param)-> hl nstance, NULL);
+}break;
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+可以向控件发送DTM_XXX消息来设置控件。
+DTM.GETRANGE	获取日期^时间癣器(DTP)控制的当前最1的最大允许系统时间.您可以显式发送此消息或使用DateTime_GetRange宏.
+DTM.GETSYSTEMTIME	从日期和时间选择器(DTP)控件获取当前选定的时间，并将其放入指定的SYSTEMTIM隆构中.您可以显式发送此消息或使用 DateTime_GetSystemtime 宏.
+DTM_SETF0RMAT	根据给定的格式字符串设置日期^时间曜器(DTP)控件a勺显示.您可以屋式发送此消息或使用DateTime_SetFormat宏.
+DTM.SETMCC0L0R	设置日期^时间猝器(DTP)控件中月份日历龄定部分的颜色.您可以显式发送此消息或使用DateTime_SetMonthCalColorS。
+DTM.SETMCF0NT	设置日期^时间囹圣器(DTP)控件的子月历控件使用的字体.您可以显式发送此消息或使用DateTime_SetMonthCalFontS.
+DTM.SETMCSTYLE	设置DT唯件的样式.明确发送此消息或使用DateTime_SetMonthCalStyle宏.
+DTM.SETRANGE	设置日期^时间曜器(DTP)控制的最咽最大允许系统时间.您可以显式发送此消©•或使用DateTime_SetRange宏.
+DTM_SETSYSTEMTIME	设置日期^时间曜器(DTP)控件中的时间.您可以显式发送此消息或使用DateTime_SetSystemtimeS.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb761727(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+式字符串
+格式字符串由一系列代表特定信息并定义其显示格式的元素组成。这些元素将按照它们在格式字符串 中出现的JI厕^显小。
+	或两位数的日子。
+"dd“	两位数的一^攵的日期值前面加零。
+"ddd“	三机周日缩写。
+"dddd"	完整的周日名称。
+"h“	1脚一两位数小时。
+"hh"	格式的两位数小时。T2数值前面加零。
+"H“	24d附格式的T燮两位数小时。
+“HH“	2钊\«格式的两位数小时。一f立数值前面加零.
+"m"	T械两位数的倒。
+"mm"	两位数的分钟。T立数值前面加零。
+"M"	两位裁的月份数字。
+"MM"	两位数的月份数字。T2数值前面力啤。
+"MMM"	三个字符的月份缩写。
+“MMMM"	完龄月份名称。
+T	单字母AM/PM缩写（即AM显示为"A"）。
+"tf	双字母AM/PM缩写（即AM显示为"AM"）。
+、'对'	年份的后两燮字（即1996年将显示为"96"）。
+"yyyy,,	全年（即199阵将显示为”1996年"）.
+本视频版权归黄强所有、侵权必究
+设置时间格式字符串
+SendMessage(hDatetimer DTM SETFORMAT, 0, (LPARAM) Lnyyyy-MM-dd HH:mm:ssn)；
+设置控件的显示时间
+SYSTEMTIME time; time.wYear = 1999; time.wMonth = 8; time.wDay = 7; time.wHour = 6; time.wMinute =5; time.wSecond = 4; time.wMilliseconds =3;
+SendMessage(hDatetime, DTM_SETSYSTEMTIME,GDT_VALIDr (LPARAM)&time);
+本视频版权归黄强所有、侵权必究
+:空件向父
+口发送的通知消息
+
+控件会向父窗口发送WM_NOTIFY消息的形式的通知代码。
+DTN_CLOSEUP	表示即将删除下拉式月份日历。
+DTN_DATETIMECHANGE	在DTP控件中发出更改信号。
+DTN_DROPDOWN	表示即将显示下拉式月份日历。
+DTNJORMAT	请求文本显示在被描述为回调字段的格式字符串的一35分中。
+DTN_FORMATQUERY	请求有关要在回调字段中显示的文本的最大允许尺寸的信，息。
+DTN_USERSTRING	在控件中标记用户编辑操作的结束。此通知仅由使用DTS_APPCANPARSE样式的DTP控件发送。
+DTN_WM KEYDOWN	表示用户在DTP控件的回调字段中按下了 一个曝
+更多查阅MSDN链接：hUDS：〃msdn.micros。ft.com/en-us/library/windows/desktOD/bb761727(v=vs.85).asDX
+本视频版权归黄强所有、侵权必究
+case WM NOTIFY:
+{
+NMHDR *pHDR = (NMHDR*)IParam;
+if (pHDR->code == DTN DATETIMECHANGE)
+{
+LPNMDATETIMECHANGE pDTC = (LPNMDATETIMECHANGE)IParam;
+SYSTEMTIME st = pDTC->st;
+TCHAR buf[64] = { 0 };
+wsprintf(buf,L”日期：%04d-%02d-%02d %02d:%02d:%02d\n", st.wYear, st.wMonth, st.wDay, stwHour; st.wMinute, st.wSecond);
+OutputDebugString(buf);
+return 0;
+}
+} break;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

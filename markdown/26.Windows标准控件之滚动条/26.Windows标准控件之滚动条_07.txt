@@ -1,0 +1,7 @@
+﻿可以向滚动条控件发送SBM_XXX消息来设置滚动条等
+SBM_SETPOS	所述SBM_SETPOS^发送的消息来设置滚动框（滑块）的位置，并且如果请求，重绘滚动条以反映滚动按钮的新位置 应用程序不应直接发送此消以相反，他应该使用SetScrollP。涵放，f 窗口通过它的1/VMowProc函数接收这个消息.实现自定义滚动条 控件的应用程序必须响应这些；肖息才能使SetScrollPos函数正常工作.
+SBM_SETRANGE	所述SBM_SETRANGE发茧肖息以滚^条控制设S的最最大位置副瓦 应用程序不应即发送此消息.相反，他们应该使用SetScrollRange函数.f 窗口通过它的VWodowPro屈数接收这个肖艮实现自定义滚动 条控件的应用程序必须响应这些消息才能使SetScrollRange函数正常工作.
+SBM_SETRANGE REDRAW	应用程序将SBM_SETRANGEREDRAW消息发送到滚动条控件以设置最，J命最大位置值并更新绘制^毛
+SBM_SETSCR0L LINFO	腿SBM_SETSCRO山NFO发遗肖由瞄衮动条的参数. 应用程序不应司妾发送此消艮相反，他1□应该使用SetScrollInf。函数。f窗口通过它的m〃dowProc函数接收这个消息.实现自定义滚动条 控件的应用程序必须响应这些^息以使SetScrollInf。函数正常工作.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb787529(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

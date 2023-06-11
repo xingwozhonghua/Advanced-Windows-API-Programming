@@ -1,0 +1,15 @@
+﻿Windows窗口的创建
+typedef struct tagCREATESTRUCT {
+LPVOID IpCreateParams; //创建窗口的基本参数
+HANDLE hlnstance; //拥有将创建的窗口的模块实例句柄 HMENU hMenu; //新窗口的菜单句柄
+HWND hwndParent; //新窗口的父窗口句柄
+int cy;〃新窗口的高度
+int ex; //新窗口的宽度
+int y; //新窗口的左上角Y坐标
+int x; 〃新窗口的左上角X坐标
+LONG style;//新窗口的风格
+LPCSTR IpszName; // 新窗口的名称
+LPCSTR IpszClass; // 新窗口的窗口类名
+DWORD dwExStyle; //新窗口的扩展参数
+) CREATESTRUCT;
+本视频版权归黄强所有、侵权必究

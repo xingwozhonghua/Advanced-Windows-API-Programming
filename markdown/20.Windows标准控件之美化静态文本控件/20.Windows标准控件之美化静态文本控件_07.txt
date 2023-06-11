@@ -1,0 +1,10 @@
+﻿etWindowLong 函数
+nlndex信息索引的取值:
+GWL.EXSTYLE -20	检索扩展窗口样式.
+GWL.H INSTANCE -6	检索应用程序实例的句柄.
+GWL_HWNDPARENT -8	检索父窗口炳柄（如果有的话）.
+GWLJD -12	
+GWLSTYLE -16	
+GWL_USERDATA •21	检索与窗口关联的用户数据.此螂旨在供创建该国口的应用程序使用.它的值最初为零.
+GWL.WNDPROC -4	枪索窗口过剧世址或表示窗口过程地址的句柄.您必须使用CallWindowProc函敬调用窗口过程.
+本视频版权归黄强所有、侵权必究

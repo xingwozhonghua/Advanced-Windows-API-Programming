@@ -1,0 +1,27 @@
+﻿indows控件学习文档链接
+MSDN上有控件专题：https://msdn.microsoft.com/en-us/library/windows/desktop/bb773169(v=vs.85).aspx
+Subclassing Controls
+Control Library
+Custom Draw
+Security Considerations:
+The topics in this section discuss each control separately. The information for programming elements that are used specifically with that control.
+Controls
+Topic
+Contents
+Animation
+Button
+ComboBox
+Date and Time Picker
+Edit
+Flat Scroll
+An animation control is a window that displays an Audio-Vid< elements used with animation controls.
+A button is a control the user can click to provide input to an used with button controls.
+r	
+查阅官方文， 最权威！ ！ !	当 1
+	
+A combo box consists of a list and a selection field. Th© list presents selection. This section contains information about the programming
+A ComboBoxEx control is a combo box control that provides native programming elements used with ComboBoxEx controls.
+A date and time picker provides a simple and intuitive interface thrc contains information about the programming elements used with c
+An edit control is a rectangular control window typically used in a d This section contains information about the programming element
+A flat scroll bar is like a standard scroll bar, except that the appeara
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,11 @@
+﻿，控件样式
+dwStyle:指定控件的风格
+SBS_HORZ:指定滚动条为水平滚动条。如果没有指定SBS_BOTTOMALIGN或SBS_TOPALIGN风格，则滚 动条的高度、宽度和位置由Create函数的rect参数给出。
+SBS_VERT:指定滚动条为垂直滚动条。如果没有指定SBS_RIGHTALIGN或SBS_LEFTALIGN风格，则滚动 条的高度、宽度和位置由Create函数的rect参数给出。
+SBS_TOPALIGN:与SBS_HORZ配合使用。滚动条的上边缘与Create函数的rect参数指定矩形的上边缘对齐。 滚动条高度为系统滚动条的默认高度。
+SBS_BOTTOMALIGN:与SBS_HORZ配合使用。滚动条的下边缘与Create函数的rect参数指定矩形的下边 缘对齐。滚动条高度为系统滚动条的默认高度。
+SBS_LEFTALIGN:与SBS_VERT配合使用。滚动条的左边缘与Create函数的rect参数指定矩形的左边缘对齐。 滚动条宽彦为系统滚动条的默认宽度。
+SBS_RIGHTALIGN:与SBS_VERT配合使用。滚动条的右边缘与Create函数的rect参数指定矩形的右边缘对 齐。滚动条宽度为系统滚动条的默认宽度。
+SBS_SIZEBOX:大小框具有由CreateWindowEx的x, y, nWidth和nHeight参数指定的高度，宽度
+dwStyle参数可以是以上风格中某几个的组合，另夕卜一般也会用到WS_CHILD、WS_VISIBLE风格。例如， 创建一个水平滚动条控件，dwStyle参数应该为WS_CHILD|WS_VISIBLE|S&S_HOR乙 创建垂直滚动条控件时 dwStyle 参数应该为 WS_CHILD|WS_VISIBLE|SBS_0ERT。
+本视频版权归黄强所有、侵权必究

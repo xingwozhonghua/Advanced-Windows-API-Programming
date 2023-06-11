@@ -1,0 +1,17 @@
+﻿腱按钮
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREAT&肖 息的响应中创建子 窗匚1、控件等等
+)
+HWND HBtnl = CreateWindow(L”ButTon”， L”你好"，
+WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+15,5,
+100, 80,
+hWnd, (HMENU)111, ((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+}break;
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+系统注册的窗口类 名是button,不区 分大小写
+本视频版权归黄强所有、侵权必究

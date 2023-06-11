@@ -1,0 +1,14 @@
+﻿indows资源文件・rc
+”控件“(Controls)分为:
+AUTO3STATE	创建一自动三状态复选框控件.
+AUTOCHECKBOX	创建—1^自动复选框控件.
+AUTORADIOBUTTON	创建自动单选按钮控件。
+CHECKBOX	创建一^复选框控件。
+COMBOBOX	创建―•组合框控件.
+CONTROL	创建f应用程序定义的控件。
+CTEXT	创建居中文本控彳牛.
+DEFPUSHBUTTON	创建默认的按钮控件.
+EDITTEXT	创建一^编辑控件。
+GROUPBOX	创建f组橱到牛。
+ICON	创建f 圄标控件。该控件是f 显示在对话框中的图标.
+本视频版权归黄强所有、侵权必究

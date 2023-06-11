@@ -1,0 +1,14 @@
+﻿标准消息
+类型	含义
+WMMOUSEMOVE	鼠标移动
+WMLBUTTONDOWN	按下鼠标左键
+WMLBUTTONDBLCLK	双击鼠标左键
+WMRBUTTONDOWN	按下鼠标右键
+WMSIZING	■	调整窗口大小时发送此消息给窗口，通过此消息应用程序可以监视或修 改窗口大小和位置
+WMMOVING	移动窗口时发送此$肖息给窗口，通过此消息应用程序可以监视或修改窗 口大小和位置
+WMMDICREATE	发送此消息给多文档的客户窗口来创建一个MDI子窗口
+WMMDIDESTROY	发送此消息给多文档的客户窗口来关闭一个MDI子窗口
+WMMDI ACTIVATE	发送此¥肖息给多文档的客户窗口通知客户窗口激活另一个MDI子窗口
+WMMDINEXT	M DI客户窗口激活下一个或前一个窗□
+WMHOTKEY	当用户按下由RegisterHotKeyO注册的热键时广生此消息
+本视频版权归黄强所有、侵权必究

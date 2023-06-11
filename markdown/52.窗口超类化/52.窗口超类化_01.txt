@@ -1,0 +1,68 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+窗匚I超类化
+本视频版权归黄强所有、侵权必究
+我们通过子类化可以改变一个控件的窗口过程函数，代码如下:
+HWND hEditl = CreateWindow(WC_EDITz .……);
+这里仅更改 hEditl 的窗口 处理函数
+〃将编辑框控件的窗口过程处理设置为我们自己的	k
+WNDPROC oldProc = (WNDPROC)SetWindowLong(hEditz GWL_WNDPROC, (LONG)NewWndProc);
+假设我现在创建了一千个编辑框，hEditl至hEditl000,那么我如何让都实现我的新窗口过程 函数？
+本视频版权归黄强所有、侵权必究
+【十么是窗口超类化?
+窗口超类化是在窗口类一WNDCLASS或WNDCLASSEX级别进行的改变窗口类特征的。 所有使用这个窗口类创建的窗口都将受到影响。
+WNDCLASS wc;
+wc.cbSize = sizeof(WN DCLASS);
+wc.lpfnWndProc = XXXWndProc; wc.lpszClassName = "EDIT”;
+RegisterClass(&wc);
+本视频版权归黄强所有、侵权必究
+I 十么是窗口超类化?
+既然我们说系统预定义的控件代码我们无法修改，假如我们能获取它原来的注册信息, 然后更改窗口过程函数，并重新注册一个不就可以了吗！ ！ ！
+〃获取EDIT的注册窗口类信息 WNDCLASS wc;
+GetClasslnfo(GetModuleHandle(NULL)/ WC_EDITZ &wc);
+〃更改窗口过程函数，重新注册窗口类 old Proc = wc.lpfnWndProc; wc.lpfnWnd Proc = NewWnd Proc; RegisterClass(&wc);
+本视频版权归黄强所有、侵权必究
+口超类化的步骤
+实现超类化的步骤如下:
+(1)	调用GetClasslnfo()获得一个系统的窗口类信息
+(2)	更改为我们的窗口处理函数，并处理感兴趣的消息
+(3)	Registerclass重新注册窗口类
+(4)	不感兴趣的消息调用CallWindowProc()传递给原来的OldWndProc处理
+注意：在调用旧的窗口函数时，不能菌§调用。ldWndProc(...) z而必须用函数CallWndProc调用，否则会出现堆栈错误。
+本视频版权归黄强所有、侵权必究
+GetClassInfo 函数
+GetClassInfo函数 检索有关窗口类的信息。
+BOOL WINAPI GetClassInfo (
+HINSTANCE
+LPCTSTR LPWNDCLASS
+hlnstance, //应用程序实例的句柄。要检索有关系统定义的类 （如按钮或列表框），请设为NULL。
+IpCIassName, //注册的窗口类名
+IpWndClass//指向WNDCLASS结构的指针
+返回
+类型：BOOL
+如果函数找到匹配的类并成功复制数据，则返回值不为零。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+〃定义自己的窗口过程处理函数来处理感兴趣的消息
+LRESULT CALLBACK NewWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM IParam) (
+switch (msg)
+(
+〃点击鼠标左键，显示一个消息框。
+case WM_LBUTTONDOWN:
+(
+MessageBox(0, L”我拦截了左键的行为”，L”提示”，MB_OK); return 0;//自己处理)肖息，就必须返回0。
+} break;
+)
+return CallWindowProc(oldProc, hWnd, msg, wParam, IParam);
+本视频版权归黄强所有、侵权必究
+始加辎写绿朝做毓*
+•( ....“&乙」
+1103 D/V\)^opui/v\aiB9JD = Z1!P3M QNMH
+•(11 AN ^oue;su|q<-(iuejedl(lDnaiS31V3aDdl)) 'LLL(nNmniH)
+'pu/v\q
+'0£ '00Z
+'0：'0£
+SM I 319ISIA S/V\ I Q1IHD SM )LLL“1 /lia3~D/V\)^opu!/v\aiBeJD = 1!P3M QNMH
+杀□凰fffi王;甥重〃：0M73)ss引>。以6斗由|ooq 舌*瓦□凰 60KM目区至尊 〃bo」dPUMM3N = oojdpu/v\u)d|-o/v\ 5oJdPU/V\ujdpM = oojdp|o ©m召'1IQ3一DM 'TIDN )oju|sse|3ieo 5m SSV1DQNM
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,16 @@
+﻿示代码
+HSCROLL:
+int nSBCode = LOWORD(wParam);
+int pos = SendMessage( (HWND)IParam/ SBM GETPOS, 0,0); // 获取滚动条当前瞻
+switch (nSBCode)
+{
+〃如果向左滚动一列，贝Upos减1
+caseSBLINELEFT:
+pos -= 1; break;
+〃如果向右滚新一列，贝Upos加1
+caseSBLINERIGHT:
+pos += 1; brea k，
+〃如果向左滚动'页，贝Upos减20
+case SB PAGELEFT:
+pos -= 20; break;
+本视频版权归黄强所有、侵权必究

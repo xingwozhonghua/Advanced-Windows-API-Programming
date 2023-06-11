@@ -1,0 +1,95 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows公共控件简介
+本视频版权归黄强所有、侵权必究
+W\N i n d o ws标准控件
+控件是应用程序与另一个窗口结合使用以启用用户交互的子窗口，前面我们学习了 Wind o ws标准控件：
+控件	窗口类名	备注
+静态控件	Static 或 WC_STATIC	SS BITMAP位图控件、 SSJCON图标控件
+按麹空件	Button 或 WC BU1 ION	BS_C H ECKBOX复选按钮控件、 BS_RADIOBUTTON单选按钮控件、 BS_GROUPBOX组框控件
+编辑框控件	Edit 或 WC_EDIT	无
+列表框控件	ListBox 或 WC LISTBOX	无
+组合框控件	ComboBox 或WC_COMBOBOX	无
+滚动条	ScrollBar 或 WC_SCROLLBAR	无
+本视频版权归黄强所有、侵权必究
+i n d o ws公共控件简介
+与标准控件一样，公共控件是应用程序与另一个窗口一起使用的与用户交互的子窗口。 这些控件实现在C:\Windows\System32\Comctl32.dll中，为福悝控件DLL已加载，应用程 序需调用 InitCommonControls 函数，还需要包含头文 ^#include<CommCtrl.h>o
+■C Dependency Walker - [comcti32.diq
+■C Rl< Edit Vi«w Options Profit Window Hdp 旦H h? E吏小留耳山 %日E k? 飞~□ COMCTL32.DU~
+NTDCUXL ADVAPI32.DU □ MSVCRTQLL NTDILDU API-MSW1N-CORE-CONSOLE-L1-1 -O.DU API-M$-W1N-CO«E-DATETIME.L1.1-04X1 APIMS-WIN-CORE-DE BUG-11 -100(1 AM-MS-W1NCORE-ERRORHANDLING-L1-1-O.DU. API.MS-W1N-CORE-RBERS-L11.0.DU API-MS-WIN-CORE-nLE-ll -1-0XX1 API-MS-W1N-CORE-HANOLE-L1-1 -0.DU API-MS-W1N.CORE-HEAP.11 -1 -0.DU API-MS-WlN-COftE-LOCALIZATION-11 -2-O.DLL API-MS-WIN-CORE-UBRAAYLOADER-LI -2-0.DU API-MS-W1N-C0RE-MEM0RY41 -1 -O.DU API-MS-W1N-CORE-NAMEDP1PE-L1 -1 -0IX£ API-MS-W1N-CORE-PROCSSSENVIRONMENT-L1-1-O.DU API-M$-W1N-CORE-PROCESSTHR£A£>$-L1 -1 -O.DU API-MS-W1N-CORE-PROFILE-L1-1-OlDU API-MS-WlN-CORE-STRING-U-l-aOll API-MS-W1N-CORE-SYNCH-L1 ・29«DIL API-MS-WIN-CORE-SYNCH-LI-1QDIL API-MS-WIN-CORE-SYSINFO-H -1 -ODll API-MS-W1N-CORE-UTIL-L1 -1 -ODLL KERNELBASE.DU.
+MTTMI nil
+□ e □
+-：
+ffi-	□
+S	□
+S	□
+ffi	□ ⑦
+ffi-	□
+s-	□
+s	□
+ffi-	□ ⑦
+s	□
+ffi-	5J
+a	□
+s	5]
+s-	□
+	□
+s-	□
+s-	□
+	31
+a-	□
+PI [ Ordinal [ 〔Hint
+I Function
+| Entry PoiM
+
+E	Ordinal	Hint	Function A	Entry Point	
+QQ|QQQQQQQQQQ[	80(0x0050) 81 (0x0051)	99(0x0 0 6 3) 100(0x0 0 64)	1 mageUst^SetOvedayl mage ImegHist.Write	0x00061610 0x00061640	
+	17(0x0011)	101 (0x0065)	InHCotnmonControls	OxOOO1E5CO	
+	82(0x00 5 2) 84(0x0054) 83(0x00 53) 14(0x000E) 13(0x000D) 2(0x0002) 85(0x0055) 86(0x0056) 87(0x0057) 88(0x0058) 41->	102	(0x00 66) 104(0x00 6 8) 103	(0x0067) 105(0x00 69) 106(0x006A) 107 (0x0 06B) 108(0x0060 109(0x0060) 110(0x0060 111 (0x006F)	1 nitCo<nmonCo<itrolsEx InitializeFUtSB lnitMUIUn9u49e LGItemFfomPt MakeDragList MenuHelp PropertySheet PropertySheetA PropcrtySheetW SistWsshUgW	OxOOOIESDO 010001AD50 OxOOOIEGBO 0x0001A870 0x0001A7F0 0xO001DE40 0*0000820 0x00000520 0x0000D500 010001E6F0 A.AAA1 ftnO/t	
+| File Time Stamp | Link Time SMmp | File Size ] Attr. ] Link Checksum | Re" Checksun
+本视频版权归黄强所有、侵权必究
+void InitCommonControls(void);
+InitCommonControlsO函数是注册并初始化通用控件窗口类。它是个空函数，不做任何事 情。调用该函数，链接器会将你的程序链接到comctl32.lib,然后在程序启动时，会加载 Comctl32.dllo真正初始化的工作是在该库的入口点处做的，在这里会注册通用控件窗口类。 然后应用程序就可以创建控件窗口，就象创建其它的子窗口控件一样。
+BOOL lnitCommonControlsEx(
+LPINITCOMMONCONTROLSEX IpInitCtrls 〃将注册控件类的信息
+)；
+InitCommonControlsEx确保加载了公共控件DLL (Comctl32.dll),并从DLL中注册特定的 通用控件类。应用程序必须在创建通用控件之前调用此函数。
+本视频版权归黄强所有、侵权必究
+typedef struct tagINITCOMMONCONTROLSEX {
+DWORD dwSize;〃结构的大小
+DWORD dwICC;〃控件类将从DLL中加载的位标志集
+} INITCOMMONCONTROLSEX, * LPINITCOMMONCONTROLSEX;
+dwICC取值： ICCANIMATECLASS icCbarclasses ICCZCOOLCLASSES ic<dateJclasses ICC>OTKEY_CLASS ICCJNTERNETCLASSES icClinkclass ICCjlSTVIEWCLASSES IC<NATIVEFNTCTL_CLASS ICC>AG ESC ROLLER^C LASS IC<PROGRESS_CLASS ICCZSTANDARL^CLASSES ICCjABCLASSES IC<TREEVIEW_CLASSES ICCZUPDOWNjCLASS IC<USEREX_CLASSES icc[win95 Glasses
+动画控件类。
+幡工具栏，状态栏，轨迹栏和工匐是示苗牛类。
+幡钢稀制类。
+力噫日期和时间选择器控件类。
+力I®热雌制类。
+力藤肿地址类。
+就 超噂控件类。
+力崎洌表视图和标题控件类。
+力哺源生字体控件类。
+寻呼机控制类。
+DOM®条控微
+力哦内部User32控件类。用户控件包括按钮，编辑，静态，列表框，组合框和滚动条。
+力喷标叙口工匐是示控制类。
+力哦树视图和工*提示控件类。
+力曦up-down控祥类。
+J[®Co mbo BoxEx类。
+力瞰动画控件，标题，热键，列表视图，进度条，状态栏，选项卡，提示，工*栏，轨迹栏, 棚见图木吐下部类。
+本视频版权归黄强所有、侵权必究
+in d o ws公共控件简介
+控件
+动画控件Animation 测量条控件Trackbar 日期控件Date and Time Picker 热瞄件Hot Key 链演空件Sys Link 日历控件Month Calendar 进度条控件Progress Bar 工具栏控件Toolbar 提示控件Tooltip 上下控件Up-Down Control
+窗口类名
+ANIMATECLASS TRACKBARCLASS DATETIMEPICKCLASS HOTKEYCLASS WCLINK MONTHCALCLASS PROGRESS_CLASS TOOLBARCLASSNAME TOOLTIPS_CLASS UPDOWNCLASS
+本视频版权归黄强所有、侵权必究
+in d o ws公共控件简介
+控件
+IP地址控件IP Address Control 列表视图List View 选项卡控件Tab 树形控件Tree View 图象链表I mage List 属性表单Property Sheet 状态栏控件Status Bar 页控件Pager 头部控件 Header Control ReBar控件
+窗口类名
+WCIPADDRESS WC_LISTVIEW WCTABCONTROL
+WC_TREEVIEW 无 无 STATUSCLASSNAME WC_PAGESCROLLER WC_HEADER REBARCLASSNAME
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

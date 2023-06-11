@@ -1,0 +1,10 @@
+﻿PostMessage 函数
+BOOL WINAPI PostMessage（
+HWND hWnd,〃接收¥肖息的窗口的句柄
+UINT Msg,//;肖息ID
+WPARAM wParam,〃附加的消息特定的信息 LPARAM IParam〃附加的消息特定的信息
+）；
+PostMessage函数将一个消息放入（寄送）到与指定窗口创建的线程相关联的消息队列里，不等待 线程处理消息就立即返回，是异步消息模式。消息队列里的消息通过调用GetMessage和 PeekMessage 取得。
+备注：
+参数hWnd的值为HWND BROADCAST时该消息被发布到系统中的所有顶级窗口，包括禁用或不可见的无主窗口，重叠窗口和 弹出窗口。该消息不会发布到子窗口。hWnd为NULL0寸该函数的行为与PostThread Message类似，其中dwThreadld参数设置 为当前线程的标识符。
+本视频版权归黄强所有、侵权必究

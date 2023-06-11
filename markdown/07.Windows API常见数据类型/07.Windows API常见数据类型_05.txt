@@ -1,0 +1,16 @@
+﻿Windows API常见数据类型
+头文件minwindef.h、basetsd.h
+类型	定义		
+LP FLOAT	typed ef	FLOAT far *	LP FLOAT;
+LPBOOL	typed ef	BOOL far *	LPBOOL;
+LPVOID	typed ef	void far *	LPVOID;
+PUINT	typed ef	unsigned int *	PUINT;
+INTPTR	typed ef	int	INT PTR, *PINT_PTR;
+UINTPTR	typed ef	unsigned int	UINT PTR, *PUINT_PTR;
+LONGPTR	typed ef	long	LONG PTR, *PLONG_PTR;
+ULONGPTR	typed ef	unsigned long	ULONG PTR, *PULONG_PTR;
+SIZET	typed ef	ULONG PTR	SIZE T, *PSIZE_T;
+WPARAM	typed ef	UINT PTR	WPARAM;
+LPARAM	typed ef	LONG PTR	LPARAM;
+LRESULT	typed ef	LONG PTR	LRESULT;
+本视频版权归黄强所有、侵权必究

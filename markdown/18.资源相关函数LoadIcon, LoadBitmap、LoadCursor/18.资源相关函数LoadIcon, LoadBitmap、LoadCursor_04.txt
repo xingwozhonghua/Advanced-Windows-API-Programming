@@ -1,0 +1,11 @@
+﻿oadBitmap 函数
+从一个模块的可执行文件中加载指定的位图资源，已被Loadimage功能取代。
+HBITMAP WINAPI LoadBitmap（
+_ln_opt_ HINSTANCE hlnstance,//要加载的位图的麟实例的句柄。
+_ln_ LPCTSTR IpBitmapName//位图资源的名称。或者，此参数可以包含低位字中的资源标识
+符和高位字中的零。使用MAKEINTRESOURCE宏创建此值。 ）；
+返回值
+如果函数成功，返回值是位图的句柄。
+如果函数失败，返回值为NULL要获得扩展的错误信息，请调用GetLastError。
+应用程序必须调用DeleteObject函数来删除LoadBitmap函数返回的每个位图句柄。
+本视频版权归黄强所有、侵权必究

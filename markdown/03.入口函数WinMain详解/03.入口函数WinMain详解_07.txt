@@ -1,0 +1,18 @@
+﻿入口函数WinMain详解
+添加cpp文件，敲如下代码:
+设置哪个入口点是由连接器 的“/subsystem:”选项参数确定 的，指定四种方式：
+MCONSOLE|WINDOWS|
+NATIVEIPOSIX",如果值为 ,•CONSOLE",则表示该应用程 序运行时需要控制台。
+#include< windows.h>
+#include<stdio.h>
+#pragma comment( linker, 7subsystem:\"co
+“ /entry:\nWinMainCRTStartup\,,H)
+int WINAPI WinMain(HINSTANCE hlnstance, HINSTANCE hPrevInstance, LPSTR IpCmdLine, int nCmdShow)
+printf(n%d %d %d\n,,/ hlnstance, h Previn stance, GetModuleHandle(NULL)); printff %s\n”, GetCommandLineAO);
+printf(n%d %d\n,,/ nCmdShow , SW SHOWDEFAULT);
+
+MessageBox(0, LHWinMain函数、L”测试\MB_OK); return 0;
+Win32程序无法 直接在控制台打
+印输出！
+)
+本视频版权归黄强所有、侵权必究

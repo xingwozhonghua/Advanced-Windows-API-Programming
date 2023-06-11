@@ -1,0 +1,10 @@
+﻿Windows API 分类
+基础服务(Base Services),内核函数，提供对Windows系统基础资源的访问接口。比如：文件 系统、内存管理、夕卜部设备、进程(process).线程(thread)以及访问注册表和错误处理机制。 这些功能接口位于32位Windows下的kernel32.dll中。
+ikernel32.dll]					
+ptions Profile Window Help					
+区即由鸟习	%sm					
+A IN-CORE-RTLSUPPORT-L1 -1 -O.DLL IN-CORE-RTLSUPPORT-L1 -2-0.DLL iSE.DLL LDLL 4S-WIN-EVENTING-PROV1DER-L1-1-O.DLL \4S-WIN-ADVAPI32-REGISTRY-L1-1-0.DLL \4S-WIN-ADVAPI32-REGISTRY-L1 -1 -1 .DLL 5S-WIN-KERNEL32-APPCOMPAT-LM-O.DLL \4S-WIN-NTUSER-STRING-L1 -1 -O.DLL \4S-WIN-KERNEL32-FILE-L1 -1 -O.DLL 5SWN-KERNEL32-DATETIMEmO.DLL V1S-WIN-KERNEL32-QUIRKS-L1 -1 -O.DLL V1S-WIN-KERNEL32-QUIRKS-L1 -1 -1.DLL V1S-WIN-KERNEL32-SIDEBYSIDE-L1-1-O.DLL V1S-WIN-MRMCORER-RESMANAGER-L1-1-O.DLL mc.wiN.r；DADi.r；Rni iooni irv.i	v >	PI	Ordinal A	Hint	Function	Entry Point
+					
+	E	Ordinal	Hint	Function A	Entry Point
+		243 (OxOOF3) 244(0x00 F4) 245 (0x00F5) 246(0x00 F6) 247 (0x00 F7) 248(0x00 F8) 249	(0x00 F9) 250	(0x0OF A) rAvnnc a、	240	(OxOOFO) 241	(OxOOFI) 242	(0x00F2) 243	(OxOOF3) 244	(0x00 F4) 245	(OxOOF5) 246	(0x00F6) 247	(0x00 F7) fAvAAC 0^	CreateTapePartition CreateThread CreateThreadpool C reateThreadpoolCleanupG rou p C reateThreadpooll o CreateThreadpoolTimer CreateThreadpoolWait C reateThreadpooIWo rk	0x0001 D8F0 0x000145B0 0x00016BB0 0x00016BE0 0x00016C10 0x00016030 0x00016C70 0x00016CB0 AvAAm 41 m
+本视频版权归黄强所有、侵权必究

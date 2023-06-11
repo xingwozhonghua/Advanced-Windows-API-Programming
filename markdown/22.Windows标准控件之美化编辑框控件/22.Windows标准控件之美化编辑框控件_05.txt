@@ -1,0 +1,13 @@
+﻿父窗口处理消息设置编辑框的背景色与文字颜色：
+case WM CTLCOLOREDIT:
+{
+HDC hdc = (HDC)wParam;
+HWND hCtrl = (HWND)IParam;
+〃获取编辑框控件的ID
+UINT Ctrl ID = GetWindowLong(hCtrlz GWL ID);
+if (CtrlID == 111)
+{
+SetTextColor(hdcz RGB(255, 0, 0));//文字颜色 SetBkMode(hdcz TRANSPARENT);//^字背景色透明 }
+HBRUSH hbr = CreateSolidBrush(RGB(255, 255, 0)); return (LRESULT)hbr;//控件的背景色
+}break;
+本视频版权归黄强所有、侵权必究

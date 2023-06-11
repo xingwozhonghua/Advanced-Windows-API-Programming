@@ -1,0 +1,38 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows控件学习小工具■控件间谍
+本视频版权归黄强所有、侵权必究
+indows控件学习小工具■控件间谍
+Control Spy （控件间谍）是一款帮助开发人员理解常见控件的工具：如何将风格应 用于他们，以及他们如何响应消息和通Ml。使用Control Spy,您可以立即看到不同样式 如何影响每个控件的行为和外观，以及如何通过发送消息来更改每个控件的状态。
+更多查阅MSDN链接：htlps:〃msdn.microsoft.com/en-us/library/windows/desktop/bb773165(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+软件界面
+3 Control Spy
+□ X
+Aninabon
+Styles Messages &ze/Cotor About
+Styles: 0x50000000
+.PUSHBUTTON
+Button
+Extended Stytes: 0x00000000
+0 Messages Received
+WM. WM
+WM WM WM
+WM
+GETTCXT GETTEXTLB«nW ERASSKGND NCPAINT PAINT SETFOKT
+0 Notifications Received
+BSBSBSBSBSBSBSBSBSBSBSBS8
+De=PUSHBUTTON CHECKBOX AUTOO€CKBOX RADIOBUnON 3STATC AUTO3STA1E GROUPBOX US5WUTTON AUTORADIOBJTTON OWNERDRAW SPLnBUTTON D0=SPUTBUTTON
+Copy Style
+WS EX ACCH>TFILES WSq_OJ0HHX£ WS.EX.COMPOSTTH） WS_EX_CONTEXTHELP WS EX CONTROLPARBTT V/SJX.DLGMOOALFRAME WS_P（JAYBIH）
+WS EX LAYOUTRTL
+
+WS_EX_MDICHHD WS EX NOACTIVATE V/S.EX.NOirFERniAYOUT EC* CV Kl/V^AHCMTKI^TTCV
+NM.CUSTOMDRAW 心 _CUSTOMDRAW
+CopyExStyte
+dear
+本视频版权归黄强所有、侵权必究
+软件界面
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

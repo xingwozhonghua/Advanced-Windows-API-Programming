@@ -1,0 +1,6 @@
+﻿PostMessage. SendMessage区别
+类型	PostMessage	SendMessage
+阻塞	PostMessage只把）肖息放入队列，不管是否 处理都立即返回，然后继续执行，这是个异步 消息投放函数。	会阻塞，必须等待其他程序处理消息完了之后才 返回，继续执行，这是个同步消息投放函数。
+同一线程	如果在同f 线程内，PostMessage发送消 息时，消息要先放入线程的消息队列，然后通 过消息循环DispatchMessage到目标窗口。	在同一线程中发送消息并不入线程消息队列，系 统直接调用目标窗口的消息处理函数，并将结果 返回。
+不同线程	PostMessge()到别的线程的时候副?使用 PostThreadMessage{-^0 PostMessageQ的 HWND参妙NULL,相当于 PostThreadMessageQ	发送消息到目标窗口的消息队列，然后发送消息 的线程在USER32.DLL模块内监视和等待消息的 处理结果，直到目标窗口的才处理返回
+本视频版权归黄强所有、侵权必究

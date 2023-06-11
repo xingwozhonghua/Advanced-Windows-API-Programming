@@ -1,0 +1,13 @@
+﻿■列表框控件通知消息
+控件会向父窗口发送命令消息WMJZOMMAND,通知码为LBN_XXX.
+LBN_DBLCLK	通知h诵程序用户已双击列表框中的项目。
+LBN_ERRSPACE	通知h蛹程序该列表框无法分配足第的内存以满足特定请求。
+LBN_KILLFOCUS	通知应用程序列表框已丢失键盘焦点。
+LBN_SELCANCEL	通知用户虫取i渺U表框中的选择。
+LBN_SELCHANGE	通知表框中的选择已更改。
+LBN_SETF0CUS	通知^程序列表框已收到键盘焦点。
+WM_CHARTOITEM	由具有LBS_WANTKEYBOARDINPUTW式的列表框发送给它的所有者以响应WM_CHAR消息.
+WM_CTLC0L0RLIS TBOX	在瀚龄制列表框之前，发送到列表框的父窗口。通过回复此消息，父窗口可以使用指定的豆示设备上下文句柄来设置列表框的文本和背景 颜色。
+WM_DELETEITEM	当列表框或组合框被销毁或通过LB_DELETESTRING, LB_RESETCONTENT, CB_DELETESTRING或CB_RESETCONTENT消息删除项目时，发 送给列表框或组合框的所有者。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb775146(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

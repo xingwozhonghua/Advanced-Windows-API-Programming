@@ -1,0 +1,7 @@
+﻿消息循环
+Dispatch Message将;肖息分派给窗口过程。
+BOOL WINAPI DispatchMessage（ const MSG *lpMsg 〃指向MSG结构的指针
+）；
+返回值	”	♦
+返回值指定窗口过程返回的值。尽管其含义取决于被分派的消息，但通常会忽略返回值。
+本视频版权归黄强所有、侵权必究

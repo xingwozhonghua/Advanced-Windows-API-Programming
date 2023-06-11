@@ -1,0 +1,117 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之日历控件
+本视频版权归黄强所有、侵权必究
+i n d o ws控件之日历控件
+月历控件实现了一个类似日历的用户界面，用户可以以一种非常直双和可识^的 输入或选择日期。它是类名是MONTHCAL_CLASSe
+sat71421284
+Fri61320273
+Thu51219262
+wed41118251
+Tue310172431
+Mon2 9162330 sun18152229
+2728293031
+32 9162330
+Fril 8152229 Thu3171421nn 2007wed* 刀 JunTue295121926
+Mon284 U1825
+m 7 3 o 7 4
+SU2 112 <221231241251261
+本视频版权归黄强所有、侵权必究
+控件样式
+dwStyle:指定控件的风格。可以是以下风格的任意组合。
+MCS_DAYSTATE
+此风格将某一天的显示变成粗体。
+MCS_MULTISELECT
+允许用户在控件中选择日期范围。缺省时，最大的范围为一周。
+MCS_NOTODAY
+MCS NOTODAYCIRCLE
+在控件的下边不再显示今天的日期O
+不圈定今天的日期。
+MCS_WEEKNUMBERS
+在控件的每行左边显示周数(1・52)。
+除了上面的风格外，一般还会设置WS_CHILD、WS_VISIBLE、WS_BORDER等窗口风格。
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hCalendar = CreateWindow(MONTHCAL_CLASS,
+L”XXX”，
+WS_CHILD | WS_VISIBLE| MCS_DAYSTATE,
+30,30,
+200, 200,
+hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstance,
+NULL);
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+始加辎写绿朝做毓*
+xdse-(g8，SA=AV[6O9Zqq/cloj>|S0p/SMopu!M/Ajejq!|/sn-U3/iuoD-uosoj3!iu-upsiu//:sdni| :券羁NQS雌厚多董
+.晔叩。1捋「跆11心。网御塑邕'黑福蹄5戳1恒潺。匝装“日&，取韦腐虫目区	AVaO113S_nDkM
+留96u绢iws「|0NW小御密觥如票绥网心也潺.国安圈日6理牌皇注脚6吨期日耕目岳	39NVyi3S13S_l^DkM
+留Mu昭“S「|0NWon御密昏索福繇昭nik潺•鹿日增¥割纣/瓠睦用％日g后皇森	的NVWSM 洲
+WeipaipuogsXOMW。戏 御密觥如票绥昭心也潺.膜目69业酉苴旋麹腊孙函疑遂里亩H宙吉翊攻燮.宏i塑甄阁％日8启皇森	V naaH±NONi3s_i^DkM
+.彩unoxsx小格下纳卬。我囹到密旨剿唳肆竭血幽•传¥¥窖6瞄泊也申4?康％日8启皇森	IN nOD13SXV^13S_l^DkM
+.粉g/WW06S」!把S「|2MWO|AI中朝强如梨靠酉k也澎・¥-勇6雎1一60铜％日8昭朝	涌M dOAVaiSHIdl3S_l^DkM
+客汕方々6行|2刈心小由朝屋邹梨靠酬也澎・翠*能日印朋目里那晒也典京中：脚％日％目皇涣	31VlSAVai3S_lAION
+•^pSJno；as_PDM)uo^ 御密觥如票绥昭心也潺•中图睡丑业看苜岳k业晋据量号阁’中剧I坯hk圈日6四雌® •脸日6g典蔻注韦期目依	13SanD13S_l^DkM
+成舌属涣*首察XXX—IAD 1/\1煦绥力阑回尚也
+〃设置控件可选择日期的范围
+SYSTEMTIME st[2];
+GetLocalTime(&st[0]);
+st[1] = st[O];
+st[1].wDay += 7;
+SendMessage(hCalendarz MCM SETRANGE, GDTR MAX | GDTR MIN, (LPARAM)st);
+〃设置当前的选择日期
+SendMessage(hCalendarz MCM SETCURSEL, 0, (LPARAM)&st[1]);
+本视频版权归黄强所有、侵权必究
+■控件向父窗口发送的通知消息
+热键控件向父窗口通过WM_NOTIFY消息发送通知代码。
+MCN.GETDAYSTATE	由月份日历控件发送，以请求关于如何显示个别日期的信息.此通知代码仅由使用MCS_DAYSTATE样式的月份日历控件发送，并 以WM_NOTIFY消息的形式发送.
+MCN.SELCHANGE	在当前选定的日期或日期范围更改时，由月份日历控件发送.此通知代码以WM_NOTIFY消息的形式发送.
+MCN_SELECT	用户在月份日历控件中进行明确的日期选择时，由月份日历控件发送.此颤以WM_NOTIFY消息的形式发送.
+MCN.VIEWCHANGE	当前视图更改时，由月份日历控件发送.此通知代码以WM_NOTIFY消息的形式发送.
+NM_RELEASEDCAPTURE (mo nthcal)	敝fmonthcal控徊勺父窗口，阂野放氤礴L此朝以WM_NOTIFY消息潮造送.
+本视频版权归黄强所有、侵权必究
+case WM NOTIFY:
+{
+NMHDR *pHDR= (NMHDR *)IParam;
+if( (pHDR->code == MCN_SELCHANGE)&&(pHDR->idFrom == 111))
+{
+LPNMSELCHANGE IpNMSelChange =(LPNMSELCHANGE)IParam;
+SYSTEMTIME stO= lpNMSelChange->stSelStart;
+SYSTEMTIME st1 = lpNMSelChange->stSelEnd;
+TCHAR buf[64] = {0};
+wsprintf(buf L"%04d-%02d-%02d %02d:%02d:%02d 至 %04d-%02d-%02d %02d:%02d:%02dn, st0.wYear,st0.wMonth, stO.wDay, stO.wHour, stO.wMinute, stO.wSecond,
+stl.wYear, stl.wMonth, stl.wDay, stl.wHour, stl.wMinute, stl.wSecond);
+MessageBox(hWndz buf L”提示、MB OK);
+} "
+}break;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

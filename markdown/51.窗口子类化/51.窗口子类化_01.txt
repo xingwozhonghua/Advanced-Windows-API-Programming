@@ -1,0 +1,113 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+
+本视频版权归黄强所有、侵权必究
+我们都知道系统控件编辑框，窗口类名是WC_EDIT (〃 Edit"),这个类由系统提供
+WNDCLASS wc;
+wc.cbSize = sizeof(WN DCLASS);
+wc.lpfnWndProc = XXXWndProc; wc.lpszClassName = "EDIT";
+RegisterClass(&wc);
+这里的窗口过程函数 也是由系统定义好的, 在里面处理各种消息,
+实现编辑框的功能！
+系统的源代码我们无法更改，如果我想处理编辑框的鼠标单击消息该如何做?
+本视频版权归黄强所有、侵权必究
+【十么是窗口子类化?
+窗口子类化的目的是在不修改现有代码的前提下，扩展现有窗口、控件的功能。它的 思路很简单，就是将窗口过程地址修改为一个新函数地址，新的窗口过程函数处理自己感 兴趣的消息，将不感兴趣的消息丢给原窗口过程处理。
+本视频版权归黄强所有、侵权必究
+类化的应用
+子类化方法很好地实践了面向对象技术的开闭原则(OCP: The Open-Closed Principle):对扩展开放，对修改关闭。
+MFC框架将子类化方法应用得淋漓尽致，MFC将所有的窗口处理函数都注册成DefWndProc,那 么，是不是MFC将所有的消息都发送到DefWndProc中去了呢？答案是"不是"，而是都发送到 AfxWndProc函数中去了(您可以回想一下前面我们查看MSDN是提到的AfxWndProc) o
+void AFXAPI _AfxStandardSubclass(HWND hWnd)
+oldWndProc = (WNDPROC)SetWindowLong(hWnd,GWL_WNDPROC,(DWORD)AfxGetAfxWndProc()); }
+本视频版权归黄强所有、侵权必究
+口子类化的步骤
+实现子类化的步骤如下：
+(1)	正常创建系统控件/窗口，得到控件/窗口的句柄。
+(2)	调用GetWindowLong()得到原来的系统的窗口函数OldWndProc。
+(3)	调用SetWindowLong()设置控件新的窗口函数为我们的NewWndProc。
+(4)	在NewWndProc处理感兴趣的消息
+(5)	不感兴趣的消息调用CallWindowProc()传递给原来的OldWndProc处理
+注意：在调用旧的窗口函数时，不能菌妾调用OIdWndProcJ.),而必须用函数CallWndProc调用，否则会出现堆栈错误。
+本视频版权归黄强所有、侵权必究
+GetWindowLong 函数
+GetWindowLong函数 检索有关指定窗口的信息。
+LONG WINAPI GetWindowLong（
+HWND hWnd,//窗口的句柄
+int nIndex〃真检索的宿的亘于零的偏移量 ）；
+返回值
+如果函数成功，返回值就是请求的值。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+如果以前没有调用SetWindowLong,贝OGetWindowLong会为额外的窗口或类内存中的值返回零。
+备注
+通过在RegisterClassEx函数使用的WNDCLASSEX结构的cbWndExtra成员中指定一个非零值来保留额外的窗口 内存。
+本视频版权归黄强所有、侵权必究
+SetWindowLong 函数
+SetWindowLong函数 更改指定窗口的属性。该函数还将指定偏移量的32位（长）值设置到额夕卜 的窗口内存中。
+LONG WINAPI SetWindowLong （
+HWND hWnd, 〃窗口的句柄
+int nlndex, //要设置的值的基于零的偏移量
+Long dwNewLong//新的值
+）；
+返回
+类型：长
+如果函数成功，则返回值是指定的32位整数的之前值。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+备注
+某些窗口数据被缓存，所以使用SetWindowLong所做的更改只有在调用SetWindowPos函数后才会生效。特别 是，如果更改任何框架样式，则必须使用SWP_FRAMECHANGED标志调用SetWindowPos,才能正确更新缓存。
+本视频版权归黄强所有、侵权必究
+— SetWindowLong. GetWindowLong函数
+nlndex可以为以下值：
+GWLEXSTYLE gwChinstance GWL>WNDPARENT GWLJD
+GWCSTYLE GWCUSERDATA GW^WNDPROC
+DWLDLGPROC
+DWLMSGRESULT
+DWLpSER
+检索扩展窗口样式。
+检索应用程序实例的句柄。
+检索父窗口的句柄（如果有的话）。
+检索窗口的标识符。
+检索窗口样式。
+检索与窗口关联的用户数据。
+检索窗口过程的地址或表示窗口过程地址的句柄。您必须使用 CallWindowProc函数调用窗口过程。
+检索对话框过程的地址或表示对话框过程地址的句柄。您必须使用 CallWindowProc函数来调用对话框过程。
+检索在对话框过程中处理的消息的返回值。
+检索应用程序专用的额外信息，例如句柄或指针。
+本视频版权归黄强所有、侵权必究
+"CallWindowProc 函数
+Cal I WindowProc函数将消息信息传递给指定的窗口过程。
+LRESULT WINAPI CallWindowProc （
+WNDPROC IpPrevWndFunc, 〃窗口过程
+HWND hWnd, 〃窗口的句柄
+UINTMsg, 〃消息
+WPARAM wParam, //额外的消息特定信息
+LPARAM I Param//额外的消息特定信息
+）；
+返回
+类型：LRESULT
+返回值指定了消息处理的结果并取决于发送的消息。
+备注
+使用CallWindowProc函数进行窗口子类化，应用程序必须通过调用CallWindowProcW任何未由新窗口过程处 理的消息传递给前f窗□过程
+本视频版权归黄强所有、侵权必究
+〃定义自己的窗口过程处理函数来处理感兴趣的消息
+LRESULT CALLBACK NewWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM IParam) (
+switch (msg)
+(
+〃点击鼠标左键，显示一个消息框。
+case WM_LBUTTONDOWN:
+(
+MessageBox(0, L”我拦截了左键的行为”，L”提示”，MB_OK); return 0;//自己处理)肖息，就必须返回0。
+} break;
+)
+return CallWindowProc(oldProc, hWnd, msg, wParam, IParam);
+本视频版权归黄强所有、侵权必究
+始加辎写绿朝做毓*
+!(3OJdpu/V\M0N(DNO1) OoadQNM-IMD 】!P3q)6uo[Mopu!MAS(gdC]NM)= DO」dPI。DOHdClNM
+们 1CIN
+/9Duejsu|q<-(ujejedl(lDnyiS31V3aDd1))
+'LLL(nN3IAIH)
+'PUMU 'OLOOZ
+‘0」0£ 'amoaog—SM 13iaisiA"s/v\ I aiiHD"s/v\
+L L L ..1
+'llC13—：)M)Mopu!M毋此」D = 1!P3U QNMH
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

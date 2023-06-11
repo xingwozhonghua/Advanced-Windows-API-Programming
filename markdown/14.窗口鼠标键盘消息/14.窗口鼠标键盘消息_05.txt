@@ -1,0 +1,11 @@
+﻿晶标消息
+LRESULT CALLBACK WindowProc(HWND hWnd, UINT Msg,WPARAM wParam, LPARAM I Pa ram)
+鼠标消息携带的参数：
+WMPARAM——其他按键的状态，例如Ctrl/Shift等 LPARAM ——鼠标的位置，窗口客户区的坐标系。
+LOWORD(LPARAM ) X坐标位置
+HIWORD(LPARAM) Y 蟠ft®
+注意：HIWORD宏一般用来取得LPARAM的高位6位),LOW。RD返回值是指定值的低16位
+#define HIWORD(I)
+#define LOWORD(I)
+((WORD)(((DWORD)(I)>> 16)& OxFFFF)) ((WORD)(((DWORD_PTR)(I)) & OxFFFF))
+本视频版权归黄强所有、侵权必究

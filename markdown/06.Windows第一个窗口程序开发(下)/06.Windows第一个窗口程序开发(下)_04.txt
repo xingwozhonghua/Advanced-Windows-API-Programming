@@ -1,0 +1,11 @@
+﻿口过程 WNDPROC
+WNDPROC是一个函数指针，指向窗口过程函数，定义如下：
+typedef LRESULT (CALLBACK* WNDPROC)( HWND, UINT, WPARAM, LPARAM);
+备注
+这个函数指向窗口过程函数：
+第一个参数为窗口的句柄
+第二个参数为消息ID
+第三个参数为附加消息信息，取决于uMsg参数的值。
+第四个参数为附加消息信息，取决于uMsg参数的值。
+返回值为LRESULT类型(typedef long LRESULT;),
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,8 @@
+﻿eginPaint 函数与 EndPaint 函数
+EndPaint函数标记画在指定的窗口结束，在每次调用BeginPaint函数之后，都需要该 函数。
+BOOL EndPaint (
+HWND hWnd, 〃窗口的句柄
+const PAINTSTRUCT * IpPaint// 绘制信息
+备注：
+必须与BeginPaint成对使用! 返回值总是非零。
+本视频版权归黄强所有、侵权必究

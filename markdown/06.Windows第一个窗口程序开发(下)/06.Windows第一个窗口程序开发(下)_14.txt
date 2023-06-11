@@ -1,0 +1,11 @@
+﻿课程代码
+〃显示窗 口 S h owWi ndow ShowWindow(hwndz nCmdShow);
+〃绘制用户区U pdateWindow UpdateWindow(hwnd);
+〃消息循环
+MSG msg;
+while (GetMessage(&msg, NULL, 0z 0) {
+TranslateMessage(&msg); DispatchMessage(&msg);
+)
+return msg.wParam;
+)
+本视频版权归黄强所有、侵权必究

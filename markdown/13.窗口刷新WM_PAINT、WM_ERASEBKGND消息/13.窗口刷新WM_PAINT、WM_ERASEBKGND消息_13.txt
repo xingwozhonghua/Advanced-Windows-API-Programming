@@ -1,0 +1,16 @@
+﻿r RedrawWindow 函数
+RedrawWindow函数更新窗口的客户区指定的矩形或区域。
+BOOL RedrawWindow （
+HWND hWnd, 〃窗口的句柄，如果此参数为null,则更新桌面窗口。
+const RECT * Iprcllpdate, 〃矩形区域
+HRGN hrgnUpdate, 〃更新区域的句柄。如果hrgnUpdate和IprcUpdate参数都为NULL,则将整个客 户区添加到更新区域。
+UINT flags 〃f 或多个重绘标志<>
+）;
+备注
+RDW_ERASE	窗口重新绘制时导致窗口收到WM_ERASEBKGND消息。RDW_INVALIDATE标志也必须指定；
+否则RDW_ERASE不起作用。
+RDW_FRAME	导致与更新区域相交的窗口的非客户区域的任何部分都收到WM_NCPAINT）肖息。
+RDW_INVALIDATE标志也必须指定;否则，RDW_FRAME不起作用。
+RDWJNTERNALPAINT不管窗口的任何部分是否无效，都会导致WM_PAINT）肖息被发布到窗口。
+RDWJNVALIDATE 使IprcUpdate或hrgnUpdate无效（只有一个可能为非NULL）。如果两者均为NULL, 则整个窗口将失效。
+本视频版权归黄强所有、侵权必究

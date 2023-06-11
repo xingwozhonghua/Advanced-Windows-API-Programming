@@ -1,0 +1,125 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+控件操作Get Dig Item等
+本视频版权归黄强所有、侵权必究
+空件/子窗口操作
+Win32 API提供了一系列的函数来操作控件。
+类型	区别
+GetDIgltem	根据控件ID获取指定对话框中控件的句柄。
+GetDIgltemText	根据控件ID获取指定对话框中控件的标题
+GetDIgltemlnt	根据控件ID获取指定对话框中控件的标题转化为整数
+GetDIgCtrllD	根据控件的窗曰句柄获取控件1D
+SetDIgltemText	根据控件1D在对话框中设置控件的标题或文本
+SetDIgltemlnt	根据控件1D在对话框中将整数设置控件的标题或文本
+SendDIgltemMessage	根据控件1D在对话框中将消息发送到指定的控件。
+本视频版权归黄强所有、侵权必究
+"GetDIgltem 函数
+GetDIgltem函数检索指定对话框中控件的句柄。
+HWND WINAPI GetDlgltem（
+HWND	hDIg,//对话框、窗口的句柄
+int	nlDDIgltem 〃要检索的控件的标识符
+）；
+返鼬：
+类型：HWND
+如果函数成功，则返回值是指趣件的窗口句柄。
+如果函数失败，贝I」返回值为NULL,表示无效的对话框句柄或不存在的控件。要获得扩展的错误信息，请调用GetLastError0 备注
+不仅仅是对话框，您可以使用任何父子窗口调用GetDIgltem函数。只要指定了父窗口，并且子窗口具有唯一标识符（由创 建子窗口的CreateWindow或CreateWindowEx函数中的hMenu参麴§定）,GetDIgltem就会返回子窗口的有效句柄。
+本视频版权归黄强所有、侵权必究
+r GetDIgltemText 函数
+GetDIgltemText函数在对话框中检索与控件关联的标题或文本。
+HWND WINAPI GetDlgltemText（
+HWND	hDIg,//对话框、窗口的句柄
+int	nlDDIgltem 〃要检索的控件的标识符
+LPTSTR	IpString，〃接收标题或文本的缓冲区
+int	nMaxCount//缓冲区的大小
+）；
+返鼬：
+类型：UINT
+如果函数成功，贝I」返回值指定复制到缓）中区的字符数，不包括终止空字符。 如果函数失败，返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+备注
+本质是发送WM_GETTEXT消息发送到控件。
+本视频版权归黄强所有、侵权必究
+"GetDIgltemlnt 函数
+GetDIgltemlnt函数在对话框中检索与控件关联的标题或文本并转化为整数。
+HWND WINAPI GetDlgltemlnt（
+HWND	hDIg,//对话框、窗口的句柄
+int	nlDDIgltem 〃要检索的控件的标识符
+BOOL	*lpTranslated,〃指示成功或失败（TRUE表示成功，FALSE表示失败）
+BOOL	bSigned//检查减号，并返回带符号■的整数4直
+）；
+返刖直：
+类型：UINT
+如果函数成功，贝iJSIpTranslated指向的变量设置为TRUE,并且返回值是控制文本的翻译值。
+如果函数失败，贝OSIpTranslated指向的变量将设置为FALSE,并且返回值为零。鞭得扩展的错误信息，请调用GetLastError。 备注：
+如果文本的开头有f 减号（-）,贝UGetDIgltemlnt将文本转换为有符号的整数值，请将返回值转换为int类型。
+它通过发送的控制的检索指定控制的文本WM_GETTEXT消息＜ 该函数通过剥离文本开头的任何多余空格并转换十进制数字，在 到达文本末尾或遇^非数字字符时停止翻译。_
+本视频版权归黄强所有、侵权必究
+^GetDIgCtrllD 函数
+GetDIgCtrllD函数检索指定控件的标识符。
+HWND WINAPI GetDlgCtrllD（
+HWND hwndCtl//控件的句柄 ）；
+返鼬：
+类型：int
+如果函数成功，则返回值是控件的标识符。
+如果函数失败，返回值为零。例如，hwndCtl缓的值无效将导致函数失败。要获得扩展的错误信息，请调用GetLastError0 备注：
+返回血用程序在调用CreateWindow或CreateWindowEx函数创建窗口时的hmenu^^J （标识符）,如果hwndCtl是顶层窗口 的句柄，GetDIgCtrllD可能会返回7直，但顶层窗口不能具有标识牝 返回值无效。
+本视频版权归黄强所有、侵权必究
+SetDIgltemText 函数
+SetDIgltemText函数 在对话框中设置控件的标题或文本。
+BOOL WINAPI SetDlgltemText（
+HWND hDIg,//对话框、窗口的句柄
+int nID Dig Item,//要检索的控件的标识符
+LPCTSTR "String //要复制到控件的文本 ）；
+返刖直：
+类型：BOOL
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+备注：
+本质是发送WM_SETTEXT消息到指定的控件。
+本视频版权归黄强所有、侵权必究
+r SetDIgltemlnt 函数
+SetDIgltemlnt函数 将对话框中控件的文本设置为指定整数值的字符串表示形式。
+BOOL WINAPI SetDlgltemlnt（
+HWND hDIg,//对话框、窗口的句柄
+int	nID Dig Item,//要检索的控件的标识符
+UINT uValue,//文本的整数值
+B0OL bSigned//指示uVa山e参粽有符^还段符号
+）；
+返鼬：
+类型：BOOL
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。鞭得扩展的错误信息，请调用GetLastError。
+备注：
+本质是发送WM_SETTEXT消息到指定的控件。
+本视频版权归黄强所有、侵权必究
+r Send Dig Item Message函数
+SendDIgltemMessage函数 在对话框中将消息发送到指定的控件。
+LRESULT WINAPI SendDlgltemMessage（
+HWND	hDlg,〃对话框、窗口的句柄
+int	n ID Dig Item,//要检索的控件的标识符
+UINT	Msg, //要发送的消息
+WPARAM wParam, //额外的消息特定信息
+LPARAM	I Param//额外的消息特定信息
+）；
+返鼬：
+类型：LRESULT
+返回值指定了消息处理的结果并取决于发送的消息。
+备注：
+该SendDIgltemMessage函数直到该消息已被处理才返回，本质是调用SendMessage函数。
+本视频版权归黄强所有、侵权必究
+始加辎写绿朝做毓*
+•di nN
+/eoue;su|q<-(ujejed|(lDnaiS31V3aDdl))
+2&(CINm 内 H) 'pu/v\q '0£ 'OOZ 'ooi'os
+'地％08 s/v\ I aiaisiA s/v\ I qiihd sm '应L」 ll(］「DM)Mopu!M5eaO = 1!P3M QNMH
+•(11 AN
+/9oue;su|q<-(iuejedl(lDna±S31V3aDdl)) 'LLL(nNmniH) 'pu/v\q '0£ '00 L 笠'0£ 'NOiinsHsnd sa I aiaisiA s/v\ I qiihd sm
+doling DM)Mopu!M9K9」D = uigq QNMH
+911蕾
+TCHAR buf【64】 Ho)；
+Wspr-Mf(buf L-ZH2任 @ 奇 X#FF%d=、(Ge&-g-iem(hwnd'm) nn hBr+n))-
+MessageBOX(hwnd、buf、匚溢渊=、MB—OK)」 GeiD-g-iemTexuhwnd' 222、buf' 64)； MessageBOX(hwnd、buf、匚浦涕..、MB—OK)」 BOOL bsuccessno;
+fnfnumn GeiD-g-iem-nuhwrld、222、sibsuccesyr+ru* wspz.Mf(buf' L_B®raI %d *d=' bsuccessDum)〕 MessageBOX(hwnd、buf、L.雨『=、MB—OKr -M -d HGeiD-gcir--D(hEd-f)； wspr 一 Mf(buf、L.BS茵 D- %d:~_d)； MessageBOX(hwnd、buf、匚浦涕..、MB—OK)」 56&_9富01^>$(|1\/\/段'1:、L=he=o.) seiD-g-fem-nuhwnd'm、—666、ru2 SendD一g_r-t-emMessage(hwnd、222、WM—SETTEXT、o' (LPARAM)L=444.)
+
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

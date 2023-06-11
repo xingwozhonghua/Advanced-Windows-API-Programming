@@ -1,0 +1,140 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之控件条控件
+本视频版权归黄强所有、侵权必究
+indows控件之控件条控件
+Rebar控件可以包含一个或多个〃带区〃，并且每个〃带区"可以具有手柄，位图, 文本标签和一个子窗口的任意组合。但是一个带不可包含多个子窗□O它是类名是 REBARCLASSNAME。
+图上两个带：一^S含f 工明，另f 包含f 组合框。
+本视频版权归黄强所有、侵权必究
+了控件样式
+dwStyle:指定控件的风格。
+RBS_AUTOSIZE	当控制器的大小或位置发生变化时，控件会自动改变带的布局。
+RBS_BANDBORDERS	控件显示窄线以分隔相邻带。
+RBS_DBLCLKTOGGLE	当用户双击带时，将切换其最大化或最小化状态。否则，单击会切换。
+RBS_FIXEDORDER 总是以相同的顺序显示带。您可以将带移动到不同的行，但带的III贿是静态的。
+RBS_REGISTERDROP 当一个对象被拖过控件中的一个band时，rebar控件会生成RBN_GETOBJECT通知代码。
+RBS VARHEIGHT	在可能的情况下，控件在最低要求的高度显示带。否则，会使用最高可见带的高度显示所有
+_	-H4-
+rtio
+一般设置WS_CHILD、WS_VISIBLE、WS_CLIPCHILDREN 等窗口风格!
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+在 WMCREATE｝肖 息的响应中创建子 窗匚I、控件等等
+switch (Msg)
+case WM_CREATE:
+(
+HWND hRebar= CreateWindow(REBARCLASSNAME,NULL, WS_CHILD WS_VISIBLE WS_CLIPCHILDREN | RBS VARHEIGHTI RBS BANDBORDERS, 0, 0, 0, 0, hWnd, NULL,
+((LPCREATESTRUCT)IParam)->hlnstance,
+NULL);
+本视频版权归黄强所有、侵权必究
+IJ建子控件
+HWND HBtn = CreateWindow(WC_BUTTON,
+L”按钮控件”，
+WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+0, 0,
+0, 0,
+HRebar;
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+HWND HEdit = CreateWindow(WC_EDIT,
+L”编辑控件”，
+WS_CHILD | WS_VISIBLE | WS_BORDER,
+0, 0,
+0, 0,
+HRebar;
+(HMENU)222, ((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+本视频版权归黄强所有、侵权必究
+可以向控件发送RB_XXX消息来设置控件。
+RBJNSERTBAND	Inserts a new band in a rebar control.
+RB_MAXIMIZEBAN D	Resizes a band in a rebar control to either its ideal or largest size.
+RB_MINIMIZEBAN D	Resizes a band in a rebar control to its smallest size.
+RB_M0VEBAND	Moves a band from one index to another.
+RB_PUSHCHEVR0 N	Sent to a rebar control to programmatically push a chevron.
+RB_SETBANDINFO	Sets characteristics of an existing band in a rebar control.
+RB_SETBANDWIDT H	Sets the width for a docked band.
+RB_SETBARINF0	Sets the characteristics of a rebar control.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb774375(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+// f Style 有效。
+// IpText有效。
+// hwndChild有效。
+//band信息
+REBARBANDINFO rbBand;
+rbBand.cbSize = sizeof(REBARBANDINFO); rbBand.fMask =
+RBBIMSTYLE
+RBBIMTEXT
+RBBIM[CHILD ..................
+RBBIM"CHILDSIZE; 〃子尺寸成员是有效的。
+
+rbBand.fStyle = RBBSGRIPPERALWAYS;
+rbBand.lpText = TEXT?带区 1”)； rbBand.hwndChild = hBtn;
+rbBand.cxMinChild = 100;
+rbBand.cyMinChild = 30;
+SendMessage(hRebarz RBJNSERTBAND, -1, (LPARAM)&rbBand);
+本视频版权归黄强所有、侵权必究
+//band信息
+REBARBANDINFO rbBand2; rbBand2.cbSize = sizeof(REBARBANDINFO); rbBand2.fMask =
+// f Style 有效。
+// IpText有效。
+// hwndChild有效。
+RBBIMSTYLE
+RBBIMTEXT
+rbbim[child
+RBBIM"CHILDSIZE; 〃子尺寸成员是有效的。
+rbBand2.fStyle = RBBSGRIPPERALWAYS;
+rbBand2.lpText = TEXT?带区 2“)；
+rbBand2.hwndChild = hEdit;
+rbBand2.cxMinChild = 100;
+rbBand2.cyM inChild = 30;
+SendMessage(hRebarz RBJNSERTBAND, -1, (LPARAM)&rbBand2);
+本视频版权归黄强所有、侵权必究
+空件通知消息
+控件会向父窗口发送WM_NOTIFY$肖息的形式的通知代码
+RBN_BEGINDRAG	Sent by a rebar control when the user begins dragging a band. This notification code is sent in the form of a WM NOTIRf message.
+RBN_CHEVRONPUSH ED	Sent by a rebar control when a chevron is pushed. This notification code is sent in the form of a WM NOTIFY message.
+RBN_CHILDSIZE	Sent by a rebar control when a band's child window is resized. This notification code is sent in the form of a WM_N0TIFY message.
+RBN_DELETEDBAND	Sent by a rebar control after a band has been deleted. This notification code is sent in the form of a WM_N0TIFY message.
+RBN_DELETINGBAND	Sent by a rebar control when a band is about to be deleted. This notification code is sent in the form of a WM_N0TIFY message.
+RBN_ENDDRAG	Sent by a rebar control when the user stops dragging a band. This notification code is sent in the form of a WM_N0TIFY message.
+RBN_GET0BJECT	Sent by a rebar control created with the RBS_REGISTERDROP style when an object is dragged over a band in the control. This notification code is sent in the form of a WM_N0TIFY message.
+RBN_HEIGHTCHANGE	Sent by a rebar control when its height has changed. This notification code is sent in the form of a WM_N0TIFY message.
+RBN_LAYOUTCHANG	Sent by a rebar control when the user changes the layout of the control's bands. This notification code is sent in the form of a
+ED	WM_N0TIFY message.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb774375(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+case WM_NOTIFY:
+(
+NMHDR * pHDR = (NMHDR *)IParam;
+if ( pHDR->code == RBN_CHILDSIZE)
+(
+LPNMREBARCHILDSIZE pSize = (LPNMREBARCHILDSIZE )IParam;
+// pSize->rcChild.left = pSize->rcBand.left;
+// pSize->rcChild.right = pSize->rcChild.left + 50;
+)
+return 0;
+}break;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

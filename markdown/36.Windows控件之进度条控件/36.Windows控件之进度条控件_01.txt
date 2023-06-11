@@ -1,0 +1,89 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之进度条控件
+本视频版权归黄强所有、侵权必究
+indows控件之进度条控件
+进度条是应用程序可以用来指示冗长操作的进度的窗口，它由一个随着操作进行 而动画的矩形组成。它是类名是PROGRESS_CLASSo
+本视频版权归黄强所有、侵权必究
+，控件样式
+dwStyle:指定控件的风格
+PBS_VERTICAL显示垂直进度信息上至下。如果没有此标志，进度条控件右侧显示水平、左侧。
+PBS_SMOOTH 显示逐步、光滑填写进度栏控件。如果没有此标志，该控件将填充用的块。
+PBS_MARQUEE进度指示器左右重复移动，表明活动没有指定进度完成的比例。
+PBS_SMOOTHREVERSE确定进度条向后移动时应使用的动画行为（从较高值到较低值）。
+dwStyle参数可以是以上风格的组合。跟其他控件一样，创建时一般也还要指定WS_CHILDs WS_VISIBLE、 WS_TABSTOP 等风格。
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+}
+switch (Msg)
+case WM CREATE:
+HWND hProgressBar = CreateWindow(PROGRESS_CLASS, L”XXX”，
+WS_CHILD | WS_VISIBLE| PBS_SMOOTH, 30,30,
+200, 30,
+hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+本视频版权归黄强所有、侵权必究
+句控件发送消息
+可以向控件发送PBM_XXX消息来设置控件。
+PBM.GETP0S	条的当前典
+PBM_GETRANGE	检索有关给定进度条控件的当前上限和下限的信息.
+PBM_GETSTATE	«^条酣态。
+PBM GETSTEP	检索进度条的步骤增旦步增呈是进度条在收到PBM STEPIT消息时1勖嗔当前位直的量.
+pbm.setbarcolor	度条控时进度指示条的颜色.
+PBM.SETBKCOLOR	设置进度条中的背景线色.
+PBM_SETMARQUEE	将进度条设置为字幕模式.这会使进度条像框一样移动。
+PBM_SETPOS	设暨进度条的当前位宣并吏新绘制条形以反映新位豆
+PBM.SETRANGE	设直进度条的最小值和最大值，并重新绘制条形以反映新的范围.
+PBM_SETRANGE32	将瞧条控啷范围SS^J32位值.
+PBM_SETSTATE	设置进度条的状态.
+PBM_SETSTEP	指定进度条的步增里步增呈是进度条在收到PBM STEPIT消息时性暝当前位置的景。默认情况下，步堵呈设宣为10。
+PBM_STEPIT	通过步进增力磁度条的当前位直，并重新绘制条以反映新位瓦应用程序通过发送PBM_SETSTEPj首息来设直步增呈.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb760816(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+〃设置进度条的范围
+SendMessage(hProgressBar, PBM_SETRANGE,0,MAKELPARAM(0,100));
+〃设置当前的位置
+SendMessage(hProgressBar, PBM_SETPOS,30, 0);
+〃开始左右滚动的进度条
+SendMessage(hProgressBar, PBM SETMARQUEE, 1, 10);
+注意，使用PBS_MARQU§E样式需要加八以下指令：
+#pragma comment(linkei;，7manifestdependency:\"type=,Win32' name=,MicrosoftWindows.Common-
+Controls' version = '6.0.0.0' processorArchitecture=,*1 publicKeyToken = '6595b64144ccf 1 df' language=,*V")
+本视频版权归黄强所有、侵权必究
+〃设置范围
+SendMessage(hProgressBar, PBM_SETRANGE,0,MAKELPARAM(0,100));
+〃设置步长
+SendMessage(hProgressBar/ PBM SETSTEP, 10, 0);
+〃席移动一步
+SendMessage(hProgressBarz PBM_STEPIT,0, 0);
+//点S-下前-步 case WM LBUTTONDOWN:
+SendMessage(hProgressBar/ PBM STEPIT, 0, 0); return 0;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,17 @@
+﻿〃如果向右滚动一页，则POS加20
+case SB_PAGERIGHT:
+pos += 20; break;
+〃如果滚动到最左端，贝Upos为1
+case SB LEFT:
+pos = 1; break;
+〃如果滚动到最右端，贝Upos为100
+case SB_RIGHT:
+pos = 100; brea k'
+//如果拖动滚动址滚动到指定位置，贝Upos赋值为nPos的值 case SB_THUMBPOSITION:
+pos =HIWORD(wParam);; break;
+default:
+break;
+)
+SendMessage((HWND)IParam, SBM_SETPOS,pos, 1); 〃设置滚动条当前位置
+}break;
+本视频版权归黄强所有、侵权必究

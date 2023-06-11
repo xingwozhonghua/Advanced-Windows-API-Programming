@@ -1,0 +1,16 @@
+﻿BM SETIMAGE消息
+按钮收到BM_SETIMAGE消息将新图标或位图与自身关联。
+wParam 中
+与按钮关联的图像类型。该参数可以是以下值之一：
+IMAGEBITMAP
+IMAGEJCON
+I Pa ram 的
+将图像的句柄（HICON或H引TMAP）与按钮关联。
+备注
+文本，图标或两者在按字雎件上的夕卜观取决于BS_ICON和BS_BITMAP样式以及是否调用BM_SETIMAGE消息＜
+BS.ICON 或 BS_BITMAPig 置？	BM_SETIMAGE 调用？	结果
+是	是	仅兵示图标.
+没有	是	买示图标和文本。
+是	没有	仅显示文字.
+没有	没有	仅且示文字
+本视频版权归黄强所有、侵权必究

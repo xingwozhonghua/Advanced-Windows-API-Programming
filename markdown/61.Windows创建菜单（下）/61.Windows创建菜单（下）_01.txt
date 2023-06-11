@@ -1,0 +1,94 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows创建菜单（下）
+本视频版权归黄强所有、侵权必究
+■创建右键弹出菜单
+调用CreatePopupMenu函数可以创建一个弹出菜单（子菜单），然后响应鼠标右键 WM_RBUTTONDOWN消息，使用TrackPopupMenu函数可以轻松实现右键菜单。
+本视频版权归黄强所有、侵权必究
+reatePopupMenu 函数
+创建一个下拉菜单，子菜单或快^菜单。菜单最初是空的。您可以使用Insert Menu Item函 数插入或附加菜单项。您还可以使用InsertMenu函数来插入菜单项和AppendMenu函数 来追加菜单项。
+HMENU CreatePopupMenu (void);
+返回值：
+如果函数成功，则返回值是新创建的菜单的句柄。
+如果函数失败，返回值为NULL。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+rackPopupMenu 函数
+TrackPopupMenu函数在指定位置显示快捷菜单。
+BOOL WINAPI TrackPopupMenu （
+HMENU hMenu, 〃快捷菜单的句柄。可以通过调用CreatePopupMenu来创建 UINTuFlags, 〃功能选项标志
+int x, 〃x坐标
+int y, 〃y坐标
+int nReserved, //保留；必须为零
+HWNDhWnd, 〃拥有快捷菜单的窗口句柄
+const RECT * prcRect//忽略
+）；
+返回值：
+如果在uFlags中指定TPM_RETURNCMD,则返回值是用户所选项目的菜单项标识符。
+如果用户取消菜单而未进行选择，或者发生错误，则返回值为零。
+如果uFlags中没指定TPM_RETURNCMD,则函数成功时返回值为非零值，如果失败则返回零。 要获得扩展的错误信息，诸调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+rackPopupMenu 函数
+uFlags参数为以下零个或多个值:
+TPM
+TPM
+TPM
+TPM
+TPM
+TPM
+CENTERALIGN 菜单相对于x参数指定的坐标居中。 LEFTALIGN	菜单左侧与由x参数指定的坐标对齐。
+RIGHTALIGN	菜单右侧与由x参数指定的坐标对齐。
+BOTTOMALIGN菜单使其底边与y参数指定的坐标对齐。 TOPALIGN	菜单使其顶端与y参数指定的坐标对齐。
+VCENTERALIGN垂直快捷菜单相对于y参数指定的坐标居中。
+TPM_NONOTI FY	用户单击菜单项时不发送通知消息。
+TPM_RETURNCMD 该函数在返回值中返回用户选择的菜单项标识符。
+TPM_LEFTBUTTON 用户只能用鼠标左键选择菜单项。
+TPM_RIGHTBUTTON用户可以用鼠标左键和右键选择菜单项。
+TPM_HORNEGANIMATION TPM_HORPOSANIMATION TPM_NOANIMATION TPM_VERNEGANIMATION TPM VERPOSANIMATION
+从右向左动画菜单。 从左到右动画菜单。 显示没有动画的菜单。 从下往上动画菜单。 从上到下动画菜单。
+本视频版权归黄强所有、侵权必究
+lientToScreen 函数
+ClientToScreen函数转换屏幕坐标至!J客户区坐标。
+BOOL ClientToScreen （
+HWND hWnd, 〃客户区窗口的句柄
+LPPOINT IpPoint//转换后的坐标
+）；
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。
+备注：
+屏幕坐标是相对于屏幕的左上角。ClientToScreen函数将屏幕坐标转换为相对窗口客户端区域的坐标。
+本视频版权归黄强所有、侵权必究
+演示代码
+case WM_RBUTTONDOWN:
+(
+POINT pt;
+pt.x = LOWORD(IParam);//设定右键菜单坐标
+pt.y = HIWORD(IParam);
+ClientTDScreen(hWnd, &pt);
+〃创建弹出菜单句柄
+HMENU hPopMenu = CreatePopupMenuO；
+::AppendMenu(hPopMenu, MF_STRING, 111, L”新建，
+::AppendMenu(hPopMenu, MF SEPARATOR, 0, 0);
+::AppendMenu(hPopMenu, MF^STRING | MF_CHECKED, 222, L”打开，
+〃显示右键菜单
+TrackPopupMenu (hPopMenu,
+TPM_LEFTALIGN | TPM_TOPALIGN | TPM_LEFTBUTTON, pt.x, pt.y,	0, hWnd, NULL);
+〃释放菜单资源
+DestroyMenu(hPopMenu);
+return 0;
+}break;
+本视频版权归黄强所有、侵权必究
+演示代码
+菜单的响应消息：
+case WM COMMAND:
+{
+switch (LOWORD(wParam))
+case 111:
+MessageBox(hWndz L“新建菜单被点击！ ”，L“提示”，MB_OK); break;
+case 222:
+MessageBox(hWndz L”打开菜单被点击！ ”，L“提示二 MB_OK); break;
+}
+} break;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

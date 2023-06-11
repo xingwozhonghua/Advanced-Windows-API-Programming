@@ -1,0 +1,10 @@
+﻿我们可向编辑框控件发送EM_XXX消息来设置文本、操作编辑框等
+EM_SETSEL	在编辑控件中选择一系列字符.您可以将此消息发送到编辑控件或丰富的编辑控件.
+EM.SETTABSTOP S	所述EM_SETTABSTOPS消息设置在多行编辑控件的选项卡停UL将文本复制到控件时，文本中的任何制表 符会导致生成空间直到下一^J表位. 此消息仅由多行编辑控件处匣您可以将此消息发送富!®辑控｛牛或丰富的编辑控｛牛。
+EM_SETWORDB REAKPROC	用应用程序定义的Wordwrap函数昔换编辑控件^默认Wordwrap函数.您可以将此消,息发送至蝙辑控件或 丰富的编辑控件.
+EM_SHOWBALL OONTIP	所述EM_SHOWBALLOONTIP；费显示与编廓件相关联的P挪示.
+EM_TAKEFOCUS	用于内部使用;不建议用于应用程序。 强制单行编辑控件^收键盘焦点.您可以皂式发送此消息或使用Edit_TakeFocus宏。
+EM_UNDO	该消息撤销控件的撤销队列中的最后f编辑控件^作。您可以将此消息发送到^辑控件或丰富的编辑控 件.
+WM_UNDO	应用程序向编辑控件发送f WM_UNDO消息以撤销上一次操作。将此消息发送到剜控件时，先前删除 的文本将被恢复，或者之前添加的文本被删除.
+更多查阅MSDN链接：hUps:〃msdn.mic「osoft.com/en-us/library/windows/desktop/bb775458(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

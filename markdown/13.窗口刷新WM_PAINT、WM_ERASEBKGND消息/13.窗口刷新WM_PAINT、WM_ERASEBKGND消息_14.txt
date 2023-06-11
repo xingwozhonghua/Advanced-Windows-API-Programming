@@ -1,0 +1,6 @@
+﻿pdateWindow. InvalidateRect^ RedrawWindow区别
+类型	区别
+UpdateWindow	如果窗口的更新区域不是空的，则UpdateWindow函数立即向窗口发送 WM_PAINT消息来更新指定窗口的客户区。
+InvalidateRect	只增加一个无效区域在更新区域中，并不立刻进行重绘，直到发生下一个 WM_PAINT消息时处理该区域是才重绘。如果希望立即刷新无效区域，可 以在谪用 1 nva lidateRect 之后调用 U pd ateWindowo
+RedrawWindow	RedrawWindow()则是具有lnvalidate()和UpdateWindow()的双特性。声 明窗口的状态为无效，并立即更新窗口，立即调用WM_PAINT)肖息处理。
+本视频版权归黄强所有、侵权必究

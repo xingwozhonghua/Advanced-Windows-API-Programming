@@ -1,0 +1,19 @@
+﻿Windows窗口的销毁
+//自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM IParam)
+(
+switch (Msg)
+( -
+case WM_CLOSE:
+DestroyWindow( hWnd); return 0;
+case WM_DESTROY:
+PostQuitMessage(O); return 0;
+case WM_NCDESTROY:
+return 0;
+DefWindowProc 函 数对WM_CLOSE消 息的默认处理是调用 DestroyWindowQ
+default:
+return DefWindowProc(hWnd, Msg, wParam, IParam);
+)
+return 0;
+)
+本视频版权归黄强所有、侵权必究

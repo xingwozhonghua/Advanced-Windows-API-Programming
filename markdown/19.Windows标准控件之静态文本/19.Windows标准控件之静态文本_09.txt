@@ -1,0 +1,7 @@
+﻿可以向静态文本控件发送消息来设置图标、位图等
+话题	内容
+STM_GETICON	应用程序发送STM_GETICON消息、来检索与具有SS」CON样式的静态控件关联的图标的句柄。
+STM_GETIMAGE	应用程序发送STM_GETIMAGEj首总来检索与静态控件^联的图像（图标或位图）句柄.
+STM_SETICON	应用程序发送STM_SETICON消息将图标与图标控件关联.
+STM_SETIMAGE	应用程序发送STM_SETIMAGE消息以将新图像与静态控件相关联。
+本视频版权归黄强所有、侵权必究

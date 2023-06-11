@@ -1,0 +1,26 @@
+﻿Windows API在线文档
+MSDN这是微软公司面向软件开发者的一种信息服务。MSDN实际上是一个以Visual Studio和 Windows平台为核心整合的开发虚拟社区，包括技术文档、在线电子教程、网络虚拟实验室、微 软产品下载等等一系列服务。网址：https://msdn.microsoft.com/library
+-C i 安全 http$//m$dn.microsoft.cocn/librdry
+SlMkrosoft Developer Network
+下栽▼计划V社区V文档▼
+特色 API: Office 365
+使用琳1的 REST API 连接到ffi用 NET、QS、Android、PHP、Java. Python s£ Ruby on Rais 的 Office 36S 中的数据.
+立即试用C#
+Microsoft API和参考目录 源借i5目录视aa
+API 9^^ Microsoft X*.豚务和技术T使用,无论密蟹构建应电开岌回站还是便用云.8拷戊到详的91搐法、代码段心推做法.
+点亍题芾洗目录（嗣
+查戊巳停用3孜格？
+Windows 和 Windows Phone
+.NET API for Windows Phone
+.NET for Windows Store apps APIs
+DirectX graphics and gaming HTMl/CSS for Windows Runtime apps Kinect for Windows SOK
+Win32 and COM API for Windows Phone 8
+Win32 and COM for Windows Runtime apps Windows API
+Windows API reference for Windows Runtime apps
+Windows API Sets
+Windows Phone API reference
+Windows Phone Runtime API
+Wndows Runtime APIs for desktop i
+Windows Runtime apps
+KAi^rr\cr\f¥ Af wa，口毛2二*hWll	rvyi^rrye"crv^\
+本视频版权归黄强所有、侵权必究

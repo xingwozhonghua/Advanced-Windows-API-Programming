@@ -1,0 +1,82 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wind。ws对话框简介
+本视频版权归黄强所有、侵权必究
+indows对话框简介
+Windows对话框是一种特殊的窗口，用来在用户界面中向用户显示或输入，一般用于以下场景:
+,提示信息：应用程序弹出警告消息框，提示消息框等告知用户; ＞接收输入：应用程序希望得到用户输入时使用；
+,提供操作界面：应用程序提供一些控件供用户使用；
+£第一个窗口程序
+d x
+文件
+本视频版权归黄强所有、侵权必究
+F话框分类
+对话框分为模态与非模态:
+＞模态对话框(modal)是指在用户想要对对话框以外的应用程序进行操作时，必须 首先对该对话框进行响应，如单击【确定】或【取消】按钮等将该对话框关闭，否则无 法操作父窗口。
+＞非模态对话框(modeless)指对话框显示后，程序其他窗口仍能正常运行，可以 响应用户输入，还可以相互切换。
+本视频版权归黄强所有、侵权必究
+寸话框与控件的区别
+类别	创建形式	消息处理函数	是否包含控件
+对话框	DialogBox根据资源创建模 态对话框，CreateDialog创 建非模态对话框。	应用程序在消息循环中判断 消息队列中的消息，若为对 话框消息，则将消息发往对 话框处理函数进行处理；	对话框中可包含各种控件， 应用程序通过控件完成与用 户之间的对话框父互。
+控件	CreateWindow创建控件、消息循环中将消息发给窗口 子窗口。	处理函数进行处理；		可包含子窗口。
+本视频版权归黄强所有、侵权必究
+essageBox 函数
+MessageBox函数显示f 模态对话框，其中包含系统图标，一组按钮和简短的特定于应 用程序的消息，例如状态或错误信息。
+int WINAPI MessageBox （
+HWND hWnd, 〃窗口句柄
+LPCTSTR IpText, 〃对话框文本
+LPCTSTR IpCaption, 〃对话框标题
+UINT uType〃标志组的标志的组合
+）；
+返回值：
+如果函数成功，返回值是以下菜单项值之一：
+IDCANCEL 取消按钮被选中
+IDOK	0K按钮被选中
+IDYES	YES按钮被选中
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+essageBox 函数
+uTy pe参数可以是来自以下标志的组合:
+MB_OK
+MB_OKCANCEL
+MB_RETRYCANCEL
+MB_YESNO
+MB_YESNOCANCEL
+M B_CANCELT RYCONTINUE
+消息框包含』按钮 消息框包含两个按钮 消息框包含两个按钮 消息框包含两个按钮 消息框包含三个按钮 消息框包含三个按钮
+0K是默认设置。
+确定和取消。
+重睇口取消。
+是和否。
+是，否和取消。
+取消，再试一次，继续。
+MB ICONEXCLAMATION
+MBJCONWARNING
+MB ICONINFORMATION
+MB
+MB
+MB
+ICONQUESTION
+ICONSTOP
+ICONERROR
+消息框中出现一个感叹号图标。
+消息框中出现一个感叹号图标。
+消息框中出现一个由小写字母i组成的图标。 问号图标出现在消息框中。
+消息框中出现一个停止标志图标。
+消息框中出现一个停止标志图标。
+第f按钮是默认按钮。
+MB_DEFBUTTON1
+MB_DEFBUTTON2	第二个按钮是默认按钮。
+除非指定了MB_DEFBUTTON2, MB_DEFBUTTON3或MB_DEFBUTTON4,否则MB_DEFBUTTON1 是默认值。
+本视频版权归黄强所有、侵权必究
+—演示代码
+case WM LBUTTONDOWN:
+{ _
+int nlD = MessageBox(hWndz L"演示对话框' MBDEFBUTT0N3);
+bool b=(nlD = IDYES);
+/* #define IDOK #definelDCANCEL #definelDABORT #definelDRETRY #definelDIGNORE #definelDYES #define IDNO */	1 2 3 4 5 6 7
+} break;
+L“提示、MB YESNOCANCEL | MB ICONERROR |
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

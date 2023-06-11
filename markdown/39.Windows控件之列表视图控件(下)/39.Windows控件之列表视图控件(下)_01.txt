@@ -1,0 +1,95 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows控件之列表视图控件（下）
+本视频版权归黄强所有、侵权必究
+indows控件之列表视图控件
+报告（详 细）视图	由指定的LVS_REPORT囹口样式或传递LV_VIEW_DETAILS^LVM_SETVIEW.每个项目单独显示，信息、按列排列。最左边的列总是左对齐，并包含 小图标和标签.后续列包含由应用程序瘢的子项目.除非您还指定了LVS_NOCOLUMNHEADER窗口样式，否则每个列都有f标题.
+姓名 |嵌	
+去张三	男	12
+报告
+LVSREPORT
+本视频版权归黄强所有、侵权必究
+，控件扩展样式
+对于列表视图控件，我们还可以指定控件的扩展风格
+LVS_EX_DOUBLEBUFFER:通过双缓冲，可减少闪烁。这种扩展样式还支持在支持它的系统上进行alpha混 合选取框选择。
+LVS_EX_FULLROWSELECT:选择某个项目时，该项目及其所有子项目都将突出显示。此样式只能与 LVS_REPORT样式一起使用。
+LVS_EX_GRIDLINES:	显示质目和子项目周围的网格线。此样式只能与LVS_REPORT样式一起使用。
+LVS_EX_HEADERDRAGDROP:启用列表视图控件中列的拖放重新排序。此样式仅适用于使用LVS_REPORT 样式的列表视图控件。
+LVS_EX_AUTOCHECKSELECT,通过单击自动选择复选框。
+更多查阅MSDN链接：hUDS：〃msdn.microsoft.com/en-us/library/windows/desktOD/bb774732(v=vs.85).asDX
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hListView = CreateWindow(WC_LISTVIEW, L”列表视图”，
+WS_CHILD | WS_VISIBLE |LVS_REPORT,
+30,30,
+200, 200,
+hWnd,
+(HMENU)111, ((LPCREATESTRUCT)IParam)->hlnstance,
+NULL);
+}break;
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+〃创建图像列表
+HIMAGELIST hSmall= lmageList_Create(GetSystemMetrics(SM_CXICON)/ GetSystemMetrics(SM CYICON),
+〃加载图标到图像列表
+for (int i =0; i< 3; i++)
+HICON
+}
+hlcon = Loadlcon( GetModuleHandle(NJ MAKEINTRESOURCE(IDI_ICON1 + i ))F lmageList_Addlcon(hSmall/ hlcon); Destroylcon(hlcon);
+#include"resourc
+e.h“
+〃设置列表视图的图像列表
+SendMessage(hListViewz LVM SETIMAGELIST, LVSIL SMALL ,(LPARAM) hLarge);
+注：如果相关函数报错需要加入#pragma comment(lib「Comctl32.lib")
+本视频版权归黄强所有、侵权必究
+〃设置扩展样式(选中整行，网格线)
+SendMessage(hListViewz LVM SETEXTENDEDLISTVIEWSTYLE, 0, (LPARAM)(LVS_EX_FULLROWSELECT | LVSEXG RID LINES));
+〃插入列头
+for (int i = 0; i < 3; + + i)
+{
+LVCOLUMN Ivc;
+Ivc.mask = LVCF FMT | LVCF WIDTH | LVCF TEXT | LVCF SUBITEM; Ivc.iSubltem =0;
+Ivc.pszText = (i == 0? L”姓名”:(i == 1 ? L“性别” :L”年龄“))； Ivc.cx =60;
+Ivc.fmt = (i == 0? LVCFMT LEFT: LVCFMT CENTER);
+SendMessage(hListViewz LVM INSERTCOLUMN, i, (LPARAM)&lvc);
+}
+本视频版权归黄强所有、侵权必究
+〃插入一行数据
+for (int i = 0; i < 3; + + i)
+{
+LVITEM Iv;
+Iv.iltem = 0;
+Iv.iSubltem =i;
+Iv.pszText =( i ==0 ? L”张三” :(i == 1 ? L“男“ ：Ln12n)); Iv.ilmage = i;
+Iv.mask = LVIF TEXT | LVIF IMAGE | LVIF STATE;
+Iv.state = (i == 1 ? LVIS_SELECTED:O);
+if(i==0) SendMessage(hListViewz LVM INSERTITEM, 0, (LPARAM)&lv); else SendMessage(hListViewz LVM SETITEMTEXLO, (LPARAM)&lv);
+}
+本视频版权归黄强所有、侵权必究
+911富
+case WM—NOT-FY-
+f
+NMHDR *phdrh(nmhdr *)_paraw
+一f ((PHDR—vcode nn L\/N」TEMCHANGED) Re (PHDR—V一dFrom nn 三))
+f
+LPNML-STVmw p<ew H (LPNML_STV-EW}-pgami
+-f (pv-ew—vuchanged n" LV-FISTATE)
+一f (PVEW—VUNewstaa 8i L\/_S—SELECTED)
+f
+TCHAR buf【641 H (s
+lvhem _vj
+-v.-sub-am H o；
+-V.PSZTexf H bum
+-v.cchTextMax n sN,eof(buf)一 sendMessagapHDR—vhwndFrom、LVM—GET_TEMTEXT、PV(D-W—V=sm、(LPARAM)adv)」
+MessageBOX(hwnd、buf Lnsi『n、MB6IQ; se-FOCUS(PHDR—vhwndFrom)；
+-break-
+冲酬SMSDNS?)®- hHPS7、msdn.m-crosoft.com、en—us、=b2ry、w-ndows、desk3p、bb761055(VHVS.85).aspx
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

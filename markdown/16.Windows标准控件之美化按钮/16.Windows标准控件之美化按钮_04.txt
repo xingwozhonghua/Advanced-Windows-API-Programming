@@ -1,0 +1,14 @@
+﻿化按钮
+创建位图BS_BITMAP风格的按钮:
+HWND hBtnl = CreateWindow(LnButTon\
+L”你好“，
+WS_CHILD | WS_VISIBLE| BS BITMAP,
+so r
+100z
+216Z
+45,
+hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstancer
+NULL);
+本视频版权归黄强所有、侵权必究

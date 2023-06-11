@@ -1,0 +1,12 @@
+﻿化按钮
+可以使用Loadimage函数加载图标，光标，动画光标或位图。
+HANDLE WINAPI Loadlmage（
+_ln_opt_HINSTANCEhinst,//DLL或可执行文件（,exe）的模块句柄，加载独立资源（图标，光标或位图文 件），例如c: \ myimage.bmp,请将此参数设置为NULL。
+_ln_ LPCTSTR IpszName, 〃图片名称或全路径
+[in] UINT	uType,//IMAGE_BITMAP加载位图；IMAGE_CURSOR加载一个光标;IMAGEJCON加载f 图标
+[in] int	cxDesired,//图标金光标的宽度（以像素为单位）。如果此参数为零且fuLoad参数为
+LR_DEFAULTSIZE,则该函数使用SM_CXICON或SM_CXCURSOR系统度量值设置宽度。如果此参数为零并且未使用 LR_DEFAULTSIZE,则该函数将使用卖际的资源宽度。
+Jn_ int	cyDesired,//图标或光标的高度
+_ln_ UINT	fuLoad//—般为LR_DEFAULTCOLOR | LR_CREATEDIBSECTION
+）；
+本视频版权归黄强所有、侵权必究

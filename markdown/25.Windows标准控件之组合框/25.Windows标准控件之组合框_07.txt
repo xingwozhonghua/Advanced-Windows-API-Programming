@@ -1,0 +1,13 @@
+﻿句组合框控件发送消息
+可以向组合框控件发送CB_XXX消息来设置文本、操作等
+CB.ADDSTR ING	将一个字符串添加醐合框的列表框中.如果组合框不具有CBS SORT样式，贝鸠该字符串添加至例表的末鼠否则，字符串ig建例表中，并 且列表被排序.
+CB.DELETES TRING	政合框腕融中删
+CB.DIR	将名称添加到迫合框显示的列表中.该消《添加匹0龄定字符串和文件H性集的目录和文件的名称.CB_DIR也可以将映射的驱动器号添DD5例表 中.
+CB_FINDSTR ING	在组合框的列表框中搜索以指定字符串中的字符开头的项目.
+CB.FINDSTR INGEXACT	在与（Parm参故中指倒字符串匹配的组合框中直我第f列表框字符串.
+CB.GETCOM BOBOXINFO	诫有合
+CB.GETCOU NT	获取地合框列表框中的项目故.
+CB.GETCUE BANNER	获取泡台框的祸岛g买示的提示横幅文本.豆式发送此消S或使用ComboBox_GetCue8annerText$.
+CB.GETCUR SEL	应用程序发送CB_GETCURSEL消息刺源&合框列表框中当前选定项目的索引（如果有）.
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb775792(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究

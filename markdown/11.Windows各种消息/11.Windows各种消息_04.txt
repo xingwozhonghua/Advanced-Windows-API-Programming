@@ -1,0 +1,15 @@
+﻿标准消息
+以WM_开头的消息（特例WM COMMAND）
+类型	含义
+WMNULL	空消息，此消息将被接收窗口忽略
+WMCREATE	应用程序创建一个窗口
+WMDESTROY	—个窗口被销毁
+WMMOVE	移动一个窗口
+WMSIZE	改变一个窗口的大小
+WMACTIVATE	一个窗□被激活或失去激活状态
+WMSETFOCUS	获得焦点后
+WMPAINT	要求一个窗口重绘自己
+WMCLOSE	当一个窗口或应用程序要关闭时发送一个信号
+WMQUIT	用来结束消息循环，可调用PostQuitMessage（）函数来广生此）肖息
+WMERASEBKGND	当窗口背景必须被擦除时（例如在窗口改攵大小时）
+本视频版权归黄强所有、侵权必究

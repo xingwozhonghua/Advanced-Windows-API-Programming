@@ -1,0 +1,124 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows创建菜单(±)
+本视频版权归黄强所有、侵权必究
+indows程序的菜单
+Windows程序的菜单，分为三大类：系统菜单.顶层菜单.弹出式菜单（右键菜单）。
+本视频版权归黄强所有、侵权必究
+创建顶层菜单与弹出菜单
+区别
+飓菜单
+弹出菜单
+CreateMenu是创建水平菜单，通常是放置在顶级窗口中，同时也是作 为顶级菜单的，就像我们经常能直接看到的〃文件〃，〃编辑〃等菜单。
+CreatePopupMenu则是创建一个竖立的弹出菜单，通常被用来做另一 个菜单的子弟单，或者右键菜单的顶级菜单。
+本视频版权归黄强所有、侵权必究
+reateMen u 函数
+CreateMenu函数创建一个菜单。该菜单最初是空的，但它可以通过使用InsertMenultem, AppendMenu和InsertMenu函数用菜单项填充。
+HMENU CreateMenu (void);
+返回值：
+如果函数成功，贝腿回值是新仓腱的菜单的句柄。
+如果函数失败，返回值为NULL。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+reatePopupMenu 函数
+创建一个下拉菜单，子菜单或快^菜单。菜单最初是空的。您可以使用Insert Menu Item函 数插入或附加菜单项。您还可以使用InsertMenu函数来插入菜单项和AppendMenu函数 来追加菜单项。
+HMENU CreatePopupMenu (void);
+返回值：
+如果函数成功，则返回值是新创建的菜单的句柄。
+如果函数失败，返回值为NULL。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+AppendMenu将新项目追加至脂定菜单栏，下拉菜单，子菜单或决捷菜单的末尾。
+BOOL WINAPI AppendMenu （
+HMENU hMenu, 〃要在哪个菜单栏，下拉菜单，子菜单或快捷菜单的句柄下添加。
+UINTuFlags, 〃控制新菜判页的外观和行为。
+UINT_PTRulDNewltemz //菜单项的标识符，如果uFlags为MF_POPUP,则为下拉菜单或子菜单 的句柄。
+LPCTSTR IpNewltem 〃菜单项内容（字符串、位图句柄或自定义的值）
+）；
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+nsertMenu 函数
+InsertMenu函数（已被InsertMenultem取代）将新菜单项插入菜单中，将其他项目向 下移动到菜单中。
+BOOL InsertMenu （
+HMENU hMenu, 〃要在哪个菜单栏，下拉菜单，子菜单或快捷菜单的句柄下添加。
+UINT uPosition, 〃插入索引或菜单项的标识符，由uFlags参数MF BYCOMMAND、MF BYPOSITION确定， UINTuFlags, 〃控制新菜单项的外观和行为。
+UINT_PTRulDNewltemz //菜单项的标识符如果uFlags为MF POPUP,则为下拉菜单或子菜单 的句柄。
+LPCTSTR IpNewltem 〃菜单项内容（字符串、位图句柄或自定义的值）
+）；
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+u Flags参数
+U Flags可以是一个或多个值的组合：
+MF_BITMAP	使用位图作为菜单项。该IpNewltem参数包含的句柄位图。
+MF_CHECKED 在菜单项旁边放置 f 复选标记。
+MF_UNCHECKED不要在菜单项旁边放置复选标记（默认）。
+MF_DISABLED禁用菜单项，以便它不能被选中，但不会变灰。
+MF_ENABLED 启用菜单项，以便可以选择它并将其从灰色状态恢复。
+M F_G RAYED	禁用该菜单项并将其变灰以使其无法选择。
+MF_MENUBARBREAK	功能与菜单栏的MF_MENUBREAK标志相同。对于下拉菜单，子菜单或快捷菜单，新
+列将与旧列分开二条垂直线。
+MF_MENUBREAK	将项目放在一个新行（对于菜单栏），而不分隔列。
+MF_OWNERDRAW 指定该项目是一个所有者绘制的项目。首次显示菜单之前,拥有该菜单的窗口会收到 WM_MEASUREITEM消息以检索菜单项的宽度和高度。所述WM_DRAWITEM然后消息被发送到所有者窗口每 当菜单项的外观必须更新的窗口过程。
+MF_POPUP	指定菜单项打开一个下拉菜单或子菜单。该ulDNewltem参数指定的句柄下拉菜单或子菜单。
+MF_SEPARATOR 绘制一条水平分界线，IpNewltem和ulDNewltem参数将被忽略。
+MF_STRING	指定菜单项是文本字符串;所述IpNewltem参数是f 指向该字符串。
+MF_BYCOMMAND 指示uPosition参数给出菜单项的标识符。默认标志。
+MF_BYPOSITION	指示uPosition参数给出新菜单项的从零开始的相对位置。
+本视频版权归黄强所有、侵权必究
+etMenu函数
+SetMenu函数指定一个亲斤的菜单至U指定的窗口。
+BOOL WINAPI SetMenu （
+HWND	hWnd, 〃窗口句柄
+HMENU	hMenu 〃菜单句柄
+）；
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+estroyMen u 函数
+DestroyMenu销毁指定的菜单并释放菜单占用的任何内存。
+BOOL WINAPI DestroyMenu （
+HMENU	hMenu/原单句柄
+）；
+返回值：	H	L
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零。要获得扩展的错误信息，请调用GetLastErroro
+本视频版权归黄强所有、侵权必究
+演示代码
+〃创建顶级菜单句柄
+HMENU HTopMenu = CreateMenuO；
+〃创建弹出菜单句柄
+HMENU hPopMenu = CreatePopupMenuO；
+::AppendMenu(hPopMenu , MF_STRING, 111, L”新建”)；
+::AppendMenu(hPopMenu , MF SEPARATOR, 0, 0);
+::AppendMenu(hPopMenu , MF】STRING| MF_CHECKED, 222, L”打开”)；
+//将弹出菜单的句柄加入到顶级菜单
+::AppendMenu(hTopMenu , MF_POPUR (UINT)hPopMenu , L”文件”);
+〃创建窗口 (返回之前发送WM_CREATE)
+HWND hWnd = CreateWindow(L,,MrHuang,,,L"B—口前、
+WS_OVERLAPPEDWINDOW,100,100,400,400,NULL,hTopMenu, hlnstance,NULL);
+本视频版权归黄强所有、侵权必究
+WM COMMAND消息
+当我们按下一个菜单选项，或者一个控件需要通知父窗口一个事件发生（如鼠标单击、双击 等），或者快捷键被按下时，Windows将会发送一个WMJZOMMAND消息给父窗口。并通过 wParam高位置1或0区分菜单、快捷键、或者控件事件Code,通过wParam低位可知道菜单ID或控 件ID,通过IParam知道控件句柄。
+WM_COMMAND消息来源	WPARAM高位		WPARAM佩立		LPARAM
+	0				0
+	1			应萨ID	0
+招牛	响应 Code (如BNLCLICKED)			掬牛ID	控件句柄
+本视频版权归黄强所有、侵权必究
+演示代码
+菜单的响应消息：
+case WM COMMAND:
+{
+switch (LOWORD(wParam))
+{
+case 111:
+MessageBox(hWndz L”新建菜单被点击！二 L“提示”，MB_OK); break;
+case 222:
+MessageBox(hWndz L”打开菜单被点击！ ”，L“提示二 MB_OK); break;
+}
+} break;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,117 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows获取DC的三种方法
+本视频版权归黄强所有、侵权必究
+DI绘图的步骤
+GDI绘图包括以下步骤:
+本视频版权归黄强所有、侵权必究
+取设备上下文DC
+Windows中获取设备上下文有三种方法:
+> BeginPaint()o BeginPaint返回用于绘制客户区域的显示设备上下文的句柄;调用EndPaint结束 绘画请求并释放设备上下文。当窗口的Update Region是非空时，会收到WM_PAINT¥肖息， BeginPaint的一个作用就是把该Update Region置为空，这样如果不调用BeginPaint,窗口的 Update Region就一直不为空，如前所述，系统就会一直发送WM PAINT消息。
+> GetDC()o GetDC函数用于获取客户区域的设备句柄，用GetDC获取的句柄时，如果存在无效区 域，不会像BeginPaint函数自动将无效区域设为有效，我们可以通过调用函数ValidateRect函数来 将无效区域设为有效。调用ReleaseDC释放设备上下文。
+> GetWindowDC()o GetWindowDC函数获取整个窗口的设备上下文句柄。调用ReleaseDC释 放设备上下文。
+本视频版权归黄强所有、侵权必究
+eginPaint 函数
+HDC BeginPaint( HWND LPPAINTSTRUCT
+)；
+hwnd, //窗口的句柄
+IpPaint//绘制信息
+备注：
+BeginPaint函数使窗口无效区域变得有效，从而使windows不再发送WM PAINT消息（直到窗口大 小改变等，是窗口再次变得无效,如果窗口一直无效，贝"windows会不停的发送WM_PAINT消息）。 同时填充PAINTSTRUCT结构，让程序员可以根据ps变量中的标志值进行某些操作。
+如果函数成功，返回值是指定窗口的〃显示设备描述表"句柄。
+如果函数失败，返回值是NULL,表明没有得到显示设备的内容。
+本视频版权归黄强所有、侵权必究
+AINTSTRUCT 结构
+每个窗口要有一个PAINTSTRUCT结构来记录一^绘制信息，PAINTSTRUCT结构保存 了应用程序拥有的窗口的客户区域，例如绘制客户区时是否要清除背景色等.定义如下：
+typedef struct tagPAINTSTRUCT (
+H DC	hdc;〃用于绘画的显示器DC的句柄
+BOOL	fErase;//是否擦除背景，若应该擦除背景，则此值不为零
+RECT	rePaint;//指定客户区的矩形
+BOOL	fRestore;//保留；由系统内部使用
+BOOL	flncUpdate;//榛留；由系统内部使用
+BYTE	rgbReserved[32];〃保留；由系统内部使用
+} PAI NTSTRUCT, *PPAI NTSTRUCT;
+本视频版权归黄强所有、侵权必究
+ndPaint 函数
+EndPaint函数标记画在指定的窗口结束，在每次调用BeginPaint函数之后，都需要该 函数。
+BOOL EndPaint （
+HWND hWnd, 〃窗口的句柄
+const PAINTSTRUCT * IpPaint// 绘制信息
+）；
+备注：
+必须与BeginPaint成对使用! 返回值总是非零。
+本视频版权归黄强所有、侵权必究
+演示代码
+当存在无效区域时（比如当第一次创建一个窗口时，当改变窗口的大小时，当把窗口从另 一个窗口背后移出时，当最大化或最小化窗口时等等），系统会自动发送WM_PAINT消息：， 这些动作都是由系统管理的，应用只是被动地接收该消息，我们需要在WM_弘INT消息处理 函数中进行绘制操作；
+case WM PAINT:
+{
+PAINTSTRUCT ps;
+HDC hdc = BeginPaint(hWndz &ps);
+TextOut( hdc, 0, 0, L”你好啊“，lstrlen(L”你好啊”));
+EndPaint(hWnd, &ps);
+}break;
+break之后交给
+DefWindowProc 默认也会将无效区 域变有城！
+本视频版权归黄强所有、侵权必究
+GetD C函数
+GetDC函数检索处理设备上下文(DC)指定窗口的客户区或整个屏幕。您可以使用返回 的处理在随后的GDI函数的绘制。设备上下文是—不透明的数据结构,其值由GDI内部使用。
+HDC GetDC (
+HWND hWnd//窗口的句柄
+)；
+返回值
+如果函数成功，返回客户区HDC。 如果函数失败，返回值是零。
+本视频版权归黄强所有、侵权必究
+演示代码
+以下代码将导致文本闪烁:
+case WM PAINT:
+文字不停 的闪烁
+HDC hdc = GetDC(hWnd);>^
+TextOut(hdc, 0, 0, L”你好啊”，lstrlen(L”你好啊”)); ReleaseDCChWnd, de);
+return 0;
+}break;
+如果不加return 0; 那么break之后交给 DefWindowProc 默认 将无效区域变有效！
+本视频版权归黄强所有、侵权必究
+GetWindowDC 函数
+GetWindowDC函数检索设备上下文(DC)为整个窗口,包括标题栏、菜单、滚动条。一个窗 口设备上下文允许画在一个窗口，因为设备上下文的起源是窗口的左上角而非客户区。
+HDC GetWindowDC (
+HWND hWnd//窗口的句柄
+)；
+返回值
+如果函数成功，返回值是一个指定窗口的设备上下文的句柄。 如果函数失败,返回值为空,显示一个错误或无效hWnd参数。
+本视频版权归黄强所有、侵权必究
+ReleaseDC 函数
+GetWindowDC和GetDC函数获取设备上下文后，必须调用ReleaseDC函数来释放设备 上下文环境。
+int ReleaseDC（
+HWND hWnd,//窗口的句柄
+HDC hDC// DC
+）；
+返回值
+如果DC被成功释放，返回值是1。 如果直流没有释放,返回值是零。
+本视频版权归黄强所有、侵权必究
+演示代码
+〃绘制非客户区
+case WM_NCPAINT:
+{
+HDC hdc = GetWindowDC(hWnd);
+RECT r = ( 0,0,400,40 );
+HBRUSH brh = CreateSolidBrush(RGB(255, 0z 0)); FillRect(hdc, &r, brh);
+DeleteObject(brh);
+ReleaseDC(hWnd, hdc);
+return true;
+)
+break;
+本视频版权归黄强所有、侵权必究
+三种方式的区别
+区别
+BeginPaint()
+EndPaint()
+GetDC()
+ReleaseDC()
+GetWindowDC()
+ReleaseDCQ
+BeginPaintO和EndPaint()可以删除消息队列中的WM_PAINT消息， 并隹无效区域(指需要重画的区域)有效。BeginPaint End Paint会 告诉GDI内部，这个窗口需要重画的区域已经重画了，这样 WM_PAINT处理完返回给系统后，系统不会再重发WM_PAINT
+GetDC获取客户区的DC,它没有告诉系统这个窗口需要重画的地方已 经画过，在你把程序返回给系统后，系统一直以为通知你的重画命令你 还没有乖乖的执行或者执行出错，所以在消息空闲时，它还会不断地 发WM_PAINT催促你画，可能导致程序卡死。
+GetWindowDC函数获取整个窗口设备上下文(DC),包括标题栏、菜单、 滚动条。GetWindowDC适用于特殊绘画效果在一个窗口的任何区域， 因为设备上下文的起源是窗口的左上角而非客户区。
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,172 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Wi ndows控件之树视图控件
+本视频版权归黄强所有、侵权必究
+indows控件之树视图控件
+树视图控件是一个窗口，用于显示项目的分层列表，例如文件和目录结构。它是 类名是WC TREEVIEWo
+节点1
+曰霆根箜
+■- - ■=.
+三节点2
+本视频版权归黄强所有、侵权必究
+了控件样式
+dwStyle:指定控件的风格
+TVS TVS TVS TVS TVS TVS TVS TVS
+DISABLEDRAGDROP:禁止发送TVN_BEGINDRAG通知消息，即不支持拖动操作
+EDITLABELS:用户可以编辑节点的标签文本
+HASBUTTONS:显示带有” + ”或“・"的小方框来表示某项能否被展开或已展开
+HASLINES:在父节点与子节点间连线以更清晰地显示树的结构
+LINESATROOT:在根节点处连线
+SHOWSELALWAYS:即使控件失去输入焦点，仍显示出项的选择状态 CHECKBOXES :每个项目旁边的复选框创建。
+FULLROWSELECT :风格使高亮选择延长在控制的整个宽度，而不是仅仅在项目本身
+同样，动态创建树形控件时，除了能够指定上述风格的组合外，一般还要指定WS_CHILD和WS_VISIBLE风
+本视频版权归黄强所有、侵权必究
+窗口样式
+dwStyle的取值可为如下：
+WS_BORDER创建具有边框的窗口。
+WS_CAPTION创建该窗口具有标题栏（意味着WS_BORDER样式）。
+WS_CHILD创建f 子窗口。不能与使用WS_POPUP样式。
+WS_DISABLED创建最初处于禁用状态的窗口。
+WS_VISIBLE创建初始可见的窗口。
+WS_GR OUP指定一组控件在其中用户可以从一个控件移到下的箭头键的第一个控件。
+WS_HSCROLL创建该窗口具有水平滚动条。
+WS_VSCROLL创建该窗口具有f垂直滚动条。
+WSJCONIC创建开始最小化窗口。与相同WS_MINIMIZE样式。
+WS_MAXIMIZEBOX创建一个窗口，都有f 最大化按钮。
+WS_MINIMIZEBOX创建具有最小化按钮的窗口。
+WS_OVERLAPPED创建重叠的窗口。重叠的窗口通常具有标题和边框。
+WS_POPUP创建一个弹出窗口。不能与使用WS_CHILD样式。
+WS_POPUPWINDOW创建与一个弹出窗口WS_BORDER, WS_POPUPf 和WS_SYSMENU样式。 WS_SIZEBOX创建具有大小调整边框的窗口。与相同WS_THICkFRAME样式。
+WS_SYSMENU创建该窗口具有标题栏中的控件菜单框。硬用仅为带有标题栏的窗口。
+WS_TABSTOP控件通过其用户可以通过使用TAB键移动的任意数量之一指定。TAB键将用户移至指定的下一个 控件WS_TABSTOP样式。
+WS_TILEDWINDOW 与相同WS_OVERLAPPEDWINDOW样式。
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hTreeView = CreateWindow(WC_TREEVIEWz
+L”树视图”,
+WS_CHILD | WS_VISIBLE | TVS_HASLINES| TVS_LINESATROOT|TVS_HASBUTTONS, 30, 30, 200, 200, hWnd,
+(HMENU)111,
+((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+}break;
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+可以向控件发送TVM_XXX$肖息来设置控件。
+TVM_SETIMAGELIST TVM]GETITEM TVMJNSERTITEM TVM_SELECTITEM
+TVM_EXPAND TVM[DELETEITEM tvmIsetbkcolor tvm[getnextitem
+设置树视图控件的正常或状态图像列表，使用新图像重新绘制控件。 检索部分或全部树视图项目的属性。
+在树视图控件中插入f新项目。
+选择指定的树视图项目，将项目滚动到视图中，或者用用于指示拖放操作 目标的样式重新绘制项目。
+展开新叠与指定父项相关的子项
+从树视图控件中移除项目及其所有子项。
+设置控件的背景颜色
+检索承载指定项目的指定关系的树视图项目。
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb759988(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+像列表Image Lists
+图像列表(Image Lists)是相同大小图像的一个集合，以0为图像的起始索引，它本身并不是控件，但 和List View、Tree View等控件一起使用。
+HIMAGELIST lmageList_Create(
+int ex,
+int cy,
+UINT flags,
+int clnitial,
+int eGrow
+)；
+参数：	_
+ex、cy图像的宽度，高度(象素)
+nFlags确定建立图像列表的类型，可以是以下值的组合：ILC_COLOR、ILC_COLOR4、ILC_COLOR8X ILC COLOR16、ILC COLOR24、ILC COLOR32、ILC_C0LORDD□ ILC_MASK;
+nlnitial用来确定图椽列表包含的图像数量
+□Grow根据该系统需要调整列表腾出空间
+本视频版权归黄强所有、侵权必究
+像列表Image Lists
+在资源中导入3个图标32X32的24位图标:
+▼ ¥ x
+E原视图-MFCApplicationB
+」（§] MFCApplication3
+， M FCApplication3.rc t> , Bitmap ， Dialog 围 IDD_ABOUTBOX 国 IDD_MFCAPPLICATION3_DIALOG 」 Icon
+0 IDIJCON1
+0 IDIJCON2
+0 IDIICON3 ______
+13 IDR_MAinframe t> String Table Version
+本视频版权归黄强所有、侵权必究
+〃创建图像列表
+HIMAGELIST hSmall= lmageList_Create(GetSystemMetrics(SM_CXSMICON)/ GetSystemMetrics(SM_CYSMICON)；ILC_MASK, 1, 1);
+〃加载图标到图像列表
+for (int i =0; i< 3; i++)
+HICON	hlcon = Loadlcon( GetModuleHandle(NULL)/	___ MAKEINTRESOURCE(IDI_ICON1 + i
+}	lmageList_Addlcon(hSmall/ hlcon); Destroylcon(hlcon);
+〃设置树视图的图像列表
+SendMessage(hTreeView, TVM SETIMAGELIST, TVSIL NORMAL, (LPARAM)hSmall);
+注：如果相关函数报错需要加入#pragma comment(lib「Comctl32.lib")
+本视频版权归黄强所有、侵权必究
+• 〃插入根节点
+TVITEM tv;
+tv.mask = TVIF IMAGE | TVIF_TEXT| TVIF SELECTEDIMAGE;
+tv.ilmage = 0;
+tv.iSelectedlmage = 1;
+tv.pszText = L”根节点”；
+TVINSERTSTRUCT ts;
+ts.h Insert After = TVIROOT;
+ts.hParent = NULL;
+ts.item = tv;
+HTREEITEM hRoot = (HTREEITEM)SendMessage(hTreeViewr TVM INSERTITEM, 0, (LPARAM)&ts);
+本视频版权归黄强所有、侵权必究
+〃在根节点下插入子节点［
+TVITEM tv1;
+tvl.mask = TVIFIMAGE | TVIF TEXT | TVIF SELECTEDIMAGE;
+tvUlmage = 1;
+tvl.iSelectedlmage = 2;
+tvl.pszText = L”节点 1”；
+TVINSERTSTRUCT ts1;
+tsl.h Insert After = TV l_L AST;
+tsI.hParent = hRoot;
+tsUtem = tv1;
+HTREEITEM hNodel = (HTREEITEM)SendMessage(hTreeViewz TVM INSERTITEM, 0, (LPARAM)&ts1);
+〃在根节点下插入子节点2
+TVITEM tv2;
+tv2.pszText = L”节点2”；
+HTREEITEM hNode2 = (HTREEITEM)SendMessage(hTreeView, TVM INSERTITEM, 0, (LPARAM)&ts2);
+本视频版权归黄强所有、侵权必究
+〃展开根节点
+SendMessage(hTreeViewz TVM EXPAND, TVE EXPAND, (LPARAM)hRoot);
+〃选择节点
+SendMessage(hTreeViewr TVM SELECTITEM, TVGN CARET, (LPARAM)hNodel);
+〃让控件获得焦点 SetFocus(hTreeView);
+本视频版权归黄强所有、侵权必究
+空件通知消息
+控件会向父窗口发送WM_NOTIFY$肖息的形式的通知代码
+TVNJTEMCHANGED	逐（W®密WJ猊口项目属性已更改.此逐瞅码以WM_N0TIFY消，醐牍发送.	
+TVNJTEMCHANGING	逐函视图控件M父窗口项目属性即将更改。此通知代码以WM_N0TIFY消息的形式发送。	
+TVNJTEMEXPANDED	逐咽视图控件M父窗口父项的子项目列表已展开或折M此通知代码以WM_N0TIFY消息的形式发送。	
+TVNJTEMEXPANDING	逐控偷爆	孑口父项的子项目列表即将展开或折泾.此通知ft码以WM_N0TIFY消息的形式发送.
+TVN_KEYD0WN	逐豚］视图控件的父窗口用户按下了f键，并且树视图控件具有输入焦点。此通知代码以WM_N0TIFY消息的形式发送。	
+TVN_SELCHANGED	逐毗图控件的父窗口选择已从—项目更改为另—项目。此通知代码以WM_NOTIFY消息的形式发送。	
+TVN_SELCHANGING	逐咽视图控件的父窗口，选择即将从f 项目更改为另f 项目。此通知代码以WM_N0TIFY消息的形式发送。	
+tvn_setdispinfo	逐咽视图控件的父窗口，它必须更新其维护的有关项目的信息.此通知R码以WM_N0TIFY淖总的形式发送.	
+TVN_SINGLEEXPAND	当用户使用鼠标点击打开或关闭树项目时，通过带有TVS_SINGLEEXPAND样式的树视图控件发送.此通知以WM_N0TIFY消息的形 段送。	
+更多查阅MSDN链接：https://msdn.microsoft.com/en-us/library/windows/desktop/bb759988(v=vs.85).aspx
+本视频版权归黄强所有、侵权必究
+case WM NOTIFY:
+NMHDR * pHDR = (NMHDR *)IParam;
+if ((pHDR->code == TVN SELCHANGED) && (pHDR->idFrom == 111)) (
+LPNMTREEVIEW pView = (LPNMTREEVIEW)IParam;
+if (pView->itemNew.state & TVIS SELECTED)
+TVITEM tv;
+TCHAR buf[64] = {0};
+tv.pszText = buf;
+tv.cchTextMax = sizeof(buf);
+tv.hltem = pView- > item New.hltem;
+tv.mask = TVIFTEXT;
+bool b=SendMessage(pHDR->hwndFrom, TVM GETITEM, 0, (LPARAM)&tv);
+MessageBox(hWnd, tv.pszText, L"提示二 MB OK); }
+}
+}break;
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

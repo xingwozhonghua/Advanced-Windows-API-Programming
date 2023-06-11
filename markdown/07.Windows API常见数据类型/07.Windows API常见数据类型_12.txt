@@ -1,0 +1,9 @@
+﻿通用符号定义
+类型	环境	定义
+TCHAR	Unicode 字 符	typedef WCHAR TCHAR, *PTCHAR;
+	多字节字符 MBCS	typedef char	TCHAR, *PTCHAR;
+	Unicode 字 符	#define _TEXT(quote) L##quote // r winnt
+TEXT	多字节字符 MBCS	#define _TEXT(quote) quote	// r winnt
+API函数名	Unicode 字 符	#define CreateWindow CreateWindowW
+	多字节字符 MBCS	#define CreateWindow CreateWindowA
+本视频版权归黄强所有、侵权必究

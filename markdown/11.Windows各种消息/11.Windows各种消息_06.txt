@@ -1,0 +1,11 @@
+﻿标准消息
+为了防止用户定义的消息ID与系统的消息ID冲突，Microsoft定义了 一个宏WM_USER, 小于WMJJSER的ID被系统使用，大于WM_USER的ID被用户使用。
+#define WM USER 0x0400（化制 1024）
+以下婚肖息编邹范围。
+范围	含义
+0至IJWM—USER -1	洛每保留供系统使用。
+WMJJSER 到 0x7FFF	用于私有窗口类的整型i为急。
+WM_APP (0x8000)到OxBFFF	消总可供应用程序使用.
+OxCOOO 到 OxFFFF	字符串消息供应用程序使用。
+大于OxFFFF	由系统保留。
+本视频版权归黄强所有、侵权必究

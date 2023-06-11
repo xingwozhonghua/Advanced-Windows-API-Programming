@@ -1,0 +1,94 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows控件之列表视图控件仲）
+本视频版权归黄强所有、侵权必究
+indows控件之列表视图控件
+小图标睡
+由指定的LVS_SMALLICON窗口样式或传递LV_VIEW_SMALLICON^ LVM_SETVIEWO每个项目都显示为一^小图标，其右侧有标签。用户可以将 项目拖到曲曜
+列表显示	由指定的LVS_LIST窗口样式或传递LV_VIEW_LIST与LVM_SETVIEW.每个项目都显示为』小图标，其右侧有—标签.项目按列月冽，用户无法
+将其拖动到任意位虱
+sgsss
+小图标视图
+LVS SMALLICON
+列表显示
+LVS LIST
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hListView = CreateWindow(WC_LISTVIEW, L”列表视图”，
+WS_CHILD | WS_VISIBLE | LVS_S MALLI CON, 30,30, 200, 200,
+hWnd,
+(HMENU)111, ((LPCREATESTRUCT)IParam)->hlnstance, NULL);
+}break;
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+腱控件
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM I Pa ram)
+switch (Msg)
+case WM CREATE:
+在 WMCREATE）肖 息的响应中创建子 窗匚I、控件等等
+HWND hListView = CreateWindow(WC_LISTVIEW,
+L”列表视图”，
+WS_CHILD | WS_VISIBLE | LVS_LIST,
+30,30,
+200, 200,
+hWnd,
+(HMENU)111, ((LPCREATESTRUCT)IParam)->hlnstance,
+NULL);
+}break;
+}
+}
+return DefWindowProc(hWnd, Msg, wParam, I Pa ram);
+本视频版权归黄强所有、侵权必究
+演示代码
+〃创建图像列表
+HIMAGELIST hSmall = lmageList_Create(GetSystemMetrics(SM_CXSMICON)/ GetSystemMetrics(SM_CYSMICON), ILC MASK, 1, 1);
+〃加载图标到图像列表 for (int i =0; i< 3; i + +)
+}
+HICON hlcon = Loadlcon( GetModuleHandle(NULL)/ MAKEINTRESOURCE(IDI_ICON1 + i)); lmageList_Addlcon(hLarger hlcon); Destroylcon(hlcon);
+〃设置列表视图的图像列表
+SendMessage(hListView/ LVM SETIMAGELIST, LVSIL SMALL, (LPARAM)hSmall);
+注：如果相关函数报错需要加入#pragma comment(lib「Comctl32.lib")
+本视频版权归黄强所有、侵权必究
+示代码
+for (int i = 0; i < 3; + + i)
+{
+LVITEM Iv;
+Iv.iltem = i;
+Iv.iSubltem =0;
+Iv.pszText =( i ==0 ? L“音乐” :(i == 1 ? L“啤酒”:L”炸鸡“))； Iv.ilmage = i;
+Iv.mask = LVIF TEXT | LVIF IMAGE | LVIF STATE;
+Iv.state = (i == 0? LVIS_SELECTED:O ); 一
+SendMessage(hListView； LVM INSERTITEM, 0, (LPARAM)&lv); } ~
+〃具有焦点
+SetFocus(hListView);
+//SendMessage(hListViewr LVM SETTEXTCOLOR, 0z RGB(255, 0, 0)); //SendMessage(hListViewr LVM^SETBKCOLOR, 0, RGB(100, 0, 100));
+//SendMessage(hListViewr LVM^SETTEXTBKCOLOR, 0, RGB。255, 0));
+本视频版权归黄强所有、侵权必究
+911富
+case WM—NOT-FY-
+f
+NMHDR *phdrh(nmhdr *)_paraw
+一f ((PHDR—vcode nn L\/N」TEMCHANGED) Re (PHDR—V一dFrom nn 三))
+f
+LPNML-STVmw p<ew H (LPNML_STV-EW}-pgami
+-f (pv-ew—vuchanged n" LV-FISTATE)
+一f (PVEW—VUNewstaa 8i L\/_S—SELECTED)
+f
+TCHAR buf【641 H (s
+lvhem _vj
+-v.-sub-am H o；
+-V.PSZTexf H bum
+-v.cchTextMax n sN,eof(buf)一 sendMessagapHDR—vhwndFrom、LVM—GET_TEMTEXT、PV(D-W—V=sm、(LPARAM)adv)」
+MessageBOX(hwnd、buf Lnsi『n、MB6IQ; se-FOCUS(PHDR—vhwndFrom)；
+-break-
+冲酬SMSDNS?)®- hHPS7、msdn.m-crosoft.com、en—us、=b2ry、w-ndows、desk3p、bb761055(VHVS.85).aspx
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

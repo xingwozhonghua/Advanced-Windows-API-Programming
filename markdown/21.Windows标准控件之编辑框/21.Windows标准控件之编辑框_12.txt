@@ -1,0 +1,17 @@
+﻿case WM COMMAND:
+switch (LOWORD(wParam))
+{
+case 111:
+if (HIWORD(wParam) = = EN_CHANGE)
+{
+MessageBox(NULL, L”输入改变了!”，L“提示，MB OK | MB ICONINFORMATION);
+TCHAR buf[64];
+GetWindowText((HWND)IParamz bufz 64);
+MessageBox(NULL, buf, L“提示二 MB OK | MB ICONINFORMATION);
+}
+break;
+default:
+break;
+}
+}break;
+本视频版权归黄强所有、侵权必究

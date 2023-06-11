@@ -1,0 +1,12 @@
+﻿M NCPAINT消息
+截获该消息来实现窗口框架自定义绘制。
+case WM_NCPAINT:
+{
+HDC hdc= GetWindowDC(hWnd);
+RECT r = { 0,0,300,4。}；
+HBRUSH brh= CreateSolidBrush(RGB(255, 0z 0));
+FillRect(hdc, &r, brh);
+DeleteObject(brh);
+ReleaseDC(hWndz hdc);
+return TRUE;
+本视频版权归黄强所有、侵权必究

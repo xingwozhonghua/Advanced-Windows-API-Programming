@@ -1,0 +1,165 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+Windows绘图API函数（上）
+本视频版权归黄强所有、侵权必究
+oveToEx 函数
+M oveTo Ex和LineTo函数用来画直线。
+BOOL MoveToEx （
+HDChdc, 〃设备上下文的句柄
+int X,//x 坐标
+int Y〃y坐标
+LPPOINT IpPoint//返回以前的位置 ）；
+返回值：
+如果函数成功，返回值为非零。 如果函数失败，返回值为零。
+本视频版权归黄强所有、侵权必究
+ineTo函数
+LineTo函数绑(J画到终点。
+BOOL LineTo(
+HDC hdc,〃设备上下文的句柄
+int nXEnd,//x坐标
+int nYEnd//y坐标
+返回值：
+如果函数成功，返回值为非零。 如果函数失败，返回值为零。
+本视频版权归黄强所有、侵权必究
+reate Pen 函数
+CreatePen函数创建具有指定的风格，宽度和颜色的逻辑笔。创建后可调用SelectObject函 数将该笔选择到设备上下文牝 用于绘制直线和曲线。
+HPEN CreatePen（
+int iStyle, 〃笔风格
+int eWidth,〃笔的宽度
+COLORREF color//颜色
+）；
+返回值：
+如果函数成功，则返回值是标识逻辑笔的句柄。
+如果函数失败，返回值为NULL。
+备注
+当您不再需要笔时，请调用DeleteObject函数将其删除。
+本视频版权归黄强所有、侵权必究
+reate Pen 函数
+iStyle它可以是以下任何一个值。
+PS_SOLID	笔是实心的。
+PS：DASH	这支笔是虚的。仅当设备单位的笔宽等于或小于1时，此样式才有效。
+PS：DOT	笔是虚线的。仅当设备单位的笔宽等于或小于1时，此样式才有效。
+PS_DASHDOT笔具有交替的破折号和圆点。仅当设备单位的笔宽等于或小于1时，此样 式才有效。
+PS_DASHDOTDOT笔具着交替的破折号和双点。仅当设备单位的笔宽等于或小于1时，
+此样式才有效。
+PS_NULL	笔是隐形的。
+PSJNSIDEFRAME笔是坚实的。在任何带有边界矩形的GDI绘图函数中使用此笔时，考虑到笔的 宽度，图形的尺寸会缩小，使其完全适合边界矩形。这仅适用于几何笔。
+本视频版权归黄强所有、侵权必究
+emciobjeciISI^
+(DC)。
+H>豪。
+HGDOBJ seBcfobjed (
+HDChdc、：案Hr-H)4s回茵
+HGDOBJ hgd_obj/7m淳浦SX4BS西茵
+耐回B
+回 fl^mm潜昏x毓昏回茵弗冈MB(S_MPLEREGON 琳)。 圳涅湖 HGDLERROR^NULL。
+
+ectangle 函数
+Rectangle绘制 f 矩形使用当前笔画出矩形并使用当前画笔进行填充。
+BOOL Rectangle（
+HDC hdc,〃窗口的句柄
+int nLeftRect,//左上角的x坐标
+int nTopRect,//左上角的y坐标
+int nRightRect,//右上角由x坐标—
+int nBottomRect//右上角的y坐标
+）；
+返回值：
+如果函数成功，返回值为非零。 如果函数失败，返回值为零。
+本视频版权归黄强所有、侵权必究
+CreateSolidBrush 函数
+CreateSolidBrush函数创建具有指定的纯色的逻辑刷。
+HBRUSH CreateSolidBrush (
+COLORREFcrColor//颜色
+)；
+返回值
+如果函数成功，则返回值标识一个逻辑画笔。
+如果函数失败，返回值为NULL。
+备注
+当你不再需要HBRUSH对象时，调用DeleteObject函数来删除它。
+本视频版权归黄强所有、侵权必究
+DeleteObject 函数
+DeleteObject函数删除逻辑笔，刷子，字体，位图，区域或调色板，释放与该对象相关联 的所有系统资源。
+BOOL DeleteObject （
+HGDIOBJ hObject〃对象的句柄
+）；
+返回值
+如果函数成功，返回值为非零。
+如果指定的句柄无效或当前被选入DC,则返回值为零。
+备注
+当它仍然被选入DC时，不要删除绘图对象（笔或笔刷）。
+删除图案画笔时，与画笔关联的位图不会被删除。位图必须单独删除。
+本视频版权归黄强所有、侵权必究
+GetStockObject 函数
+GetStockObject函数获取句柄画笔，笔刷，字体，或调色板。
+HGDIOBJ GetStockObject（
+int fnObject//对象的句柄
+）；
+返回值
+如果函数成功，则返回值是请求的逻辑对象的句柄。
+如果函数失败，返回值为NULL。
+备注
+通过调用DeleteObject删除库存对象是没有必要的（但它不是有害的）。
+本视频版权归黄强所有、侵权必究
+etStockO bj ect 函数
+fnObject库存对象的类型:
+BLACKBRUSH DKGRAYBRUSH DCBRUSH GRAYBRUSH HOLLOWBRUSH
+NULLBRUSH LTGRAYBRUSH WHITEBRUSH BLAC<PEN DCPEN NULLPEN WHITEPEN SYSTEMFONT DEFAUL^PALETTE
+黑色的刷子。
+深灰色的刷子。
+纯色刷子。默认颜色是白色。可以使用SetDCBrushColor函数更改颜色。 灰色的刷子。
+空心刷子（相当于NULL BRUSH）
+空刷（相当于HOLLOWBRUSH）
+浅灰色的刷子。
+白色的画笔。
+黑色的笔。
+旻心笔的赢色。默认颜色是白色。可以使用SetDCPenColor函数更改颜色 空笔。空白笔没有画任何东西。
+白色的笔
+系统字体:系统使用默认字体Tahoma来绘制菜单，对话框控件和文本。 默认调色板。该调色板由系统调色板中的静态颜色组成。
+本视频版权归黄强所有、侵权必究
+Ellipse 函数
+Ellipse函数画一个椭圆，椭圆的中心是限定矩形的中心，使用当前画笔画椭圆，用当前的 画刷填充椭圆。
+BOOL Ellipse（
+HDC hdc,〃设备上下文的句柄
+int nLeftRect, 〃限定矩形左上角的x坐标。
+int nTopRect, //限定矩形左上角的y坐标。 nRightRect, 〃限定矩形右上角的x里标。
+int n Bottom Rect//限定矩形右上角的y坐标。
+）；
+返回值
+如果函数调用成功，返回值非零；
+如果函数调用失败，返回值是0。
+本视频版权归黄强所有、侵权必究
+Pie函数
+Pie函数使用当前画笔绘制饼图.
+BOOL Pie（
+HDC hdc,〃窗口的句柄
+int nLeftRect, 〃限定矩形左上角的x坐标。
+int nTopRect, //限定矩形左上角的y坐标。
+nRightRect, //限定矩形右上角的x巫标。
+int nBottomRect//限定矩形右上角的y坐标。
+int nXRadiall, //第f 径向的端点的逻辑坐标中的x坐标。 int nYRadiall, //第f 径向的端点的逻辑坐标中的y坐标。 int nXRadial2, //第二个径向的端点的逻辑坐标中的x坐标。 int nYRadial2〃第二个径向的端点的逻辑坐标中的y坐标。
+）；
+返回值
+如果函数调用成功，返回值非零;
+如果函数调用失败，返回值是0。
+本视频版权归黄强所有、侵权必究
+演示代码
+case WM PAINT:
+(
+PAINTSTRUCT ps;
+HDC hdc 二 BeginPaint(hWnd, &ps);
+HPEN hPen = CreatePen(PS_SOLID, 1, RGB(O, 0, 255)); SelectObject(hdc, hPen);
+//起点为(0z 0),终点为(100z 100)的直线
+MoveToEx(hdc, 0, 0,NULL);
+Lineld(hdc, 100, 100);
+HBRUSH hBsh = CreateSolidBrush(RGB(255, 0, 0)); //HGDIOBJ hBsh 二 GetStockObject(NULL BRUSH); SelectObject(hdc, hBsh);
+RECT r= {100,200,300, 300 };
+Rectangle(hdc, rleft, rtop, r.right, rbottom);
+Ellipse(hdc, 50, 50, 200, 300);
+Pie(hdc, 0, 0, 100, 100, 30, 30, 50, 100);
+DeleteObject(hPen);
+DeleteObject(hBsh);
+EndPaint(hWnd, &ps);
+}
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

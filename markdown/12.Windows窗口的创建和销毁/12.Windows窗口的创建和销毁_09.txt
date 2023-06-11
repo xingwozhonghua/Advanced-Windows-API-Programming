@@ -1,0 +1,9 @@
+﻿M CLOSE消息
+点击窗口右上角的关闭按钮，发送WM_CLOSE消息。应用程序可处理WM_CLOSE消息 并仅在用户确认选择时调用DestroyWindow函数来销毁窗口。默认情况下，DefWindowProc 默认调用DestroyWindow函数来销毁窗口。如果一个应用程序处理这个消息，它应该返回零。
+#define WM_CLOSE 0x0010
+备注：
+wParam 中
+此参数未使用。
+IParam 的
+此参数未使用。
+本视频版权归黄强所有、侵权必究

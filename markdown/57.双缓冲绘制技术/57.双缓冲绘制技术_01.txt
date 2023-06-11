@@ -1,0 +1,119 @@
+﻿Windows API编程 映 HU树5 C++ 3IWCED	CWSt
+双缓冲绘制技术
+本视频版权归黄强所有、侵权必究
+indows绘图原理
+我们在Windows环境下看到各种元素，如菜单、按钮、窗口、图像，都是〃画〃出 来的。这时的屏幕，就相当于一块黑板，而Windows下的各种GDI要素，如画笔、画刷 等，就相当于彩色粉笔了。我们在黑板上手工画图时，是一笔一划的，电脑亦然。只不过 电脑的速度比手工快的太多，所以我们看起来好像所有的图形文字都是同时出现的。
+当要绘制太复杂图形（比如位图）时，电脑便力不从心了。这时的画面会显示的很慢， 对于运动的画面，会给用户〃卡住、闪烁〃的感觉。
+本视频版权归黄强所有、侵权必究
+缓冲绘制技术
+双缓冲的原理可以这样形象的理解：把电脑屏幕看作一块黑板。首先我们在内曲境 中建立一个〃虚拟〃的黑板，然后在这块黑板上绘制复杂的图形，等图形全部绘制完毕的 时候，再一次性的把内存中绘制好的图形〃拷贝〃到另一块黑板（屏幕）上，采取这种方 法可以提高绘图速度，极大的改善绘图效果。
+普通
+绘制
+双缓冲
+内存缓冲
+绘制
+绘制内容
+本视频版权归黄强所有、侵权必究
+缓冲绘制技术的步骤
+＞使用CreateCompatibleDC创建一个内存兼容DC ,但这个DC尺寸很小，通常是1*1像素 大小，不能直接绘制。
+＞使用CreateCompatibleBitmap创建位图,默认是全黑的，使用SelectObject将位图选入 兼容DC,这时位图尺寸大小就相当于了内存设备环境尺寸大小，此时才可绘制。
+＞使用绘图API函数(Rectangle、MoveToEx等)在内容DC上绘制各种图形
+＞使用BitBIt或StretchBIt将兼容DC—次性复制到窗口DC上。
+本视频版权归黄强所有、侵权必究
+reateCompatibleD C 函数
+CreateCompatibleDC函数创建具有指定设备兼容的存储器设备上下文（DC）。
+HDC CreateCompatibleDC （
+HDChdc//!见有DC的句柄。如果此句柄为NULL,则该函数将创建一个与应用程序当前 屏帛兼容的内存DC。
+）；
+返回值：	|]	/ J
+如果函数成功，则返回值是内存DC的句柄。
+如果函数失败，返回值为NULL。
+备注：
+内存DC仅存在于内存中，当创建内存DC时，其尺寸是1单色像素宽和1单色像素高。在应用程序使用 内存DC进行绘制操作之前，它必须在DC中选建正确宽度和高度的位图。要将位图选入DC,请使用 CreateCompatibleBitmap函数，指定所需的高度，宽度和颜色组织。
+本视频版权归黄强所有、侵权必究
+reateCompatibleBitmap 函数
+CreateCompatibleBitmap函数仓腱与和指定的设备上下文相关联的设备兼容的位图。
+HBITMAP CreateCompatibleBitmap (
+HDChdc, //设备上下文的句柄
+int nWidth,//位图的宽
+int nHeight〃彳立图的高
+)；
+返回值：
+如果函数成功，则返回值是兼容位图(DDB)的句柄。
+如果函数失败，返回值为NULL。
+备注：
+如果应用程序将nWidth或nHeight参数设置为零，则CreateCompatibleBitmap将句柄返回为1x1像 素的单色位图。当你不再需要位图时，调用DeleteObject函数来删除它。
+本视频版权归黄强所有、侵权必究
+itBIt函数
+BitBIt函数执行对应于从指定的源设备上下文像素矩形到目标设备上下文的颜色数据的位块 传输。
+BOOL BitBIt (
+HDChdcDest, //目标设备上下文的句柄。 int nXDest, //目标矩形左上角的x坐标。 int nYDest, 〃目标矩形左上角的y坐标。 int nWidth, //目标矩形、源矩形的宽度 int nHeight, 〃目标矩形、源矩形的高度 HDChdcSrc, 〃源设备上下文的句柄。 int nXSrc, 〃源矩形左上角的x坐标 int nYSrc，〃源矩形左上角的y坐标
+DWORD dwRop//光栅操作代码。这些代码定义如何将源矩形的颜色数据与目标 矩形的颜色数据组合以实现最终颜色。
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零，调用GetLastError获得扩展的错误信息.
+本视频版权归黄强所有、侵权必究
+'BitBIt 函数
+dwRop可是以下值:
+PATPAINT
+SRCAND SRCCOPY SRCERASE SRCINVERT SRCPAINT WHITENESS
+BLACKNESS CAPTUREBLT DSTINVERT MERGECOPY MERGEPAINT
+NOMIRRORBITMAP NOTSRCCOPY NOTSRCERASE PATCOPY PATINVERT
+使用物理调色板中与索引0关联的颜色填充目标矩形（对于默认物理调色板为黑色） 包括在结果图像中窗口顶部的任何窗口。默认情况下，图像只包含你的窗口。
+颠倒目标矩形。
+通过使用布尔AND运算符，将源矩形的颜色与当前在hdcDest中选择的画笔合并。
+通过使用布尔或运算符将反转源矩形的颜色与目标矩形的颜色合并。
+防止镜像被镜像。
+将倒置的源矩形复制到目标。
+通过使用布尔OR运算符组合源矩形和目标矩形的颜色，然后反转结果颜色。
+将当前在hdcDest中选择的画笔复制到目标位图中。
+通过使用布尔XOR运算符，将当前在hdcDest中选择的画笔的颜色与目标矩形 的颜色组合在一起。
+通过使用布尔OR运算符，将当前在hdcDest中选择的画笔的颜色与反转的源矩形的颜色组合。 此操作的结果通过使用布尔或运算符与目标矩形的颜色相结合。
+通过使用布尔AN D运算符组合源和目标矩形的颜色。
+将源矩形直接复制到目标矩形。
+通过使用布尔AND运算符将目标矩形的反转颜色与源矩形的颜色组合在一起。
+通过使用布尔XOR运算符组合源和目标矩形的颜色。
+通过使用布尔或运算符组合源和目标矩形的颜色。
+使用物理调色板中与索引1关联的颜色填充目标矩形。（对于默认物理调色板为白色）
+本视频版权归黄强所有、侵权必究
+FSt retch Bit函数
+Stretch BltW能拷贝从源矩形成目标矩形，拉伸或压缩位图以适应目标矩形的尺寸。
+BOOL StretchBIt （
+HDChdcDest, //目标设备上下文的句柄。
+int nXDest, //目标矩形左上角的x坐标。
+int nYDest, 〃目标矩形左上角的y坐标。
+int nWidth, //目标矩形的宽度
+int nHeight, 〃目标矩形的高度
+HDChdcSrc, 〃源设备上下文的句柄。
+int nXSrc, 〃源矩形左上角的x坐标
+int nYSrc，〃源矩形左上角的y坐标
+int nWidthSrc, 〃源矩形的宽度
+int nHeightSrc, 〃源矩形的高度
+DWORD dwRop//光栅操作代码。这些代码定义如何将源矩形的颜色数据与目标
+矩形的颜色数据组合以实现最终颜色。
+）；
+返回值：
+如果函数成功，返回值为非零。
+如果函数失败，返回值为零，调用GetLastError获得扩展的错误信息.
+本视频版权归黄强所有、侵权必究
+演示代码
+case WM_PAINT:
+PAINTSTRUCT ps;
+HDC hdc = BeginPaint(hWnd, &ps);
+HDC hMemDc = CreateCompatibleDC(hdc);//创建兼容内存DC
+HBITMAP hMemBmp = CreateCompatibleBitmap(hdc,100,100);//^!］建兼容位图
+SelectObject(hMemDe, hMemBmp);//将位图选入内存DC中
+〃执行绘图操作
+TextOut(hMemDc, 0, 0, L”你好啊”，lstrlen(L”你好啊”))；
+Rectangle(hMemDc, 50,50,80, 80);
+〃拷贝内存DC数据块到当前DC
+BitBlt(hdc, 0, 0, 400,400, hMemDc, 0, 0, SRCCOPY);
+〃拷贝内存DC数据块到当前DC,自动拉伸
+// StretchBlt(hdc, 0, 0, 400, 400, hMemDc, 0, 0, 100, 100, SRCCOPY);
+)
+〃删除资源：防止泄漏
+::DeleteObject(hMemBmp); ::DeleteDC(hMemDc); EndPaint(hWnd, &ps);
+本视频版权归黄强所有、侵权必究
+谢谢观看!
+THANKS FQR 氓 A 飞 C
+本视频版权归黄强所有、侵权必究

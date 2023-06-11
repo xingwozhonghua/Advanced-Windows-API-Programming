@@ -1,0 +1,5 @@
+﻿PostQuitMessage 函数
+VOID WINAPI PostQuitMessage （
+int nExitCode〃退出码，用作WM QUIT消息的wParam参数。 ）；
+PostQuitMessage函数给线程的消息队列发送一个WM_QUIT＞肖息并立即返回；当线程从消息队列 里取得WM_QUIT消息，退出消息循环并将控制返回给系统，返回给系统的退出值必须是消息 WM_QUIT的wParam参数。它通常用于响应WM_DESTROY;肖息。
+本视频版权归黄强所有、侵权必究

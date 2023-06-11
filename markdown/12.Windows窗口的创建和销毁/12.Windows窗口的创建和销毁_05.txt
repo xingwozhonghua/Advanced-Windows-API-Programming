@@ -1,0 +1,9 @@
+﻿M CREATE消息
+发送完WM_NCCREATE后，CreateWindow函数在窗口创建成功并且在返回之前直 接发送wm_creAte消息给窗口过程函数，窗口过程函数会在创建窗口后但在窗口变为可见 之前接收到此消息（可以在此时机初始化滚动条，创建子窗口、控件等等）。
+#define WM_CREATE 0x0001
+备注：
+wParam 中
+此参数未使用。
+IParam 的
+指向CREATESTRUCT结构的指针，其中包含有关正在创建的窗口的信息。
+本视频版权归黄强所有、侵权必究

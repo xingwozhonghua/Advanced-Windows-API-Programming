@@ -1,0 +1,18 @@
+﻿测试代码
+#define WM_AAA WMJJSER+1
+〃自定义的窗口过程
+LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM IParam)
+(
+switch (Msg)
+( -
+case WM_DESTROY:
+PostQuitMessage(O);
+return 0;
+case WMAAA:
+MessageBoxA(NULLz ”窗口过程:WM_AAA”，二 0); return 0;
+default:
+return DefWindowProc(hWnd, Msg, wParam, IParam);
+) -
+return 0;
+)
+本视频版权归黄强所有、侵权必究

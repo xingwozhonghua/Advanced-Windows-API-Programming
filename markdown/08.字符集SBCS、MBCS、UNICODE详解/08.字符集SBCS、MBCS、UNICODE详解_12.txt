@@ -1,0 +1,11 @@
+﻿示例代码
+#include<stdio.h>
+#include <Locale.h>
+#include <string.h>
+int main()
+解决控制台中 文乱码
+char*str1= “A中”;//3个字符，碰©J第f \0‘结束符为止
+printf(n%s %d\n", str1,strlen(str1));
+_wsetlocale(LC_ALL/ L'chs1*)； wcharj *str2 = L”A中”；〃2个字符，4个字节 wprintf(LM%s %d\nn/ str2, wcslen(str2));
+)
+本视频版权归黄强所有、侵权必究

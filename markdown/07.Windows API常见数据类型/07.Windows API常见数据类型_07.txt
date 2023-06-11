@@ -1,0 +1,14 @@
+﻿Windows API常见数据类型
+头文件WTypesbase.h、Winnt.h
+类型	定义		
+DOUBLE	typedef	double	DOUBLE;
+USHORT	typedef	unsigned short	USHORT;
+SHORT	typedef	short	SHORT;
+UCHAR	typedef	unsigned char	UCHAR;
+CHAR	typedef	char	CHAR;
+WCHAR	typedef	wchar t	WCHAR;
+LONG	typedef	long	LONG;
+LPSTR、PSTR	typedef	CHAR * NPSTR,	*LPSTR, *PSTR;
+LPCSTR x PCSTR	typedef	CONST CHAR*	LPCSTR, *PCSTR;
+BOOLEAN	typedef	BYTE	BOOLEAN;
+本视频版权归黄强所有、侵权必究

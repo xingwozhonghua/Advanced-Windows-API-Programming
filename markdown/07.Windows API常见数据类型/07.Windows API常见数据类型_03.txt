@@ -1,0 +1,7 @@
+﻿indows API常见数据类型
+Windows API使用了很多Windows自定义的数据类型（如前面课程的HINSTANCE、 HWND、WPARAM等）。要熟练使用Windows API必须要豪蟋Windows数据类型，有些 类型都是从标准C的数据类型经过类型重定义而来，有些类型是Windows特有的，自定义 类型一般遵循以下规则：
+＞基本数据类型大写：比如char为CHAR、short为SHORT、int为INT等。
+＞指针类型的命令方式一般是在其指向的数据类型前加〃LP〃或〃P〃，比如指向DWORD的指针类 型为"LPDWORD"和"PDWORD”
+＞各种句柄类型的命名方式一般都是在对象名前加"H”，比如位图（BITMAP）对应的句柄类型为 "HBITMAP”。
+＞无符号类型一般是以"U"开头，比如"INT”是符号类型，"UINT〃是无符号类型
+本视频版权归黄强所有、侵权必究

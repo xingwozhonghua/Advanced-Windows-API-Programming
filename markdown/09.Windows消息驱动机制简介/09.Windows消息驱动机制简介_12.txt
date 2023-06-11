@@ -1,0 +1,9 @@
+﻿DispatchMessage 函数
+LRESULT WINAPI DispatchMessage（
+const MSG *lpmsg 〃该结构从线程的消息队列接收消息信息
+）；
+DispatchMessage函数分发一个消息给窗口程序。消息被分发到回调函数（过程函数）， 作用是消息传递给操作系统，然后操作系统去调用我们的回调函数，也就是去窗口过程函数中处 理消息。
+备注：
+该MSG结构必须包含有效的消息值。如果LPMSG瓠指向f WM_TIMER消息和IParam中所述的瓠WM_TIMER消息不 是NULL, IParam的指向』函数被调用，而不是窗口过程。
+请注意，应用程序负责检索和分发输入消息到对话框。大多数应用程序为此使用主消息循环。但是，要允许用户使用键盘移 动到并选粉曾牛，应用程序必须调用IsDialogMessage。
+本视频版权归黄强所有、侵权必究

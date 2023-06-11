@@ -1,0 +1,24 @@
+﻿盘消息
+键盘驱动程序为每个实体键对应都有一个统一的虚拟键z Windows定义的虚拟键都定义在 WinUser.h这个头文件里面，都是以VK_作为前缀，比如回车键的虚拟键是VK_RETURN。
+VK 0 到 VK 9 VK> 到 VKZ VK[F1 到 V<F12 VK[ENTER V<SHIFT V<SPACE V<CONTROL V<SUBTRACT V<TAB V<ALT V<BACK_SPACE V<CAPS\OCK V<CLOSE_BRACKET V<COMMAN V<DECIMAL V<DELETE V<DIVIDE V<DOWN V<END V<ADD V<EQUALS VK_ESCAPE
+表示键盘上数字"0 "到〃 9 "键（ASCII码为0x30 - 0x39） 表示键盘上字母”A”到"Z"键（ASCII码为0x41 -0x5a） 表示键盘上"F1 "到"F12"键
+表示键盘上"ENTER “键
+表示键盘上"SHIFT"键
+表示疆盘上"SPACEBAR “键
+表示疆盘上"CTRL "键
+表示键盘上键。
+表示键盘上"TAB "键。
+表示键盘上“ ALT “键
+表示键盘上BACKSPACE "键
+表示键盘上"CAPS LOCK "键
+表示键盘上"]“键
+表示键盘上键
+表示数字键盘上…键
+表示键盘上"DELETE "键
+表示键盘上“/"键
+表示键盘上"向下箭头“键
+表漩盘上“ END “键
+表示数字键盘上的"+ “键
+表示键盘上“="键
+表示键盘上"ESC “键
+本视频版权归黄强所有、侵权必究

@@ -1,0 +1,12 @@
+﻿入口函数WinMain详解
+类似于C程序的main函数，Win32应用程序也有一个入口函数WinMain,该函数被系统自动调用, 函数原型如下：
+int
+WINAPI WinMain (
+HINSTANCE
+HINSTANCE
+h Instance, 〃应用程序当前实例的句柄 hPrevInstance,//应用程序的先前实例的句柄。同f 程序打开两次，出现两个窗口 第一次打开的窗口就是先前实例的窗口。对于一个32位程序，该参数 总为NULL。
+LPSTR int
+IpCmdLine, 〃命令行的字符串的指针
+nShowCmd 〃窗口显示方式、默认为SW_SHOWDEFAULT
+）；
+本视频版权归黄强所有、侵权必究

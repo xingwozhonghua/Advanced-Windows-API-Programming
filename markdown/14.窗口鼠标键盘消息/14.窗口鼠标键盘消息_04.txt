@@ -1,0 +1,5 @@
+﻿基本鼠标消息有以下几种:
+ZWMWMWMWMZ
+LBUTTONDOWN LBUTTONUP RBUTTONDOWN RBUTTONUP MOUSEMOVE LBUTTONDBCLK RBUTTONDBCLK MOUSEWHEEL
+-鼠时建按下 -鼠木布键才魏 -鼠标右键按下 -鼠标右键才魏 -鼠木形动消息 -鼠祯建双击 -鼠标右键双击 -鼠标滚轮消息
+本视频版权归黄强所有、侵权必究

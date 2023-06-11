@@ -1,0 +1,11 @@
+﻿oadString 函数
+从一个模块的可执行文件中加载字符串资源。
+int WINAPI Loadstring （
+_ln_opt_ HINSTANCE hlnstance, /何执行文件包含字符串资源的模块实例的句柄。要获得应用 程序本身的句柄，请使用NULL调用GetModuleHandle函数。
+_ln_ UINT ulD, 〃字符串的标识符
+_Out_ LPTSTR IpBuffer, //缓冲区是接收字符串。必须有足够的长度来容纳一个指针（8字节） _ln_ int	nBufferMax〃缓冲区的大小,以字符为单位。
+）；
+返回值
+如果函数成功，贝U返回值是复制到缓）中区中的字符数，不包括终止空字符，
+如果字符串资源不存在，则为零。鞭得扩展的错误信息，请调用GetLastError。
+本视频版权归黄强所有、侵权必究
